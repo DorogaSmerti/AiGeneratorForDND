@@ -11,15 +11,17 @@ public class NpcService : INpcService
     private readonly IGeneratePromts _generatePromts;
     private readonly IItemService _itemService;
     private readonly IConfiguration _configuration;
+    private readonly INpcExportService _npcExportService;
     private readonly string _apiKey;
 
-    public NpcService(HttpClient httpClient, IItemService itemService, IGeneratePromts generatePromts, IConfiguration configuration)
+    public NpcService(HttpClient httpClient, IItemService itemService, IGeneratePromts generatePromts, IConfiguration configuration, INpcExportService npcExportService)
     {
         _httpClient = httpClient;
         _itemService = itemService;
         _generatePromts = generatePromts;
         _configuration = configuration;
         _apiKey = _configuration["GeminiApi:ApiKey"] ?? throw new ArgumentNullException("GeminiApi:ApiKey configuration is missing.");
+        _npcExportService = npcExportService;
     }
 
     public async Task<NpcStat> GenerateNpcAsync(NpcRequest npc)
@@ -71,19 +73,40 @@ public class NpcService : INpcService
             PropertyNameCaseInsensitive = true
         });
 
+
         foreach(var item in npcStat.InventoryTags)
         {
             InventoryGenerationRequest generationRequest = new InventoryGenerationRequest
-        {
-            ClassName = npcStat.Class,
-            ChallengeRating = 12
-        };
+            {
+                ClassName = npcStat.Class,
+                ChallengeRating = 12,
+                Rarity = item.Rarity,
+                Type = item.Type
+            };
 
-            generationRequest.Rarity = item.Rarity;
-            generationRequest.Type = item.Type;
-
-            npcStat.InventoryDto.Add(await _itemService.GetItemFromLocalDump(generationRequest));
+            var generatedItem = await _itemService.GetItemFromLocalDump(generationRequest);
+            
+            if (generatedItem != null)
+            {
+                // Добавляем именно сам объект предмета напрямую в массив шмоток
+                npcStat.InventoryDto.Add(generatedItem);
+            }
         }
+
+        var fvttJson = await _npcExportService.ExportToFvttJsonAsync(npcStat);
+
+        var exportDir = Path.Combine(Directory.GetCurrentDirectory(), "Export");
+
+        if (!Directory.Exists(exportDir))
+        {
+            Directory.CreateDirectory(exportDir);
+        }
+
+        string npcName = npcStat?.GetType().GetProperty("Name")?.GetValue(npcStat, null)?.ToString() ?? "Generated_NPC";
+        string fileName = $"{npcName}_{System.Guid.NewGuid().ToString().Substring(0, 4)}.json";
+        string fullPath = Path.Combine(exportDir, fileName);
+
+        await File.WriteAllTextAsync(fullPath, fvttJson);
 
         return npcStat;
     }

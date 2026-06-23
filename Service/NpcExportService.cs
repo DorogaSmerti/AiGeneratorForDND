@@ -40,6 +40,7 @@ public class NpcExportService : INpcExportService
             sb.Replace("{{Quests}}", npcJson.Journal?.Quests ?? "");
             sb.Replace("{{Miscellaneous}}", npcJson.Journal?.Miscellaneous ?? "");
             sb.Replace("{{JournalEntries}}", npcJson.Journal?.JournalEntries ?? "");
+            
 
             sb.Replace("{{Items}}", npcJson.InventoryDto.ToString() ?? "");
 
