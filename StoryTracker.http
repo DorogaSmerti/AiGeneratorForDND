@@ -1,0 +1,6 @@
+@StoryTracker_HostAddress = http://localhost:5089
+
+GET {{StoryTracker_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
