@@ -30,16 +30,49 @@
 ```bash
 git clone https://github.com/DorogaSmerti/AiGeneratorForDND.git
 cd StoryTracker
+```
 
 ### 2. Настройка конфигурации (Local Development)
-Все локальные настройки и ключи авторизации вынесены в `appsettings.json`:
+Все локальные настройки и ключи авторизации вынесены в `appsettings.json`. Добавьте туда секцию для работы с ИИ:
 
 ```json
-"GeminiApi":{
-      "ApiKey": "YOUR_GEMINI_API_KEY_HERE"
-    }
-
+{
+  "GeminiApi": {
+    "ApiKey": "YOUR_GEMINI_API_KEY_HERE"
+  }
+}
+```
 
 ### 3. Запуск приложения
+```bash
 dotnet restore
 dotnet run --project StoryTracker.WebApi
+```
+
+---
+
+## 📊 Пример сгенерированного ответа (Выходной JSON)
+
+Сервис обогащает ответ от ИИ реальными данными из файлов компендиумов DnD5e:
+
+```json
+{
+  "name": "Loren",
+  "race": "Человек",
+  "class": "Wizard",
+  "hookOrSecret": "Лорен украл карту, ведущую к гробнице забытого мага...",
+  "inventoryTags": [
+    { "type": "equipment", "rarity": "common" },
+    { "type": "magic", "rarity": "uncommon" }
+  ],
+  "equipment": [
+    {
+      "_id": "GHpAGx25Pj5cxf64",
+      "name": "Побег омелы / Sprig of Mistletoe",
+      "type": "weapon",
+      "img": "icons/consumables/plants/fern-lady-green.webp",
+      "system": { "description": { "value": "<p>Живая веточка омелы...</p>" } }
+    }
+  ]
+}
+```
