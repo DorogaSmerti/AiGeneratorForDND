@@ -7,10 +7,11 @@ public class NpcStat
 {
     public string Name{get;set;}
     public string Race {get;set;}
-    public string Description{get;set;}
-    public string ImageUrl{get;set;}
-    public string Alignment{get;set;}
-    public string HookOrSecret{get;set;}
+    public string Description {get;set;}
+    public int ChallengeRating {get;set;}
+    public string ImageUrl {get;set;}
+    public string Alignment {get;set;}
+    public string HookOrSecret {get;set;}
     public string Class {get;set;}
     public int Strength{get;set;}
     public int Dexterity{get;set;}

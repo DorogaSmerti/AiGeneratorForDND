@@ -19,6 +19,7 @@ public static class AiSchemaBuilder
                 { "Class", new SchemaProperty { Type = "STRING", Description = "Класс персонажа из официальной книги D&D (Wizard, Warrior и т.д.)"}},
                 { "Description", new SchemaProperty { Type = "STRING", Description = "Краткое описание внешности НПС, которое можно зачитать для игроков" } },
                 { "ImageUrl", new SchemaProperty { Type = "STRING", Description = "Оставь это поле абсолютно пустым словом ''" } },
+                { "ChallengeRating" , new SchemaProperty { Type = "INTEGER", Description = "Сюда ты должен строго скопировать и вернуть значение '{challengeRating}'. Не изменяй его и не придумывай другое."} },
                 { "HookOrSecret", new SchemaProperty { Type = "STRING", Description = "Тайна персонажа или зацепка для квеста, которую знает только Мастер" } },
 
                 { "Strength", new SchemaProperty { Type = "INTEGER", Description = "Сила от 8 до 15" } },
