@@ -73,7 +73,6 @@ public class NpcService : INpcService
             PropertyNameCaseInsensitive = true
         });
 
-
         foreach(var item in npcStat.InventoryTags)
         {
             InventoryGenerationRequest generationRequest = new InventoryGenerationRequest
@@ -88,25 +87,11 @@ public class NpcService : INpcService
             
             if (generatedItem != null)
             {
-                // Добавляем именно сам объект предмета напрямую в массив шмоток
                 npcStat.InventoryDto.Add(generatedItem);
             }
         }
 
-        var fvttJson = await _npcExportService.ExportToFvttJsonAsync(npcStat);
-
-        var exportDir = Path.Combine(Directory.GetCurrentDirectory(), "Export");
-
-        if (!Directory.Exists(exportDir))
-        {
-            Directory.CreateDirectory(exportDir);
-        }
-
-        string npcName = npcStat?.GetType().GetProperty("Name")?.GetValue(npcStat, null)?.ToString() ?? "Generated_NPC";
-        string fileName = $"{npcName}_{System.Guid.NewGuid().ToString().Substring(0, 4)}.json";
-        string fullPath = Path.Combine(exportDir, fileName);
-
-        await File.WriteAllTextAsync(fullPath, fvttJson);
+        await _npcExportService.ExportToFvttJsonAsync(npcStat);
 
         return npcStat;
     }

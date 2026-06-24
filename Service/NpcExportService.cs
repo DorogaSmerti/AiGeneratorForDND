@@ -44,6 +44,26 @@ public class NpcExportService : INpcExportService
 
             sb.Replace("{{Items}}", npcJson.InventoryDto.ToString() ?? "");
 
-            return sb.ToString();
+            string fvttJson = sb.ToString();
+
+            await ExportInJsonFile(fvttJson, npcJson);
+
+            return fvttJson;
+    }
+
+    private async Task ExportInJsonFile(string npc, NpcStat npcStat)
+    {
+        var exportDir = Path.Combine(Directory.GetCurrentDirectory(), "Export");
+
+        if (!Directory.Exists(exportDir))
+        {
+            Directory.CreateDirectory(exportDir);
+        }
+
+        string npcName = !string.IsNullOrWhiteSpace(npcStat.Name) ? npcStat.Name : "Generated_NPC";
+        string fileName = $"{npcName}.json";
+        string fullPath = Path.Combine(exportDir, fileName);
+
+        await File.WriteAllTextAsync(fullPath, npc);
     }
 }
