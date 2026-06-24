@@ -24,11 +24,31 @@ public class NpcService : INpcService
         _npcExportService = npcExportService;
     }
 
-    public async Task<NpcStat> GenerateNpcAsync(NpcRequest npc)
+    public async Task<NpcStat?> GenerateNpcAsync(NpcRequest npc)
     {
         if (npc == null) return null;
 
-        var text = _generatePromts.GenerateNpc(npc);
+        string? aiReply = await SendRequestToGeminiAsync(npc);
+
+        if(string.IsNullOrWhiteSpace(aiReply)) return null;
+
+        NpcStat? npcStat = JsonSerializer.Deserialize<NpcStat>(aiReply, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        });
+
+        if(npcStat == null) return null;
+
+        await MappingInventoryAsync(npcStat);
+
+        await _npcExportService.ExportToFvttJsonAsync(npcStat);
+
+        return npcStat;
+    }
+
+    private async Task<string?> SendRequestToGeminiAsync(NpcRequest npc)
+    {
+         var text = _generatePromts.GenerateNpc(npc);
 
         string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={_apiKey}";
 
@@ -68,10 +88,12 @@ public class NpcService : INpcService
             return null;
         }
 
-        NpcStat? npcStat = JsonSerializer.Deserialize<NpcStat>(aiReply, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        });
+        return aiReply;
+    }
+
+    private async Task MappingInventoryAsync(NpcStat npcStat)
+    {
+        if(npcStat.InventoryTags == null) return;
 
         foreach(var item in npcStat.InventoryTags)
         {
@@ -90,9 +112,5 @@ public class NpcService : INpcService
                 npcStat.InventoryDto.Add(generatedItem);
             }
         }
-
-        await _npcExportService.ExportToFvttJsonAsync(npcStat);
-
-        return npcStat;
     }
 }
