@@ -78,7 +78,7 @@ public class NpcService : INpcService
             InventoryGenerationRequest generationRequest = new InventoryGenerationRequest
             {
                 ClassName = npcStat.Class,
-                ChallengeRating = 12,
+                ChallengeRating = npcStat.ChallengeRating,
                 Rarity = item.Rarity,
                 Type = item.Type
             };
