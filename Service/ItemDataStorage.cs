@@ -63,6 +63,11 @@ public class ItemDataStorage : IITemDataStorage
         { "Wizard", [] }
     };
 
+    private readonly Dictionary<string, string> _avatar = new()
+    {
+        { "Human Warrior ", "https://dnd.su/gallery/articles/81_3_1522773429_s.jpg"}
+    }
+
     public string[] GetClassProficiencies(string npcClass)
         => _classLootPools.GetValueOrDefault(npcClass, ["gear"]);
 

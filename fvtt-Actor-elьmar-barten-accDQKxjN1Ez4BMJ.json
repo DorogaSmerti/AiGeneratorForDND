@@ -1,0 +1,5187 @@
+{
+  "name": "Эльмар Бартен",
+  "type": "npc",
+  "img": "modules/kikimor-lost_phandalin/assets/tokens/barten.webp",
+  "items": [
+    {
+      "name": "Железный Горшок (Iron Pot)",
+      "type": "container",
+      "flags": {
+        "core": {},
+        "scene-packer": {
+          "hash": "b28589af5d5e7a171a6ec98bac7e84f9b4c2a41c"
+        },
+        "dnd5e": {}
+      },
+      "img": "icons/containers/kitchenware/vase-clay-pot-decorated-red.webp",
+      "effects": [],
+      "system": {
+        "description": {
+          "value": "<p>Вмещает в себя до 1 галлона (3,75 лит.) жидкости.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0.1,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "capacity": {
+          "volume": {
+            "units": "cubicFoot"
+          },
+          "weight": {
+            "units": "lb"
+          }
+        },
+        "currency": {
+          "cp": 0,
+          "sp": 0,
+          "ep": 0,
+          "gp": 0,
+          "pp": 0
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "identifier": "zheleznyj-gorshok-iron-pot"
+      },
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 100000,
+      "_stats": {
+        "compendiumSource": "Compendium.RRItemsTranslationTCE.predmety-ru.9ncNvzrMDaXTZUYB",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673405,
+        "modifiedTime": 1781902673405,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "PTokeHFTxZx7KB1o",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Инструменты гончара (Potter's Tools)",
+      "type": "tool",
+      "flags": {
+        "betterRolls5e": {
+          "critRange": {
+            "value": ""
+          },
+          "quickCheck": {
+            "value": true,
+            "altValue": true
+          },
+          "quickProperties": {
+            "value": true,
+            "altValue": true
+          },
+          "quickFlavor": {
+            "value": true,
+            "altValue": true
+          },
+          "quickDesc": {
+            "value": false,
+            "altValue": false
+          }
+        },
+        "dynamiceffects": {
+          "equipActive": false,
+          "alwaysActive": false
+        },
+        "core": {},
+        "scene-packer": {
+          "hash": "f398a8a2b12901d446d5b03f6115a1e4ca5f2d8a"
+        },
+        "dnd5e": {}
+      },
+      "img": "icons/tools/laboratory/powder-red.webp",
+      "effects": [],
+      "system": {
+        "description": {
+          "value": "<p>Набор ремесленных инструментов, необходимых для изготовления и работы с предметами соответствующего ремесла. </p>\n<p>Владение инструментами ремесленника позволяет добавлять бонус мастерства к проверкам характеристик, совершённым при использовании инструментов в ремесле.</p>\n<p>Для каждого набора инструментов требуется отдельное владение</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB pg. 154",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 3,
+          "units": "lb"
+        },
+        "price": {
+          "value": 10,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "ability": "int",
+        "chatFlavor": "",
+        "bonus": "",
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "",
+          "baseItem": ""
+        },
+        "container": null,
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "proficient": null,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "check",
+            "activation": {
+              "type": "",
+              "value": null,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "check": {
+              "ability": "int",
+              "associated": [],
+              "dc": {}
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "instrumenty-gonchara-potters-tools"
+      },
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 100782,
+      "_stats": {
+        "compendiumSource": "Compendium.RRItemsTranslationTCE.predmety-ru.UZeIQXya6uBw1zbt",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673406,
+        "modifiedTime": 1781902673406,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "mInot1LeUqEssJjw",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Инструменты каменщика (Mason's Tools)",
+      "type": "tool",
+      "flags": {
+        "betterRolls5e": {
+          "critRange": {
+            "value": ""
+          },
+          "quickCheck": {
+            "value": true,
+            "altValue": true
+          },
+          "quickProperties": {
+            "value": true,
+            "altValue": true
+          },
+          "quickFlavor": {
+            "value": true,
+            "altValue": true
+          },
+          "quickDesc": {
+            "value": false,
+            "altValue": false
+          }
+        },
+        "dynamiceffects": {
+          "equipActive": false,
+          "alwaysActive": false
+        },
+        "core": {},
+        "scene-packer": {
+          "hash": "dce2f1ec81b051293d624e7e8e3c5b88319134f5"
+        },
+        "dnd5e": {}
+      },
+      "img": "icons/tools/hand/hammer-and-nail.webp",
+      "effects": [],
+      "system": {
+        "description": {
+          "value": "<p>Набор ремесленных инструментов, необходимых для изготовления и работы с предметами соответствующего ремесла. </p>\n<p><span class=\"fontstyle0\">Владение инструментами ремесленника позволяет добавлять бонус мастерства к проверкам характеристик, совершённым при использовании инструментов в ремесле. </span></p>\n<p><span class=\"fontstyle0\">Для каждого набора инструментов требуется отдельное владение</span> <br style=\"font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px\" /><br /></p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB pg. 154",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 8,
+          "units": "lb"
+        },
+        "price": {
+          "value": 10,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "ability": "wis",
+        "chatFlavor": "",
+        "bonus": "",
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "",
+          "baseItem": ""
+        },
+        "container": null,
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "proficient": null,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "check",
+            "activation": {
+              "type": "",
+              "value": null,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "check": {
+              "ability": "wis",
+              "associated": [],
+              "dc": {}
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "instrumenty-kamenshika-masons-tools"
+      },
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 101563,
+      "_stats": {
+        "compendiumSource": "Compendium.RRItemsTranslationTCE.predmety-ru.h5z1WODAzpKPsTWm",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673406,
+        "modifiedTime": 1781902673406,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "kta2MLIjdKDrjwYe",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Инструменты кожевенника / Leatherworker's Tools",
+      "type": "tool",
+      "img": "icons/equipment/hand/glove-simple-leather-orange.webp",
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 103125,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Leatherworker's Tools"
+        },
+        "core": {},
+        "midi-qol": {
+          "onUseMacroName": ""
+        },
+        "scene-packer": {
+          "hash": "382fb405d5961ed4c8ec28b6fe2b30b5eb4d318d"
+        },
+        "dnd5e": {}
+      },
+      "system": {
+        "description": {
+          "value": "<p>Эти специальные инструменты включают предметы, необходимые для занятия кожевенным делом. Умение в обращении с этими инструментами позволяет вам добавить ваш бонус умения к любой проверке характеристики, связанной с их использованием.</p>\n<p>Познания в кожевенном деле распространяются на знания о шкурах животных и их свойствах. Они также включают в себя знания о кожаных доспехах и аналогичных вещах.</p>\n<p><em><strong>Компоненты.</strong></em> Инструменты кожевенника включают кожевенный резак (нож), небольшую киянку, канавкорез, пробойник, нить и куски кожи.</p>\n<p><em><strong>Магия.</strong></em> Ваши знания и опыт в работе с кожей дают вам дополнительные знания при обследовании магических предметов, сделанных из кожи, как, например, ботинки или некоторые плащи.</p>\n<p><em><strong>Расследование.</strong></em> Вы получаете дополнительные знания, когда исследуете кожаные предметы или улики, связанные с ними, также вы используете свои познания в кожевничестве, чтобы находить зацепки, которые другие бы просмотрели.</p>\n<p><em><strong>Опознание кожи.</strong></em> Смотря на кусок кожи или кожаный предмет, вы можете определить источник кожи и любые особые методы, использованные в её обработке. Например, вы можете обнаружить разницу между кожей, выделанной с использованием дварфийских методик, и кожей, выделанной с использованием методик полуросликов.</p>\n<table class=\"rd__table  stripe-odd-table\">\n<thead>\n<tr>\n<th class=\"col-10\" data-rd-isroller=\"false\">Возможное действие</th>\n<th class=\"col-2 text-center\" data-rd-isroller=\"false\">СЛ</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td class=\"col-10\">Изменить внешний вид кожаного предмета</td>\n<td class=\"col-2 text-center\">10</td>\n</tr>\n<tr>\n<td class=\"col-10\">Определить прошлое кожаного предмета</td>\n<td class=\"col-2 text-center\">20</td>\n</tr>\n</tbody>\n</table>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 5,
+          "units": "lb"
+        },
+        "price": {
+          "value": 5,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "ability": "int",
+        "chatFlavor": "",
+        "bonus": "",
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "art",
+          "baseItem": "leatherworker"
+        },
+        "container": null,
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "proficient": null,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "check",
+            "activation": {
+              "type": "",
+              "value": null,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "check": {
+              "ability": "int",
+              "associated": [],
+              "dc": {}
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "instrumenty-kozhevennika--leatherworkers-tools"
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.PUMfwyVUbtyxgYbD",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673406,
+        "modifiedTime": 1781902673406,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": {
+          "worldId": "avernus",
+          "uuid": null,
+          "coreVersion": "0.8.9",
+          "systemId": "dnd5e",
+          "systemVersion": "1.5.3"
+        }
+      },
+      "_id": "fxEMIm070jzw5v1A",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Инструменты кузнеца",
+      "type": "tool",
+      "img": "icons/skills/trades/smithing-tongs-metal-red.webp",
+      "system": {
+        "description": {
+          "value": "<p>Эти специальные инструменты включают предметы, необходимые для занятия кузнечным делом. Умение в обращении с этими инструментами позволяет вам добавить ваш бонус умения к любой проверке характеристики, связанной с их использованием.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB pg. 154",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 8,
+          "units": "lb"
+        },
+        "price": {
+          "value": 20,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "ability": "str",
+        "chatFlavor": "",
+        "bonus": "",
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "art",
+          "baseItem": "smith"
+        },
+        "container": null,
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "proficient": null,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "check",
+            "activation": {
+              "type": "",
+              "value": null,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "check": {
+              "ability": "str",
+              "associated": [],
+              "dc": {}
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "instrumenty-kuzneca"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 100391,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Smith's Tools"
+        },
+        "core": {},
+        "scene-packer": {
+          "hash": "7435ea0b19dfca05389cc73594ff54fe94eb6685"
+        },
+        "journal-backlinks": {},
+        "dnd5e": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.KndVe2insuctjIaj",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673406,
+        "modifiedTime": 1781902673406,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "AP7DOaSb0bJgggBj",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Инструменты плотника",
+      "type": "tool",
+      "img": "icons/tools/hand/chisel-steel-brown.webp",
+      "system": {
+        "description": {
+          "value": "<p>Эти специальные инструменты включают предметы, необходимые для занятия плотничеством. Умение в обращении с этими инструментами позволяет вам добавить ваш бонус умения к любой проверке характеристики, связанной с их использованием.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB pg. 154",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 6,
+          "units": "lb"
+        },
+        "price": {
+          "value": 8,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "ability": "str",
+        "chatFlavor": "",
+        "bonus": "",
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "art",
+          "baseItem": "carpenter"
+        },
+        "container": null,
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "proficient": null,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "check",
+            "activation": {
+              "type": "",
+              "value": null,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "check": {
+              "ability": "str",
+              "associated": [],
+              "dc": {}
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "instrumenty-plotnika"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 100196,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Carpenter's Tools"
+        },
+        "core": {},
+        "scene-packer": {
+          "hash": "746877dec22708f08faab1d799b1b3a16ce86a19"
+        },
+        "dnd5e": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.8NS6MSOdXtUqD7Ib",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673406,
+        "modifiedTime": 1781902673406,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "HPVpbXmVbvlBP10d",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Инструменты плотника (Carpenter's Tools)",
+      "type": "tool",
+      "flags": {
+        "betterRolls5e": {
+          "critRange": {
+            "value": ""
+          },
+          "quickCheck": {
+            "value": true,
+            "altValue": true
+          },
+          "quickProperties": {
+            "value": true,
+            "altValue": true
+          },
+          "quickFlavor": {
+            "value": true,
+            "altValue": true
+          },
+          "quickDesc": {
+            "value": false,
+            "altValue": false
+          }
+        },
+        "dynamiceffects": {
+          "equipActive": false,
+          "alwaysActive": false
+        },
+        "core": {},
+        "scene-packer": {
+          "hash": "85cbff51aaafc087b1a9fec0a272c796b9314dc4"
+        },
+        "dnd5e": {}
+      },
+      "img": "icons/tools/hand/hammer-mallet-brown.webp",
+      "effects": [],
+      "system": {
+        "description": {
+          "value": "<p>Набор ремесленных инструментов, необходимых для изготовления и работы с предметами соответствующего ремесла. </p>\n<p><span class=\"fontstyle0\">Владение инструментами ремесленника позволяет добавлять бонус мастерства к проверкам характеристик, совершённым при использовании инструментов в ремесле.</span></p>\n<p><span class=\"fontstyle0\">Для каждого набора инструментов требуется отдельное владение</span> </p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB pg. 154",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 6,
+          "units": "lb"
+        },
+        "price": {
+          "value": 8,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "ability": "str",
+        "chatFlavor": "",
+        "bonus": "",
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "",
+          "baseItem": ""
+        },
+        "container": null,
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "proficient": null,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "check",
+            "activation": {
+              "type": "",
+              "value": null,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "check": {
+              "ability": "str",
+              "associated": [],
+              "dc": {}
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "instrumenty-plotnika-carpenters-tools"
+      },
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 1250000,
+      "_stats": {
+        "compendiumSource": "Compendium.RRItemsTranslationTCE.predmety-ru.FFEAMPfOprk4FdjO",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673406,
+        "modifiedTime": 1781902673406,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "IfkFB6yUC2fURKRz",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Инструменты повара (Cook's Utensils)",
+      "type": "tool",
+      "flags": {
+        "betterRolls5e": {
+          "critRange": {
+            "value": ""
+          },
+          "quickCheck": {
+            "value": true,
+            "altValue": true
+          },
+          "quickProperties": {
+            "value": true,
+            "altValue": true
+          },
+          "quickFlavor": {
+            "value": true,
+            "altValue": true
+          },
+          "quickDesc": {
+            "value": false,
+            "altValue": false
+          }
+        },
+        "dynamiceffects": {
+          "equipActive": false,
+          "alwaysActive": false
+        },
+        "core": {},
+        "scene-packer": {
+          "hash": "f092820fa563c6b5f9038e368e1269d15e59b87f"
+        },
+        "dnd5e": {}
+      },
+      "img": "icons/tools/cooking/pot-camping-iron-black.webp",
+      "effects": [],
+      "system": {
+        "description": {
+          "value": "<p>Набор ремесленных инструментов, необходимых для изготовления и работы с предметами соответствующего ремесла. </p>\n<p><span class=\"fontstyle0\">Владение инструментами ремесленника позволяет добавлять бонус мастерства к проверкам характеристик, совершённым при использовании инструментов в ремесле.</span></p>\n<p><span class=\"fontstyle0\">Для каждого набора инструментов требуется отдельное владение</span> </p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB pg. 154",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 8,
+          "units": "lb"
+        },
+        "price": {
+          "value": 1,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "ability": "wis",
+        "chatFlavor": "",
+        "bonus": "",
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "",
+          "baseItem": ""
+        },
+        "container": null,
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "proficient": null,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "check",
+            "activation": {
+              "type": "",
+              "value": null,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "check": {
+              "ability": "wis",
+              "associated": [],
+              "dc": {}
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "instrumenty-povara-cooks-utensils"
+      },
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 106250,
+      "_stats": {
+        "compendiumSource": "Compendium.RRItemsTranslationTCE.predmety-ru.gUqf80ieiG22DmAX",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673406,
+        "modifiedTime": 1781902673406,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "1TfzfB8QistvPyGp",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Инструменты резчика",
+      "type": "tool",
+      "img": "icons/tools/hand/saw-steel-grey.webp",
+      "system": {
+        "description": {
+          "value": "<p>Эти специальные инструменты включают предметы, необходимые для занятия резьбой. Умение в обращении с этими инструментами позволяет вам добавить ваш бонус умения к любой проверке характеристики, связанной с их использованием.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB pg. 154",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 5,
+          "units": "lb"
+        },
+        "price": {
+          "value": 1,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "ability": "dex",
+        "chatFlavor": "",
+        "bonus": "",
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "art",
+          "baseItem": "woodcarver"
+        },
+        "container": null,
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "proficient": null,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "check",
+            "activation": {
+              "type": "",
+              "value": null,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "check": {
+              "ability": "dex",
+              "associated": [],
+              "dc": {}
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "instrumenty-rezchika"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 100587,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Woodcarver's Tools"
+        },
+        "core": {},
+        "scene-packer": {
+          "hash": "0de6001555b193418456baaf43056cca9faf54c8"
+        },
+        "journal-backlinks": {},
+        "dnd5e": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.xKErqkLo4ASYr5EP",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673407,
+        "modifiedTime": 1781902673407,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "B0hdAW3ZCHDHIIG0",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Инструменты ткача (Weaver's Tools)",
+      "type": "tool",
+      "flags": {
+        "betterRolls5e": {
+          "critRange": {
+            "value": ""
+          },
+          "quickCheck": {
+            "value": true,
+            "altValue": true
+          },
+          "quickProperties": {
+            "value": true,
+            "altValue": true
+          },
+          "quickFlavor": {
+            "value": true,
+            "altValue": true
+          },
+          "quickDesc": {
+            "value": false,
+            "altValue": false
+          }
+        },
+        "dynamiceffects": {
+          "equipActive": false,
+          "alwaysActive": false
+        },
+        "core": {},
+        "scene-packer": {
+          "hash": "ab13c3e4ddcb496514c8dc1f43e468431de97dab"
+        },
+        "dnd5e": {}
+      },
+      "img": "icons/commodities/leather/leather-bolt-worn-tan.webp",
+      "effects": [],
+      "system": {
+        "description": {
+          "value": "<p>Набор ремесленных инструментов, необходимых для изготовления и работы с предметами соответствующего ремесла. </p>\n<p><span class=\"fontstyle0\">Владение инструментами ремесленника позволяет добавлять бонус мастерства к проверкам характеристик, совершённым при использовании инструментов в ремесле.</span></p>\n<p><span class=\"fontstyle0\">Для каждого набора инструментов требуется отдельное владение</span> </p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB pg. 154",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 5,
+          "units": "lb"
+        },
+        "price": {
+          "value": 1,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "ability": "dex",
+        "chatFlavor": "",
+        "bonus": "",
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "",
+          "baseItem": ""
+        },
+        "container": null,
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "proficient": null,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "check",
+            "activation": {
+              "type": "",
+              "value": null,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "check": {
+              "ability": "dex",
+              "associated": [],
+              "dc": {}
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "instrumenty-tkacha-weavers-tools"
+      },
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 950000,
+      "_stats": {
+        "compendiumSource": "Compendium.RRItemsTranslationTCE.predmety-ru.mOYVlwFWXSITjd0q",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673407,
+        "modifiedTime": 1781902673407,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "g9c7wPQd62SiuUUL",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Кошель (Pouch)",
+      "type": "container",
+      "flags": {
+        "core": {},
+        "scene-packer": {
+          "hash": "85a2ec3800994dd39cd892d0d97684d0df808ee5"
+        },
+        "journal-backlinks": {},
+        "dnd5e": {}
+      },
+      "img": "icons/containers/bags/coinpouch-simple-leather-tan.webp",
+      "effects": [],
+      "system": {
+        "description": {
+          "value": "<p>В кожаном или тканевом кошеле поместится 20 снарядов для пращи или 50 иголок для духовой трубки, а также другие вещи. Кошель с отделениями для хранения компонентов заклинаний называется мешочком с компонентами.<br /><br />0,2 кубических фута/6 фунтов (3 килограмма)</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 1,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0.5,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "capacity": {
+          "volume": {
+            "units": "cubicFoot"
+          },
+          "weight": {
+            "units": "lb"
+          }
+        },
+        "currency": {
+          "cp": 0,
+          "sp": 0,
+          "ep": 0,
+          "gp": 0,
+          "pp": 0
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "identifier": "koshel-pouch"
+      },
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 2050000,
+      "_stats": {
+        "compendiumSource": "Compendium.RRItemsTranslationTCE.predmety-ru.JGIIizDscEeMI5kO",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673407,
+        "modifiedTime": 1781902673407,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "kDIGLwDtxlPqWe2m",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Кувшин (Jug)",
+      "type": "container",
+      "flags": {
+        "dynamiceffects": {
+          "equipActive": false,
+          "alwaysActive": false
+        },
+        "core": {},
+        "scene-packer": {
+          "hash": "483dfadd21b272aab0a2032a351504bd83523453"
+        },
+        "journal-backlinks": {},
+        "dnd5e": {}
+      },
+      "img": "icons/containers/kitchenware/jug-clay-brown.webp",
+      "effects": [],
+      "system": {
+        "description": {
+          "value": "<p>Кувшин вмещает 1 галлон (4,55 л) жидкости.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 4,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0.02,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "capacity": {
+          "volume": {
+            "units": "cubicFoot"
+          },
+          "weight": {
+            "units": "lb"
+          }
+        },
+        "currency": {
+          "cp": 0,
+          "sp": 0,
+          "ep": 0,
+          "gp": 0,
+          "pp": 0
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "identifier": "kuvshin-jug"
+      },
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 1200000,
+      "_stats": {
+        "compendiumSource": "Compendium.RRItemsTranslationTCE.predmety-ru.o1fCQHEswWJzBpoo",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673407,
+        "modifiedTime": 1781902673407,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "2O2V3SZmgSPsVGwc",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Лампа (Lamp)",
+      "type": "consumable",
+      "flags": {
+        "core": {},
+        "scene-packer": {
+          "hash": "208b9e8a0363e66052449e9d2bfab52cfa1cb36b"
+        },
+        "journal-backlinks": {},
+        "dnd5e": {}
+      },
+      "img": "icons/sundries/lights/lantern-iron-yellow.webp",
+      "effects": [],
+      "system": {
+        "description": {
+          "value": "<p>Лампа испускает яркий свет в пределах 15 футов и тусклый свет в пределах ещё 30 футов. Зажжённая лампа горит 6 часов от одной фляги (1 пинта или 0,5 литра) масла.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0.5,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "uses": {
+          "max": "1",
+          "autoDestroy": false,
+          "spent": 0,
+          "recovery": []
+        },
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "types": [],
+            "custom": {
+              "enabled": false
+            },
+            "scaling": {
+              "number": 1
+            }
+          },
+          "replace": false
+        },
+        "properties": [
+          "gear"
+        ],
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "trinket",
+          "subtype": ""
+        },
+        "container": null,
+        "attuned": false,
+        "equipped": true,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "utility",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [
+                {
+                  "type": "itemUses",
+                  "target": "",
+                  "value": "1",
+                  "scaling": {
+                    "mode": "",
+                    "formula": ""
+                  }
+                }
+              ],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "6",
+              "units": "hour",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "radius",
+                "size": "45",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "roll": {
+              "formula": "",
+              "name": "",
+              "prompt": false,
+              "visible": false
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "lampa-lamp"
+      },
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 1000000,
+      "_stats": {
+        "compendiumSource": "Compendium.RRItemsTranslationTCE.predmety-ru.qfsplSUxkuwsY8Vy",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673407,
+        "modifiedTime": 1781902673407,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "VwnHcfp7Z8aL2utR",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Лестница (10 фт.) (Ladder (10-foot))",
+      "type": "loot",
+      "flags": {
+        "core": {},
+        "scene-packer": {
+          "hash": "f804fc1541fd16f41f4c0015d5bd6143f17a009a"
+        }
+      },
+      "img": "icons/sundries/misc/ladder-improvised.webp",
+      "effects": [],
+      "system": {
+        "description": {
+          "value": "<p>Лестница 10 футов длиной, такая же крепкая или шаткая, как рука, которая ее создавала или соединяла.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 25,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0.1,
+          "denomination": "gp"
+        },
+        "rarity": "common",
+        "identified": true,
+        "type": {
+          "value": "",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "identifier": "lestnica-10-ft-ladder-10-foot"
+      },
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 1100000,
+      "_stats": {
+        "compendiumSource": "Compendium.RRItemsTranslationTCE.predmety-ru.8cim2bmX2FjJ6l5M",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673407,
+        "modifiedTime": 1781902673407,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "qGqncYxDtRd1bnyU",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Мешок",
+      "type": "container",
+      "img": "icons/containers/bags/sack-simple-leather-tan.webp",
+      "system": {
+        "description": {
+          "value": "<p>Мешок вмещает 1 куб. фут или 30 фунтов снаряжения.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB pg. 153",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 0.5,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0.01,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "common",
+        "identified": true,
+        "capacity": {
+          "volume": {
+            "units": "cubicFoot"
+          },
+          "weight": {
+            "units": "lb"
+          }
+        },
+        "currency": {
+          "cp": 0,
+          "sp": 0,
+          "ep": 0,
+          "gp": 0,
+          "pp": 0
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "identifier": "meshok"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 2200000,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Sack"
+        },
+        "core": {},
+        "scene-packer": {
+          "hash": "204d369273e1aeefc3add8140b436d75300ec8e3"
+        },
+        "journal-backlinks": {},
+        "dnd5e": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.CNdDj8dsXVpRVpXt",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673407,
+        "modifiedTime": 1781902673407,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "k7rJtZEdniE5kaMq",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "FTwtI1kK4F6u8uXg",
+      "name": "Лопата",
+      "type": "loot",
+      "img": "icons/tools/hand/shovel-spade-steel-grey.webp",
+      "system": {
+        "description": {
+          "value": "<p>Инструмент с широким лезвием и обычно вздернутыми боками, используемый для перемещения углей, земли, снега или других материалов.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 5,
+          "units": "lb"
+        },
+        "price": {
+          "value": 2,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "identified": true,
+        "type": {
+          "value": "",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "identifier": "lopata"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 2037500,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Shovel"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.qWlXDEgqdmdZWoab",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673407,
+        "modifiedTime": 1781902673407,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "FrHsmlbRBM3ojky7",
+      "name": "Повседневная одежда",
+      "type": "equipment",
+      "img": "icons/equipment/chest/shirt-collared-brown.webp",
+      "system": {
+        "description": {
+          "value": "<p>Одежда, которую носит большинство простолюдинов.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 3,
+          "units": "lb"
+        },
+        "price": {
+          "value": 5,
+          "denomination": "sp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "cover": null,
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "armor": {
+          "value": null,
+          "dex": null
+        },
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "dt": null,
+          "conditions": ""
+        },
+        "speed": {
+          "value": null,
+          "conditions": "",
+          "units": "ft"
+        },
+        "strength": null,
+        "type": {
+          "value": "clothing",
+          "baseItem": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "proficient": null,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "utility",
+            "activation": {
+              "type": "",
+              "value": null,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "roll": {
+              "formula": "",
+              "name": "",
+              "prompt": false,
+              "visible": false
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "povsednevnaya-odezhda",
+        "crew": {
+          "value": []
+        }
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 1850000,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Common Clothes"
+        },
+        "core": {},
+        "dnd5e": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.8RXjiddJ6VGyE7vB",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673407,
+        "modifiedTime": 1781902673407,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Одеяло",
+      "type": "loot",
+      "img": "icons/sundries/survival/bedroll-pink.webp",
+      "system": {
+        "description": {
+          "value": "<p>Одеяло, чтобы согреться ночью.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 3,
+          "units": "lb"
+        },
+        "price": {
+          "value": 5,
+          "denomination": "sp"
+        },
+        "rarity": "",
+        "identified": true,
+        "container": "6BybWxK5GcEzqcOV",
+        "type": {
+          "value": "",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "properties": [
+          "gear"
+        ],
+        "identifier": "odeyalo"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Blanket"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.uYniEJCeAuwUC4JY",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673408,
+        "modifiedTime": 1781902673408,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "32llCfKDu6WB2H0T",
+      "sort": 1825000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "VdHQA25XAe380kbX",
+      "name": "Палатка двухместная",
+      "type": "loot",
+      "img": "icons/environment/wilderness/camp-improvised.webp",
+      "system": {
+        "description": {
+          "value": "<p>Простое переносное укрытие из ткани на двоих.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 20,
+          "units": "lb"
+        },
+        "price": {
+          "value": 2,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "identified": true,
+        "type": {
+          "value": "",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "identifier": "palatka-dvuhmestnaya"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 137500,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Two-Person Tent"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.PanSr5EbqlfpSvwK",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673408,
+        "modifiedTime": 1781902673408,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Пергамент",
+      "type": "loot",
+      "img": "icons/sundries/scrolls/scroll-plain-tan.webp",
+      "system": {
+        "description": {
+          "value": "<p>Один лист более плотной пергаментной бумаги.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 10,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 1,
+          "denomination": "sp"
+        },
+        "rarity": "",
+        "identified": true,
+        "container": "UOE8RGOpgv2oWIvM",
+        "type": {
+          "value": "",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "properties": [
+          "gear"
+        ],
+        "identifier": "pergament"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Parchment"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.9c0CHs90xqPw81iP",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673408,
+        "modifiedTime": 1781902673408,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "MvmKHGqrX91fWWHI",
+      "sort": 125000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Сухой паёк",
+      "type": "consumable",
+      "img": "icons/consumables/meat/hock-leg-pink-brown.webp",
+      "system": {
+        "description": {
+          "value": "<p>Компактная сухая пища, подходящая для дальних походов. Может включать вяленое мясо, сухофрукты, сухари и орехи.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 10,
+        "weight": {
+          "value": 2,
+          "units": "lb"
+        },
+        "price": {
+          "value": 5,
+          "denomination": "sp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "uses": {
+          "max": "1",
+          "autoDestroy": true,
+          "spent": 0,
+          "recovery": []
+        },
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "types": [],
+            "custom": {
+              "enabled": false
+            },
+            "scaling": {
+              "number": 1
+            }
+          },
+          "replace": false
+        },
+        "container": "XY8b594Dn7plACLL",
+        "properties": [
+          "gear"
+        ],
+        "type": {
+          "value": "food",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "attuned": false,
+        "equipped": true,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "utility",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [
+                {
+                  "type": "itemUses",
+                  "target": "",
+                  "value": "1",
+                  "scaling": {
+                    "mode": "",
+                    "formula": ""
+                  }
+                }
+              ],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "touch",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "1",
+                "type": "creature",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "roll": {
+              "formula": "",
+              "name": "",
+              "prompt": false,
+              "visible": false
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "suhoj-payok"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Rations"
+        },
+        "core": {},
+        "dnd5e": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.8d95YV1jHcxPygJ9",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673408,
+        "modifiedTime": 1781902673408,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "K197B6zpGeSrHlDm",
+      "sort": 250000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "BJXvTl1iPQ84mRqL",
+      "name": "Рюкзак",
+      "type": "container",
+      "img": "icons/containers/bags/pack-simple-leather.webp",
+      "system": {
+        "description": {
+          "value": "<p>Рюкзак может вмещать один кубический фут или 30 фунтов снаряжения. К внешней стороне рюкзака можно пристегнуть такие предметы, как спальный мешок или моток верёвки.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 5,
+          "units": "lb"
+        },
+        "price": {
+          "value": 2,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "capacity": {
+          "volume": {
+            "units": "cubicFoot"
+          },
+          "weight": {
+            "units": "lb"
+          }
+        },
+        "currency": {
+          "cp": 0,
+          "sp": 0,
+          "ep": 0,
+          "gp": 0,
+          "pp": 0
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "identifier": "ryukzak"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 225000,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Backpack"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.H8YCd689ezlD26aT",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673408,
+        "modifiedTime": 1781902673408,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "jSjSNVlmk6nNQTRf",
+      "name": "Свеча",
+      "type": "consumable",
+      "img": "icons/sundries/lights/candle-unlit-tan.webp",
+      "system": {
+        "description": {
+          "value": "<p>Горит 1 час, даёт яркий свет в радиусе 5 футов и тусклый ещё на 5 футов.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 1,
+          "denomination": "cp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "uses": {
+          "max": "1",
+          "autoDestroy": false,
+          "spent": 0,
+          "recovery": []
+        },
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "types": [],
+            "custom": {
+              "enabled": false
+            },
+            "scaling": {
+              "number": 1
+            }
+          },
+          "replace": false
+        },
+        "type": {
+          "value": "trinket",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "utility",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [
+                {
+                  "type": "itemUses",
+                  "target": "",
+                  "value": "1",
+                  "scaling": {
+                    "mode": "",
+                    "formula": ""
+                  }
+                }
+              ],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "1",
+              "units": "hour",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "radius",
+                "size": "10",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "roll": {
+              "formula": "",
+              "name": "",
+              "prompt": false,
+              "visible": false
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "svecha"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 1550000,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Candle"
+        },
+        "core": {},
+        "dnd5e": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.0NoBBP3MMkvJlwZY",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673408,
+        "modifiedTime": 1781902673408,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "2N5ubqcTff7XfDB4",
+      "name": "Спальный мешок",
+      "type": "loot",
+      "img": "icons/sundries/survival/bedroll-grey.webp",
+      "system": {
+        "description": {
+          "value": "<p>Рулон ткани, используемый путешественниками для ночлега.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 7,
+          "units": "lb"
+        },
+        "price": {
+          "value": 1,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "identified": true,
+        "type": {
+          "value": "",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "identifier": "spalnyj-meshok"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 750000,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Bedroll"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.DVXmyetZuvxbzAwW",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673408,
+        "modifiedTime": 1781902673408,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "5EzdD8pD4qhXXpE9",
+      "name": "Бочка",
+      "type": "container",
+      "img": "icons/containers/barrels/barrel-oak-banded-tan.webp",
+      "system": {
+        "description": {
+          "value": "<p>Бочка вмещает 40 галлонов жидкости или 4 куб. фута груза.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 70,
+          "units": "lb"
+        },
+        "price": {
+          "value": 2,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "capacity": {
+          "volume": {
+            "units": "cubicFoot"
+          },
+          "weight": {
+            "units": "lb"
+          }
+        },
+        "currency": {
+          "cp": 0,
+          "sp": 0,
+          "ep": 0,
+          "gp": 0,
+          "pp": 0
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "identifier": "bochka"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 1650000,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Barrel"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.7Yqbqg5EtVW16wfT",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673408,
+        "modifiedTime": 1781902673408,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Бутылочка чернил",
+      "type": "loot",
+      "img": "icons/consumables/potions/bottle-bulb-empty-glass.webp",
+      "system": {
+        "description": {
+          "value": "<p>Небольшая бутылочка с чернилами для написания на пергаменте.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 0.06,
+          "units": "lb"
+        },
+        "price": {
+          "value": 10,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "identified": true,
+        "container": "Qy2aRjl4iQ8EmaT5",
+        "type": {
+          "value": "",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "properties": [
+          "gear"
+        ],
+        "identifier": "butylochka-chernil"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Ink Bottle"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.UICmOXUKBmHp9o4y",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673408,
+        "modifiedTime": 1781902673408,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "W3XRQrJ21xxpqTEy",
+      "sort": 1625000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "eqCzTjaSyMyFCPA8",
+      "name": "Ведро",
+      "type": "container",
+      "img": "icons/containers/misc/bucket-steel.webp",
+      "system": {
+        "description": {
+          "value": "<p>Ведро вмещает 3 галлона жидкости / ½ куб. фута груза.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 2,
+          "units": "lb"
+        },
+        "price": {
+          "value": 5,
+          "denomination": "cp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "capacity": {
+          "volume": {
+            "units": "cubicFoot"
+          },
+          "weight": {
+            "units": "lb"
+          }
+        },
+        "currency": {
+          "cp": 0,
+          "sp": 0,
+          "ep": 0,
+          "gp": 0,
+          "pp": 0
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "identifier": "vedro"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 100098,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Bucket"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.mQVYcHmMSoCUnBnM",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673409,
+        "modifiedTime": 1781902673409,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "sR4ESZogexJLQSZG",
+      "name": "Фонарь потайной",
+      "type": "consumable",
+      "img": "icons/sundries/lights/lantern-iron-yellow.webp",
+      "system": {
+        "description": {
+          "value": "<p>Испускает свет в виде направленного конуса — яркий на 60 футов и тусклый ещё на 60 футов. Если его зажечь, он тратит за 6 часов склянку масла (1 пинту).</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 2,
+          "units": "lb"
+        },
+        "price": {
+          "value": 10,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "uses": {
+          "max": "1",
+          "autoDestroy": false,
+          "spent": 0,
+          "recovery": []
+        },
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "types": [],
+            "custom": {
+              "enabled": false
+            },
+            "scaling": {
+              "number": 1
+            }
+          },
+          "replace": false
+        },
+        "type": {
+          "value": "trinket",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "utility",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [
+                {
+                  "type": "itemUses",
+                  "target": "",
+                  "value": "1",
+                  "scaling": {
+                    "mode": "",
+                    "formula": ""
+                  }
+                }
+              ],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "6",
+              "units": "hour",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "cone",
+                "size": "120",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "roll": {
+              "formula": "",
+              "name": "",
+              "prompt": false,
+              "visible": false
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "fonar-potajnoj"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 101173,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Bullseye Lantern"
+        },
+        "core": {},
+        "dnd5e": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.UkWdyJYQTfVX2cJW",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673409,
+        "modifiedTime": 1781902673409,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "kap0c77PNz3tUb7P",
+      "name": "Зеркальце стальное / Steel Mirror",
+      "type": "loot",
+      "img": "icons/sundries/survival/mirror-plain.webp",
+      "system": {
+        "description": {
+          "value": "<p>Зеркало из отполированной стали.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "PHB",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 0.5,
+          "units": "lb"
+        },
+        "price": {
+          "value": 5,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": "3es0lsLMqenAUjGI",
+        "properties": [
+          "gear"
+        ],
+        "type": {
+          "value": "",
+          "subtype": ""
+        },
+        "identifier": "zerkalce-stalnoe--steel-mirror"
+      },
+      "effects": [],
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Steel Mirror"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.laaru-dnd5-hw.items.Item.2kHbIcF7f2OK1Nt7",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673409,
+        "modifiedTime": 1781902673409,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 775000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "o9hcrsstM2pieHHa",
+      "name": "Бутылка",
+      "type": "container",
+      "img": "icons/consumables/potions/bottle-bulb-empty-glass.webp",
+      "system": {
+        "description": {
+          "value": "<p>Бутылка вмещает 1½ пинты жидкости.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 2,
+          "units": "lb"
+        },
+        "price": {
+          "value": 2,
+          "denomination": "gp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "capacity": {
+          "volume": {
+            "units": "cubicFoot"
+          },
+          "weight": {
+            "units": "lb"
+          }
+        },
+        "currency": {
+          "cp": 0,
+          "sp": 0,
+          "ep": 0,
+          "gp": 0,
+          "pp": 0
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "attuned": false,
+        "equipped": true,
+        "identifier": "butylka"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 762500,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Glass Bottle"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.HZp69hhyNZUUCipF",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673409,
+        "modifiedTime": 1781902673409,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Столовый набор",
+      "type": "loot",
+      "img": "icons/tools/cooking/fork-steel-tan.webp",
+      "system": {
+        "description": {
+          "value": "<p>Жестяная коробочка, в которой есть чашка и простые столовые принадлежности. Крышку коробочки можно использовать как сковородку, а саму коробочку — как тарелку или неглубокую миску.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 1,
+          "units": "lb"
+        },
+        "price": {
+          "value": 2,
+          "denomination": "sp"
+        },
+        "rarity": "",
+        "identified": true,
+        "container": "8KWz5DJbWUpNWniP",
+        "type": {
+          "value": "",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "properties": [
+          "gear"
+        ],
+        "identifier": "stolovyj-nabor"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Mess Kit"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.lBg9CPRdpRhn4DO4",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673409,
+        "modifiedTime": 1781902673409,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "TsQJMSS4vCaH5BUk",
+      "sort": 275000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Огниво",
+      "type": "loot",
+      "img": "icons/sundries/lights/torch-black.webp",
+      "system": {
+        "description": {
+          "value": "<p>Состоит из кремня, кресала и трут (обычно это сухая тряпка, пропитанная маслом). Используется для разжигания огня. На то, чтобы зажечь им факел или какое-то еще открытое горючее, требуется действие. На разжигание любого другого огня уйдет 1 минута.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 1,
+          "units": "lb"
+        },
+        "price": {
+          "value": 5,
+          "denomination": "sp"
+        },
+        "rarity": "",
+        "identified": true,
+        "container": "8KWz5DJbWUpNWniP",
+        "type": {
+          "value": "",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "properties": [
+          "gear"
+        ],
+        "identifier": "ognivo"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Tinderbox"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.1FSubnBpSTDmVaYV",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673409,
+        "modifiedTime": 1781902673409,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "feF3zv6JAkbPCj1a",
+      "sort": 100978,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Факел",
+      "type": "consumable",
+      "img": "icons/sundries/lights/torch-black.webp",
+      "system": {
+        "description": {
+          "value": "<p>Горит 1 час, даёт яркий свет в радиусе 20 футов и тусклый ещё на 20 футов. Если совершить горящим факелом атаку ближнего боя, при попадании он нанесёт 1 урон огнём.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 10,
+        "weight": {
+          "value": 1,
+          "units": "lb"
+        },
+        "price": {
+          "value": 1,
+          "denomination": "cp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "uses": {
+          "max": "1",
+          "autoDestroy": false,
+          "spent": 0,
+          "recovery": []
+        },
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [
+              "fire"
+            ],
+            "custom": {
+              "enabled": true,
+              "formula": "1"
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "replace": false
+        },
+        "container": "8KWz5DJbWUpNWniP",
+        "properties": [
+          "gear"
+        ],
+        "type": {
+          "value": "trinket",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "attuned": false,
+        "equipped": true,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "attack",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [
+                {
+                  "type": "itemUses",
+                  "target": "",
+                  "value": "1",
+                  "scaling": {
+                    "mode": "",
+                    "formula": ""
+                  }
+                }
+              ],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "1",
+              "units": "hour",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "radius",
+                "size": "40",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "attack": {
+              "ability": "str",
+              "bonus": "",
+              "critical": {
+                "threshold": null
+              },
+              "flat": false,
+              "type": {
+                "value": "melee",
+                "classification": "weapon"
+              }
+            },
+            "damage": {
+              "critical": {
+                "bonus": ""
+              },
+              "includeBase": true,
+              "parts": []
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "fakel"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Torch"
+        },
+        "core": {},
+        "dnd5e": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.29ZLE8PERtFVD3QU",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673409,
+        "modifiedTime": 1781902673409,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "GbBKPjjzvqy7tIBZ",
+      "sort": 350000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Бурдюк",
+      "type": "consumable",
+      "img": "icons/sundries/survival/wetskin-leather-purple.webp",
+      "system": {
+        "description": {
+          "value": "<p>Мешок из цельной шкуры животного сшитый в закрытую камеру, предназначен для хранения до 4 пинт жидкости. В наполненном состоянии весит 5 фунтов; пинта воды равна примерно 1 фунту.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 5,
+          "units": "lb"
+        },
+        "price": {
+          "value": 2,
+          "denomination": "sp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "uses": {
+          "max": "4",
+          "autoDestroy": false,
+          "spent": 0,
+          "recovery": []
+        },
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "types": [],
+            "custom": {
+              "enabled": false
+            },
+            "scaling": {
+              "number": 1
+            }
+          },
+          "replace": false
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "type": {
+          "value": "food",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "attuned": false,
+        "equipped": true,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "utility",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [
+                {
+                  "type": "itemUses",
+                  "target": "",
+                  "value": "1",
+                  "scaling": {
+                    "mode": "",
+                    "formula": ""
+                  }
+                }
+              ],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "touch",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "roll": {
+              "formula": "",
+              "name": "",
+              "prompt": false,
+              "visible": false
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "burdyuk"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Waterskin"
+        },
+        "core": {},
+        "dnd5e": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.1L5wkmbw0fmNAr38",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673409,
+        "modifiedTime": 1781902673409,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "POBkHjvAIGj0z2BU",
+      "sort": 101125,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "_id": "1wCVdF55jUOf2plt",
+      "name": "Шест (10 футов)",
+      "type": "loot",
+      "img": "icons/commodities/wood/wood-pole.webp",
+      "system": {
+        "description": {
+          "value": "<p>Десятифутовый шест из прочного дерева.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 7,
+          "units": "lb"
+        },
+        "price": {
+          "value": 5,
+          "denomination": "cp"
+        },
+        "rarity": "",
+        "identified": true,
+        "type": {
+          "value": "",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "properties": [
+          "gear"
+        ],
+        "identifier": "shest-10-futov"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "sort": 101149,
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Pole"
+        },
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.tut1jbW3UCsrUjCG",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673409,
+        "modifiedTime": 1781902673409,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Колышек",
+      "type": "consumable",
+      "img": "icons/tools/fasteners/nail-steel.webp",
+      "system": {
+        "description": {
+          "value": "<p>Металлический шип, который вбивается в трещины в поверхность для верхолазания. Его также можно использовать для блокировки дверей в случае необходимости.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "SRD 5.1",
+          "page": "",
+          "license": "CC-BY-4.0",
+          "revision": 1,
+          "rules": "2014"
+        },
+        "quantity": 10,
+        "weight": {
+          "value": 0.25,
+          "units": "lb"
+        },
+        "price": {
+          "value": 5,
+          "denomination": "cp"
+        },
+        "attunement": "",
+        "rarity": "",
+        "identified": true,
+        "uses": {
+          "max": "1",
+          "autoDestroy": false,
+          "spent": 0,
+          "recovery": []
+        },
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "types": [],
+            "custom": {
+              "enabled": false
+            },
+            "scaling": {
+              "number": 1
+            }
+          },
+          "replace": false
+        },
+        "container": "xsB7Y2WI476kvOt4",
+        "properties": [
+          "gear"
+        ],
+        "type": {
+          "value": "trinket",
+          "subtype": ""
+        },
+        "unidentified": {
+          "description": ""
+        },
+        "attuned": false,
+        "equipped": true,
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "utility",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [
+                {
+                  "type": "itemUses",
+                  "target": "",
+                  "value": "1",
+                  "scaling": {
+                    "mode": "",
+                    "formula": ""
+                  }
+                }
+              ],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "value": "",
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "value": "5",
+              "units": "ft",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "roll": {
+              "formula": "",
+              "name": "",
+              "prompt": false,
+              "visible": false
+            },
+            "sort": 0,
+            "img": null,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            }
+          }
+        },
+        "identifier": "kolyshek"
+      },
+      "effects": [],
+      "folder": "LtcaPIWUwlpGAax2",
+      "flags": {
+        "babele": {
+          "translated": true,
+          "hasTranslation": true,
+          "originalName": "Piton"
+        },
+        "core": {},
+        "dnd5e": {}
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.dnd5e.items.Item.P31t6tGgt9aLAdYt",
+        "duplicateSource": null,
+        "coreVersion": "14.364",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781902673409,
+        "modifiedTime": 1781902673409,
+        "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+        "exportSource": null
+      },
+      "_id": "xnLBIUyCmOp1bZyj",
+      "sort": 101076,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "7KUrSS9pBZYWMExd",
+  "flags": {
+    "core": {
+      "sheetClass": ""
+    },
+    "scene-packer": {
+      "hash": "4561c354a6fba16c0110014b9b39b8266879598f"
+    },
+    "merchantsheetnpc": {
+      "priceModifier": 1,
+      "buyModifier": 0.5,
+      "stackModifier": 20
+    },
+    "item-piles": {
+      "data": {
+        "enabled": true,
+        "distance": 3,
+        "infiniteQuantity": true,
+        "sellPriceModifier": 0.8,
+        "type": "pile"
+      },
+      "version": "2.9.1"
+    },
+    "journal-backlinks": {
+      "referencedBy": {
+        "JournalEntryPage": [
+          "JournalEntry.xgux6RNAWv9au2DY.JournalEntryPage.S0MkeAHNd0vSUvdJ"
+        ]
+      }
+    }
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 10,
+        "proficient": 0,
+        "max": null,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "dex": {
+        "value": 10,
+        "proficient": 0,
+        "max": null,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "con": {
+        "value": 10,
+        "proficient": 0,
+        "max": null,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "int": {
+        "value": 10,
+        "proficient": 0,
+        "max": null,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "wis": {
+        "value": 10,
+        "proficient": 0,
+        "max": null,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "cha": {
+        "value": 10,
+        "proficient": 0,
+        "max": null,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      }
+    },
+    "attributes": {
+      "ac": {
+        "flat": null,
+        "calc": "default",
+        "formula": ""
+      },
+      "hp": {
+        "value": 4,
+        "max": 4,
+        "temp": null,
+        "tempmax": null,
+        "formula": "1d8"
+      },
+      "init": {
+        "ability": "",
+        "bonus": "0",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "movement": {
+        "walk": "30",
+        "units": "ft",
+        "hover": false,
+        "ignoredDifficultTerrain": []
+      },
+      "attunement": {
+        "max": 3
+      },
+      "senses": {
+        "units": "ft",
+        "special": "",
+        "ranges": {
+          "darkvision": 0,
+          "blindsight": 0,
+          "tremorsense": 0,
+          "truesight": 0
+        }
+      },
+      "spellcasting": "",
+      "exhaustion": 0,
+      "concentration": {
+        "ability": "",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "save": ""
+        },
+        "limit": 1
+      },
+      "hd": {
+        "spent": 0
+      },
+      "death": {
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "success": 0,
+        "failure": 0,
+        "bonuses": {
+          "save": ""
+        }
+      },
+      "spell": {
+        "level": 0
+      },
+      "loyalty": {},
+      "price": {
+        "value": null,
+        "denomination": "gp"
+      }
+    },
+    "details": {
+      "biography": {
+        "value": "<p><span style=\"font-family:Times\">Эльмар Бартен, высокий лысеющий человек лет пятидесяти с обходительными манерами. На него работает пара подручных (Андер и Тистл), которые помогают грузить и разгружать телеги и обслуживают покупателей, когда Бартена нет на месте.</span></p>",
+        "public": ""
+      },
+      "alignment": "любое",
+      "race": null,
+      "type": {
+        "value": "humanoid",
+        "subtype": "любая раса",
+        "swarm": "",
+        "custom": ""
+      },
+      "cr": 0,
+      "ideal": "",
+      "bond": "",
+      "flaw": "",
+      "habitat": {
+        "custom": "",
+        "value": []
+      },
+      "treasure": {
+        "value": []
+      }
+    },
+    "traits": {
+      "size": "med",
+      "di": {
+        "value": [],
+        "bypasses": [],
+        "custom": ""
+      },
+      "dr": {
+        "value": [],
+        "bypasses": [],
+        "custom": ""
+      },
+      "dv": {
+        "value": [],
+        "bypasses": [],
+        "custom": ""
+      },
+      "ci": {
+        "value": [],
+        "custom": ""
+      },
+      "languages": {
+        "value": [
+          "common"
+        ],
+        "custom": "любые один язык (обычно Всеобщий)",
+        "communication": {}
+      },
+      "dm": {
+        "amount": {},
+        "bypasses": []
+      },
+      "important": false
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "skills": {
+      "acr": {
+        "value": 0,
+        "ability": "dex",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "ani": {
+        "value": 0,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "arc": {
+        "value": 0,
+        "ability": "int",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "ath": {
+        "value": 0,
+        "ability": "str",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "dec": {
+        "value": 0,
+        "ability": "cha",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "his": {
+        "value": 0,
+        "ability": "int",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "ins": {
+        "value": 0,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "itm": {
+        "value": 0,
+        "ability": "cha",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "inv": {
+        "value": 0,
+        "ability": "int",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "med": {
+        "value": 0,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "nat": {
+        "value": 0,
+        "ability": "int",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "prc": {
+        "value": 0,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "prf": {
+        "value": 0,
+        "ability": "cha",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "per": {
+        "value": 0,
+        "ability": "cha",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "rel": {
+        "value": 0,
+        "ability": "int",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "slt": {
+        "value": 0,
+        "ability": "dex",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "ste": {
+        "value": 0,
+        "ability": "dex",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "sur": {
+        "value": 0,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        },
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      }
+    },
+    "tools": {},
+    "spells": {
+      "spell1": {
+        "value": 0,
+        "override": null
+      },
+      "spell2": {
+        "value": 0,
+        "override": null
+      },
+      "spell3": {
+        "value": 0,
+        "override": null
+      },
+      "spell4": {
+        "value": 0,
+        "override": null
+      },
+      "spell5": {
+        "value": 0,
+        "override": null
+      },
+      "spell6": {
+        "value": 0,
+        "override": null
+      },
+      "spell7": {
+        "value": 0,
+        "override": null
+      },
+      "spell8": {
+        "value": 0,
+        "override": null
+      },
+      "spell9": {
+        "value": 0,
+        "override": null
+      },
+      "pact": {
+        "value": 0,
+        "override": null
+      },
+      "spell0": {
+        "value": 0,
+        "override": null
+      }
+    },
+    "bonuses": {
+      "mwak": {
+        "attack": "",
+        "damage": ""
+      },
+      "rwak": {
+        "attack": "",
+        "damage": ""
+      },
+      "msak": {
+        "attack": "",
+        "damage": ""
+      },
+      "rsak": {
+        "attack": "",
+        "damage": ""
+      },
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "spell": {
+        "dc": ""
+      }
+    },
+    "resources": {
+      "legact": {
+        "max": 0,
+        "spent": 0
+      },
+      "legres": {
+        "max": 0,
+        "spent": 0
+      },
+      "lair": {
+        "value": false,
+        "initiative": 20,
+        "inside": false
+      }
+    },
+    "source": {
+      "custom": "MM",
+      "revision": 1,
+      "rules": "2014"
+    }
+  },
+  "prototypeToken": {
+    "name": "Эльмар Бартен",
+    "displayName": 20,
+    "actorLink": true,
+    "width": 1,
+    "height": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 40,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {
+      "monks-tokenbar": {
+        "include": "default"
+      },
+      "monks-little-details": {
+        "token-combat-animation": "",
+        "token-highlight": "",
+        "bloodsplat-colour": ""
+      },
+      "core": {},
+      "item-piles": {
+        "data": {
+          "enabled": true,
+          "distance": 3,
+          "macro": "",
+          "deleteWhenEmpty": "default",
+          "canInspectItems": true,
+          "displayItemTypes": false,
+          "description": "",
+          "overrideItemFilters": false,
+          "overrideCurrencies": false,
+          "displayOne": false,
+          "showItemName": false,
+          "overrideSingleItemScale": false,
+          "singleItemScale": 1,
+          "shareItemsEnabled": false,
+          "shareCurrenciesEnabled": true,
+          "takeAllEnabled": false,
+          "splitAllEnabled": true,
+          "activePlayers": false,
+          "isContainer": false,
+          "closed": false,
+          "locked": false,
+          "closedImage": "",
+          "closedImages": [],
+          "emptyImage": "",
+          "emptyImages": [],
+          "openedImage": "",
+          "openedImages": [],
+          "lockedImage": "",
+          "lockedImages": [],
+          "closeSound": "",
+          "closeSounds": [],
+          "openSound": "",
+          "openSounds": [],
+          "lockedSound": "",
+          "lockedSounds": [],
+          "unlockedSound": "",
+          "unlockedSounds": [],
+          "isMerchant": true,
+          "merchantImage": "",
+          "isClosed": false,
+          "infiniteQuantity": true,
+          "infiniteCurrencies": true,
+          "purchaseOnly": false,
+          "hideNewItems": false,
+          "onlyAcceptBasePrice": true,
+          "displayQuantity": "yes",
+          "buyPriceModifier": 1,
+          "sellPriceModifier": 0.8,
+          "itemTypePriceModifiers": [],
+          "actorPriceModifiers": [],
+          "openTimes": {
+            "enabled": false,
+            "status": "open",
+            "open": {
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "hour": 18,
+              "minute": 0
+            }
+          }
+        }
+      },
+      "tagger": {}
+    },
+    "randomImg": true,
+    "light": {
+      "alpha": 0.25,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "type": null,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      },
+      "color": null,
+      "attenuation": 0.5,
+      "negative": false,
+      "priority": 0
+    },
+    "texture": {
+      "src": "modules/kikimor-lost_phandalin/assets/tokens/barten.webp",
+      "tint": "#ffffff",
+      "scaleX": 1,
+      "scaleY": 1,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "alphaThreshold": 0.75
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 0,
+      "brightness": 1,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "appendNumber": false,
+    "prependAdjective": false,
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 0,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "depth": 1
+  },
+  "_stats": {
+    "compendiumSource": "Compendium.laaru-dnd5-hw.monsters.boHhlTMF5ztuTPnC",
+    "duplicateSource": null,
+    "coreVersion": "14.364",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 1781902673405,
+    "modifiedTime": 1781902673405,
+    "lastModifiedBy": "T2dq9gAjaq1MYgEj",
+    "exportSource": {
+      "worldId": "taras-and-heyhey",
+      "uuid": "Actor.accDQKxjN1Ez4BMJ",
+      "coreVersion": "14.364",
+      "systemId": "dnd5e",
+      "systemVersion": "5.3.3"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}
