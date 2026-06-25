@@ -13,6 +13,7 @@ public class NpcService : INpcService
     private readonly IConfiguration _configuration;
     private readonly INpcExportService _npcExportService;
     private readonly string _apiKey;
+    private readonly string _baseAvatarPath;
 
     public NpcService(HttpClient httpClient, IItemService itemService, IGeneratePromts generatePromts, IConfiguration configuration, INpcExportService npcExportService)
     {
@@ -21,6 +22,7 @@ public class NpcService : INpcService
         _generatePromts = generatePromts;
         _configuration = configuration;
         _apiKey = _configuration["GeminiApi:ApiKey"] ?? throw new ArgumentNullException("GeminiApi:ApiKey configuration is missing.");
+        _baseAvatarPath = configuration["AvatarSettings:BasePath"] ?? "D:\\All\\StoryTracker\\LocalDump\\LocalAvatar";
         _npcExportService = npcExportService;
     }
 
@@ -38,6 +40,13 @@ public class NpcService : INpcService
         });
 
         if(npcStat == null) return null;
+
+        npcStat.ImagePath = GetAvatarFromDump(npcStat.Class);
+
+        if (string.IsNullOrWhiteSpace(npcStat.ImagePath))
+        {
+            npcStat.ImagePath = Path.Combine(_baseAvatarPath, "default_npc.jpg"); 
+        }
 
         await MappingInventoryAsync(npcStat);
 
@@ -112,5 +121,20 @@ public class NpcService : INpcService
                 npcStat.InventoryDto.Add(generatedItem);
             }
         }
+    }
+
+    private string? GetAvatarFromDump(string npcClass)
+    {
+        if(string.IsNullOrWhiteSpace(npcClass)) return null;
+
+        string fileName = $"{npcClass.ToLower()}.png";
+
+        string fullPath = Path.Combine(_baseAvatarPath, fileName);
+
+        Console.WriteLine(fullPath);
+
+        if(!File.Exists(fullPath)) return null;
+
+        return fullPath;
     }
 }
