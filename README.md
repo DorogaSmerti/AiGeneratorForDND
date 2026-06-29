@@ -1,7 +1,6 @@
 # StoryTracker 🎲
 
-[![NET](https://img.shields.io/badge/.NET-8.0-512bd4?logo=dotnet)](https://dotnet.microsoft.com/)
-[![Docker](https://img.shields.io/badge/Docker-enabled-2496ed?logo=docker)](https://www.docker.com/)
+[![NET](https://img.shields.io/badge/.NET-10.0-512bd4?logo=dotnet)](https://dotnet.microsoft.com/)
 [![AI](https://img.shields.io/badge/Powered%20by-Gemini%203.1%20Flash-orange?logo=googlegemini)](https://ai.google.dev/)
 
 **StoryTracker** — это бэкенд-сервис для автоматизации работы Мастера Подземелий (Dungeon Master) в настольных ролевых играх (D&D 5e / Foundry VTT). Сервис использует продвинутые модели ИИ для генерации глубоких, сюжетно связанных NPC и автоматически упаковывает их реальным игровым лутом из локальных компендиумов.
@@ -18,9 +17,9 @@
 
 ## 🛠️ Стек технологий
 
-* **Backend:** C# .NET 8, ASP.NET Core Web API
+* **Backend:** C# .NET 10.0, ASP.NET Core Web API
 * **AI Integration:** Google Gemini API (семейство моделей `gemini-3.1`) c использованием Structured Outputs
-* **Data & Tools:** System.Text.Json (рекурсивная сериализация схем), Docker
+* **Data & Tools:** System.Text.Json (рекурсивная сериализация схем),
 
 ---
 
