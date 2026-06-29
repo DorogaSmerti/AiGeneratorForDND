@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.Extensions.Logging.Abstractions;
 using StoryTracker.Models;
 
 namespace StoryTracker.Service;
@@ -8,6 +9,7 @@ namespace StoryTracker.Service;
 public class NpcService : INpcService
 {
     private readonly HttpClient _httpClient;
+    private readonly ILogger _logger;
     private readonly IGeneratePromts _generatePromts;
     private readonly IItemService _itemService;
     private readonly IConfiguration _configuration;
@@ -15,9 +17,11 @@ public class NpcService : INpcService
     private readonly string _apiKey;
     private readonly string _baseAvatarUrlPath;
 
-    public NpcService(HttpClient httpClient, IItemService itemService, IGeneratePromts generatePromts, IConfiguration configuration, INpcExportService npcExportService)
+    public NpcService(HttpClient httpClient, IItemService itemService, IGeneratePromts generatePromts, IConfiguration configuration, INpcExportService npcExportService
+    , ILogger logger)
     {
         _httpClient = httpClient;
+        _logger = logger;
         _itemService = itemService;
         _generatePromts = generatePromts;
         _configuration = configuration;
@@ -83,7 +87,10 @@ public class NpcService : INpcService
 
         if (!responseMessage.IsSuccessStatusCode)
         {
-            Console.WriteLine($"{await responseMessage.Content.ReadAsStringAsync()}");
+            var errorContent = await responseMessage.Content.ReadAsStringAsync();
+            _logger.LogError("Ошибка при запросе к ИИ. Статус: {StatusCode}. Подробности: {ErrorContent}", 
+            responseMessage.StatusCode, 
+            errorContent);
             return null;
         }
 
@@ -93,7 +100,7 @@ public class NpcService : INpcService
 
         if (string.IsNullOrWhiteSpace(aiReply))
         {
-            Console.WriteLine("ИИ вернул пустой текст или структура ответа изменилась.");
+            _logger.LogError("ИИ вернул пустой текст или структура ответа изменилась.");
             return null;
         }
 

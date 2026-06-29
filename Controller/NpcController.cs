@@ -9,9 +9,9 @@ namespace StoryTracker.Controller;
 
 public class NpcController : ControllerBase
 {
-    private readonly NpcService _npcService;
+    private readonly INpcService _npcService;
 
-    public NpcController(NpcService npcService)
+    public NpcController(INpcService npcService)
     {
         _npcService = npcService;
     }
