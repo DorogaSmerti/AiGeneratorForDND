@@ -16,13 +16,10 @@ public class ItemService : IItemService
     {
         Random random = new Random();
 
-        var allowedPoolNames = _storage.GetClassProficiencies(inventoryTags.ClassName); //получаем пул из типов оружия по имени класса
+        var allowedPoolNames = _storage.GetClassProficiencies(inventoryTags.ClassName);
 
-        foreach(var i in allowedPoolNames) Console.WriteLine(i);
-
-        var chosenPoolName = allowedPoolNames[random.Next(allowedPoolNames.Length)]; // берем рандомный тип из пула
-
-        var items = _storage.GetItems(); // берем все предметы тк инкапсуляция и нужно через метод
+        var chosenPoolName = allowedPoolNames[random.Next(allowedPoolNames.Length)];
+        var items = _storage.GetItems();
 
         var suitableItems = items.Where(item => 
         string.Equals((string?)item["system"]?["rarity"], inventoryTags.Rarity, StringComparison.OrdinalIgnoreCase)
@@ -30,9 +27,7 @@ public class ItemService : IItemService
         
         if(suitableItems.Count == 0) return Task.FromResult<JsonNode?>(null); 
 
-        Console.WriteLine(suitableItems.Count);
-
-        return Task.FromResult(suitableItems[random.Next(suitableItems.Count)]); // возвращаем рандомный предмет из списка подходящик предметов
+        return Task.FromResult(suitableItems[random.Next(suitableItems.Count)]);
 
     }
 }

@@ -9,7 +9,7 @@ public class NpcStat
     public string Race {get;set;}
     public string Description {get;set;}
     public int ChallengeRating {get;set;}
-    public string ImageUrl {get;set;}
+    public string ImagePath {get;set;}
     public string Alignment {get;set;}
     public string HookOrSecret {get;set;}
     public string Class {get;set;}
