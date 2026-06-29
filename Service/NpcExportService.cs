@@ -21,6 +21,7 @@ public class NpcExportService : INpcExportService
             sb.Replace("{{Race}}", npcJson.Race ?? "");
             sb.Replace("{{Alignment}}", npcJson.Alignment ?? "");
             sb.Replace("{{HookOrSecret}}", npcJson.HookOrSecret ?? "");
+            sb.Replace("{{Images}}", npcJson.ImagePath ?? "");
 
             // --- Блок Biography ---
             sb.Replace("{{Gender}}", npcJson.Biography?.Gender ?? "");

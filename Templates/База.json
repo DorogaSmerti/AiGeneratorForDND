@@ -1,7 +1,7 @@
 {
   "name": "{{Name}}",
   "type": "npc",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "{{Images}}",
   "system": {
     "currency": {
       "pp": 0,

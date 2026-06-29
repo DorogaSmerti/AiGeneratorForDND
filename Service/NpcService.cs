@@ -13,7 +13,7 @@ public class NpcService : INpcService
     private readonly IConfiguration _configuration;
     private readonly INpcExportService _npcExportService;
     private readonly string _apiKey;
-    private readonly string _baseAvatarPath;
+    private readonly string _baseAvatarUrlPath;
 
     public NpcService(HttpClient httpClient, IItemService itemService, IGeneratePromts generatePromts, IConfiguration configuration, INpcExportService npcExportService)
     {
@@ -22,7 +22,7 @@ public class NpcService : INpcService
         _generatePromts = generatePromts;
         _configuration = configuration;
         _apiKey = _configuration["GeminiApi:ApiKey"] ?? throw new ArgumentNullException("GeminiApi:ApiKey configuration is missing.");
-        _baseAvatarPath = configuration["AvatarSettings:BasePath"] ?? "D:\\All\\StoryTracker\\LocalDump\\LocalAvatar";
+        _baseAvatarUrlPath = _configuration["AvatarSettings:AvatarPath"] ?? throw new ArgumentNullException("UrlPath configuration is missing.");
         _npcExportService = npcExportService;
     }
 
@@ -45,7 +45,7 @@ public class NpcService : INpcService
 
         if (string.IsNullOrWhiteSpace(npcStat.ImagePath))
         {
-            npcStat.ImagePath = Path.Combine(_baseAvatarPath, "default_npc.jpg"); 
+            npcStat.ImagePath = Path.Combine(_baseAvatarUrlPath, "default_npc.png"); 
         }
 
         await MappingInventoryAsync(npcStat);
@@ -57,7 +57,7 @@ public class NpcService : INpcService
 
     private async Task<string?> SendRequestToGeminiAsync(NpcRequest npc)
     {
-         var text = _generatePromts.GenerateNpc(npc);
+        var text = _generatePromts.GenerateNpc(npc);
 
         string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={_apiKey}";
 
@@ -129,11 +129,7 @@ public class NpcService : INpcService
 
         string fileName = $"{npcClass.ToLower()}.png";
 
-        string fullPath = Path.Combine(_baseAvatarPath, fileName);
-
-        Console.WriteLine(fullPath);
-
-        if(!File.Exists(fullPath)) return null;
+        string fullPath = Path.Combine(_baseAvatarUrlPath, fileName);
 
         return fullPath;
     }
