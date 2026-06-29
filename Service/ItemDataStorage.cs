@@ -23,7 +23,12 @@ public class ItemDataStorage : IITemDataStorage
 
         foreach(var line in lines)
         {
+            if(string.IsNullOrWhiteSpace(line)) continue;
+
             var Json = JsonNode.Parse(line);
+
+            if(Json == null) continue;
+
             node.Add(Json);
         }
     }
@@ -47,32 +52,8 @@ public class ItemDataStorage : IITemDataStorage
         { "Ranger", ["weapon", "gear"] }
     };
 
-    private readonly Dictionary<string, string[]> _armorProficiencies = new()
-    {
-        { "Barbarian", ["light", "medium", "shield"] },
-        { "Bard", ["light"] },
-        { "Cleric", ["light", "medium", "shield"] },
-        { "Druid", ["light", "medium", "shield"] }, // По лору немагическая, но по тегам так
-        { "Fighter", ["light", "medium", "heavy", "shield"] },
-        { "Monk", [] }, // Монахи голые бегают
-        { "Paladin", ["light", "medium", "heavy", "shield"] },
-        { "Ranger", ["light", "medium", "shield"] },
-        { "Rogue", ["light"] },
-        { "Sorcerer", [] }, // Тканевые робы — это не броня в терминах Фаундри
-        { "Warlock", ["light"] },
-        { "Wizard", [] }
-    };
-
-    private readonly Dictionary<string, string> _avatar = new()
-    {
-        { "Human Warrior ", "https://dnd.su/gallery/articles/81_3_1522773429_s.jpg"},
-    };
-
     public string[] GetClassProficiencies(string npcClass)
         => _classLootPools.GetValueOrDefault(npcClass, ["gear"]);
-
-    public string[] GetArmorProficiencies(string npcClass)
-        => _armorProficiencies.GetValueOrDefault(npcClass, []);
 
     public List<JsonNode> GetItems() => _allItems;
 

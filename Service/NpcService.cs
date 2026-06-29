@@ -1,7 +1,5 @@
 using System.Text.Json;
 using System.Text.Json.Nodes;
-using Microsoft.AspNetCore.Mvc.Routing;
-using Microsoft.Extensions.Logging.Abstractions;
 using StoryTracker.Models;
 
 namespace StoryTracker.Service;
@@ -89,8 +87,8 @@ public class NpcService : INpcService
         {
             var errorContent = await responseMessage.Content.ReadAsStringAsync();
             _logger.LogError("Ошибка при запросе к ИИ. Статус: {StatusCode}. Подробности: {ErrorContent}", 
-            responseMessage.StatusCode, 
-            errorContent);
+                responseMessage.StatusCode, 
+                errorContent);
             return null;
         }
 
