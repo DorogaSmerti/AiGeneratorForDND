@@ -74,7 +74,7 @@ public static class AiSchemaBuilder
                             Properties = new Dictionary<string, SchemaProperty>
                             {
                                 { "Type", new SchemaProperty { Type = "STRING", Description = "Строго (weapon, consumable, equipment, magic)" } },
-                                { "Rarity", new SchemaProperty { Type = "STRING", Description = "Строго (common, uncommon, rare, very rare, mythic, legendary, artifact)" } }
+                                { "Rarity", new SchemaProperty { Type = "STRING", Description = "Строго (common, uncommon, rare, very rare, legendary, artifact)" } }
                             }
                         }
                     }
