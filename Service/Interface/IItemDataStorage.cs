@@ -1,8 +1,8 @@
 using System.Text.Json.Nodes;
 
-namespace StoryTracker.Service;
+namespace StoryTracker.Service.Interface;
 
-public interface IITemDataStorage
+public interface IItemDataStorage
 {
     string[] GetClassProficiencies(string npcClass);
     List<JsonNode> GetItems();

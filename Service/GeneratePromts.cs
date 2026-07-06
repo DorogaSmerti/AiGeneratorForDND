@@ -1,5 +1,6 @@
 using System.Text;
 using StoryTracker.Models;
+using StoryTracker.Service.Interface;
 
 namespace StoryTracker.Service;
 

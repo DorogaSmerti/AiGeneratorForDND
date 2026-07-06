@@ -1,8 +1,9 @@
 using System.Text.Json.Nodes;
+using StoryTracker.Service.Interface;
 
 namespace StoryTracker.Service;
 
-public class ItemDataStorage : IITemDataStorage
+public class ItemDataStorage : IItemDataStorage
 {
     private readonly IConfiguration _configuration;
     private readonly List<JsonNode> _allItems = new();
@@ -17,7 +18,7 @@ public class ItemDataStorage : IITemDataStorage
 
     }
 
-    private void LoadFileToPool(string path, List<JsonNode> node)
+    private static void LoadFileToPool(string path, List<JsonNode> node)
     {
         var lines = File.ReadLines(path);
 
@@ -35,22 +36,24 @@ public class ItemDataStorage : IITemDataStorage
 
     private readonly Dictionary<string, string[]> _classLootPools = new()
     {
-        { "Wizard", ["magic", "consumables"] },       // Магу — магические побрякушки и зелья/свитки
-        { "Sorcerer", ["magic", "potion"] },
-        { "Warlock", ["magic", "potion"] },
+        { "Wizard", ["mgc", "consumable"] },
+        { "Sorcerer", ["mgc", "consumable"] },
+        { "Warlock", ["mgc", "consumable"] },
         
-        { "Rogue", ["gear", "weapon"] },         // Вору — воровские инструменты (gear) или скрытное оружие
-        { "Fighter", ["weapon", "armor"] },      // Воину — трофейное оружие или элементы доспехов
-        { "Barbarian", ["weapon", "gear"] },
+        { "Rogue", ["fin", "consumable"] },
+        { "Monk", ["fin", "consumable"] },
         
-        { "Cleric", ["potion", "magic"] },       // Жрецу — хилки и святые артефакты
-        { "Paladin", ["armor", "weapon"] },
+        { "Fighter", ["hvy", "weapon", "equipment"] },
+        { "Barbarian", ["hvy", "weapon", "consumable"] },
+        { "Paladin", ["hvy", "equipment", "mgc"] },
         
-        { "Bard", ["magic", "gear"] },           // Барду — музыкальные инструменты (gear) или магия
-        { "Druid", ["potion", "gear"] },
-        { "Monk", ["gear", "weapon"] },
-        { "Ranger", ["weapon", "gear"] }
+        { "Cleric", ["consumable", "mgc", "equipment"] },
+        { "Bard", ["mgc", "fin", "consumable"] },
+        { "Druid", ["consumable", "consumable", "mgc"] },
+        { "Ranger", ["fin", "weapon", "equipment"] }
     };
+
+
 
     public string[] GetClassProficiencies(string npcClass)
         => _classLootPools.GetValueOrDefault(npcClass, ["gear"]);

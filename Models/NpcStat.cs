@@ -30,8 +30,6 @@ public class NpcStat
     public class InventoryGenerationRequest
 {
     public string? ClassName {get;set;} = string.Empty;
-    public double? ChallengeRating {get;set;}
-    public string? Type {get;set;}
     public string? Rarity {get;set;}
 }
 

@@ -1,5 +1,6 @@
 using System.Text;
 using StoryTracker.Models;
+using StoryTracker.Service.Interface;
 
 namespace StoryTracker.Service;
 
@@ -23,7 +24,7 @@ public class NpcExportService : INpcExportService
             sb.Replace("{{HookOrSecret}}", npcJson.HookOrSecret ?? "");
             sb.Replace("{{Images}}", npcJson.ImagePath ?? "");
 
-            // --- Блок Biography ---
+            // --- Biography ---
             sb.Replace("{{Gender}}", npcJson.Biography?.Gender ?? "");
             sb.Replace("{{Age}}", npcJson.Biography?.Age ?? "");
             sb.Replace("{{Height}}", npcJson.Biography?.Height ?? "");
@@ -35,13 +36,12 @@ public class NpcExportService : INpcExportService
             sb.Replace("{{Appearance}}", npcJson.Biography?.Appearance ?? "");
             sb.Replace("{{Background}}", npcJson.Biography?.Background ?? "");
 
-            // --- Блок Journal ---
+            // --- Journal ---
             sb.Replace("{{PersonalOfInterest}}", npcJson.Journal?.PersonalOfInterest ?? "");
             sb.Replace("{{LocationOfInterest}}", npcJson.Journal?.LocationOfInterest ?? "");
             sb.Replace("{{Quests}}", npcJson.Journal?.Quests ?? "");
             sb.Replace("{{Miscellaneous}}", npcJson.Journal?.Miscellaneous ?? "");
             sb.Replace("{{JournalEntries}}", npcJson.Journal?.JournalEntries ?? "");
-            
 
             sb.Replace("{{Items}}", npcJson.InventoryDto.ToString() ?? "");
 
