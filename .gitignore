@@ -12,6 +12,7 @@ Export/
 
 appsettings.Development.json
 docker-compose-dev.yml
+skill-assessment.md
 
 *.db
 *.mdf

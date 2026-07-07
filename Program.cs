@@ -1,9 +1,13 @@
 using Scalar.AspNetCore;
 using StoryTracker.Service;
+using StoryTracker.Service.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddLogging(options => 
+    options.AddConsole());
 
 builder.Services.AddOpenApi();
 
@@ -11,7 +15,7 @@ builder.Services.AddScoped<IGeneratePromts, GeneratePromts>();
 builder.Services.AddScoped<INpcService, NpcService>();
 builder.Services.AddScoped<INpcExportService, NpcExportService>();
 builder.Services.AddScoped<IItemService, ItemService>();
-builder.Services.AddSingleton<IITemDataStorage, ItemDataStorage>();
+builder.Services.AddSingleton<IItemDataStorage, ItemDataStorage>();
 
 builder.Services.AddHttpClient<NpcService>();
 

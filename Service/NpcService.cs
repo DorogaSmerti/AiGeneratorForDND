@@ -1,13 +1,14 @@
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using StoryTracker.Models;
+using StoryTracker.Service.Interface;
 
 namespace StoryTracker.Service;
 
 public class NpcService : INpcService
 {
     private readonly HttpClient _httpClient;
-    private readonly ILogger _logger;
+    private readonly ILogger<NpcService> _logger;
     private readonly IGeneratePromts _generatePromts;
     private readonly IItemService _itemService;
     private readonly IConfiguration _configuration;
@@ -16,7 +17,7 @@ public class NpcService : INpcService
     private readonly string _baseAvatarUrlPath;
 
     public NpcService(HttpClient httpClient, IItemService itemService, IGeneratePromts generatePromts, IConfiguration configuration, INpcExportService npcExportService
-    , ILogger logger)
+    , ILogger<NpcService> logger)
     {
         _httpClient = httpClient;
         _logger = logger;
@@ -86,7 +87,7 @@ public class NpcService : INpcService
         if (!responseMessage.IsSuccessStatusCode)
         {
             var errorContent = await responseMessage.Content.ReadAsStringAsync();
-            _logger.LogError("Ошибка при запросе к ИИ. Статус: {StatusCode}. Подробности: {ErrorContent}", 
+            _logger.LogError("Error in GEMINI request {StatusCode}. Details: {ErrorContent}", 
                 responseMessage.StatusCode, 
                 errorContent);
             return null;
@@ -98,7 +99,7 @@ public class NpcService : INpcService
 
         if (string.IsNullOrWhiteSpace(aiReply))
         {
-            _logger.LogError("ИИ вернул пустой текст или структура ответа изменилась.");
+            _logger.LogError("Ai return null");
             return null;
         }
 
@@ -114,13 +115,10 @@ public class NpcService : INpcService
             InventoryGenerationRequest generationRequest = new InventoryGenerationRequest
             {
                 ClassName = npcStat.Class,
-                ChallengeRating = npcStat.ChallengeRating,
-                Rarity = item.Rarity,
-                Type = item.Type
+                Rarity = item.Rarity
             };
 
             var generatedItem = await _itemService.GetItemFromLocalDump(generationRequest);
-            
             if (generatedItem != null)
             {
                 npcStat.InventoryDto.Add(generatedItem);

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using StoryTracker.Models;
-using StoryTracker.Service;
+using StoryTracker.Service.Interface;
 
 namespace StoryTracker.Controller;
 
