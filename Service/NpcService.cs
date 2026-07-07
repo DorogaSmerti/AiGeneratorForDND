@@ -33,7 +33,11 @@ public class NpcService : INpcService
     {
         if (npc == null) return null;
 
-        string? aiReply = await SendRequestToGeminiAsync(npc);
+        var prompt = _generatePromts.GenerateNpc(npc);
+
+        var schema = AiSchemaBuilder.BuildSchema();
+
+        string? aiReply = await SendRequestToGeminiAsync(prompt, schema);
 
         if(string.IsNullOrWhiteSpace(aiReply)) return null;
 
@@ -58,10 +62,8 @@ public class NpcService : INpcService
         return npcStat;
     }
 
-    private async Task<string?> SendRequestToGeminiAsync(NpcRequest npc)
+    private async Task<string?> SendRequestToGeminiAsync(string prompt, ResponseSchema schema)
     {
-        var text = _generatePromts.GenerateNpc(npc);
-
         string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={_apiKey}";
 
         AiRequest aiRequest = new AiRequest
@@ -72,13 +74,13 @@ public class NpcService : INpcService
                 {
                    Parts = new List<Part>
                    {
-                       new Part { Text = text}
+                       new Part { Text = prompt}
                    } 
                 }
             },
             GenerationConfig = new GenerationConfig
             {
-                ResponseSchema = AiSchemaBuilder.BuildSchema()
+                ResponseSchema = schema
             }
         };
 
