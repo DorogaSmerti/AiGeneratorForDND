@@ -4,7 +4,7 @@ namespace StoryTracker.Service;
 
 public static class AiSchemaBuilder
 {
-    public static ResponseSchema BuildSchema()
+    public static ResponseSchema BuildSchemaForNpc()
     {
         return new ResponseSchema
         {
@@ -71,10 +71,46 @@ public static class AiSchemaBuilder
                         Items = new SchemaProperty
                         { 
                             Type = "OBJECT",
+                            Required = new List<string> { "Type", "Rarity" },
                             Properties = new Dictionary<string, SchemaProperty>
                             {
-                                { "Type", new SchemaProperty { Type = "STRING", Description = "Строго (weapon, consumable, equipment, magic)" } },
-                                { "Rarity", new SchemaProperty { Type = "STRING", Description = "Строго (common, uncommon, rare, very rare, legendary, artifact)" } }
+                                { "Type", new SchemaProperty { Type = "STRING", Description = "Строго одно значение из списка: weapon, consumable, equipment, magic" } },
+                                { "Rarity", new SchemaProperty { Type = "STRING", Description = "Строго одно значение из списка: common, uncommon, rare, very rare, legendary, artifact" } }
+                            }
+                        }
+                    }
+                }
+            }
+        };
+    }
+
+    public static ResponseSchema BuildSchemaForMerchant()
+    {
+         return new ResponseSchema
+        {
+            Type = "OBJECT",
+            
+            Required = new List<string> { "MerchantName", "ShopName", "ShopDescription", "MerchantDescription", "PriceModifier", "InventoryTags"},
+            
+            Properties = new Dictionary<string, SchemaProperty>
+            {
+                { "MerchantName", new SchemaProperty { Type = "STRING", Description = "Имя торговца" } },
+                { "ShopName", new SchemaProperty { Type = "STRING", Description = "Название лавки" } },
+                { "ShopDescription", new SchemaProperty { Type = "STRING", Description = "Описание магазина" } },
+                { "MerchantDescription", new SchemaProperty { Type = "STRING", Description = "Описание торговца" } },
+                { "PriceModifier", new SchemaProperty { Type = "INTEGER", Description = "Множитель цены для предметов в лавке" } },
+                { "InventoryTags", new SchemaProperty 
+                    { 
+                        Type = "ARRAY",
+                        Description = "A list of required item tags to generate the shop's stock.",
+                        Items = new SchemaProperty
+                        {
+                            Type = "OBJECT",
+                            Required = new List<string> { "Type", "Rarity" },
+                            Properties = new Dictionary<string, SchemaProperty>
+                            {
+                                { "Type", new SchemaProperty { Type = "STRING", Description = "Строго одно значение из списка: weapon, consumable, equipment, magic" } },
+                                { "Rarity", new SchemaProperty { Type = "STRING", Description = "Строго одно значение из списка: common, uncommon, rare, very rare, legendary, artifact" } }
                             }
                         }
                     }

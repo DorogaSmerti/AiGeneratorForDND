@@ -5,4 +5,5 @@ namespace StoryTracker.Service.Interface;
 public interface IGeneratePromts
 {
     string GenerateNpc(NpcRequest npc);
+    string GenerateMerchant(MerchantRequest request);
 }

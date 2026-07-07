@@ -32,6 +32,7 @@ public class ResponseSchema
 public class SchemaProperty
 {
     public string Type { get; set; } = "STRING";
+    public List<string> Required { get; set; } = new();
     public string Description { get; set; } = string.Empty;
     public Dictionary<string, SchemaProperty> Properties { get; set; } = new();
     public SchemaProperty? Items { get; set; }

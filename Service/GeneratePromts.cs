@@ -55,4 +55,46 @@ public class GeneratePromts : IGeneratePromts
                                 AI, remember: the inventory must fit the character's logic and background! A common guard cannot carry rare magical artifacts.");
         return userPrompt.ToString();
     }
+
+    public string GenerateMerchant(MerchantRequest request)
+    {
+        StringBuilder userPrompt = new StringBuilder();
+
+        userPrompt.AppendLine("You are a helpful assistant for a game master in a tabletop roleplaying game. Your task is to generate a detailed description of a merchant and their shop based on the following attributes:");
+
+        if (!string.IsNullOrEmpty(request.MerchantName))
+        {
+            userPrompt.AppendLine($"Merchant Name: {request.MerchantName}");
+        }
+        if (!string.IsNullOrEmpty(request.ShopType))
+        {
+            userPrompt.AppendLine($"Shop Type: {request.ShopType}");
+        }
+        if (!string.IsNullOrEmpty(request.Wealth))
+        {
+            userPrompt.AppendLine($"Wealth Level: {request.Wealth}");
+        }
+        if (!string.IsNullOrEmpty(request.UserWishes))
+        {
+            userPrompt.AppendLine($"User Wishes: {request.UserWishes}");
+        }
+
+        userPrompt.AppendLine(@"
+        ### CRITICAL INSTRUCTIONS FOR AI:
+        1. **PriceModifier**: Generate a double representing the shop's price multiplier (default is 1.0). 
+        - A greedy merchant or remote/dangerous location might have a modifier of 1.1 to 1.5.
+        - A generous merchant, regular merchant, or poor town might have a modifier of 0.8 to 1.0.
+        2. **ShopName & ShopDescription**: Generate a thematic name and atmospheric description of the shop matching its type and wealth.
+        3. **MerchantName & MerchantDescription**: If MerchantName was not provided, generate a fitting name. Provide a description of their appearance, race, behavior, and attitude towards customers.
+        4. **InventoryTags**: Generate a list of item tags to populate the shop's stock.
+        - The type/category of generated items must match the ShopType (e.g., Alchemist sells 'consumable'; Blacksmith sells 'weapon', 'equipment'; Magic Shop sells 'mgc', 'consumable').
+        - Use only the allowed Type values: 'weapon', 'consumable', 'equipment', 'loot'.
+        - Use only the allowed Rarity values: 'common', 'uncommon', 'rare', 'very rare', 'legendary', 'artifact'.
+        - The rarity of items must match the Wealth Level:
+            - 'Poor' (village shop): 90% common, 10% uncommon. No rare/legendary items.
+            - 'Medium' (town store): 70% common, 25% uncommon, 5% rare.
+            - 'Rich' (capital city or magic academy): 40% common, 40% uncommon, 15% rare, 5% very rare/legendary.");
+
+        return userPrompt.ToString();
+    }
 }

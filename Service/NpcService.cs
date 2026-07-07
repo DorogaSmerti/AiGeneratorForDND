@@ -29,11 +29,15 @@ public class NpcService : INpcService
         _npcExportService = npcExportService;
     }
 
-    public async Task<NpcStat?> GenerateNpcAsync(NpcRequest npc)
+    public async Task<NpcStat?> GenerateNpcAsync(NpcRequest npcRequest)
     {
-        if (npc == null) return null;
+        if (npcRequest == null) return null;
 
-        string? aiReply = await SendRequestToGeminiAsync(npc);
+        var prompt = _generatePromts.GenerateNpc(npcRequest);
+
+        var schema = AiSchemaBuilder.BuildSchemaForNpc();
+
+        string? aiReply = await SendRequestToGeminiAsync(prompt, schema);
 
         if(string.IsNullOrWhiteSpace(aiReply)) return null;
 
@@ -58,10 +62,17 @@ public class NpcService : INpcService
         return npcStat;
     }
 
-    private async Task<string?> SendRequestToGeminiAsync(NpcRequest npc)
+    public async Task<MerchantShop?> GenerateMerchantAsync(MerchantRequest merchantRequest)
     {
-        var text = _generatePromts.GenerateNpc(npc);
+        if (merchantRequest == null) return null;
 
+        string promt = _generatePromts.GenerateMerchant(merchantRequest);
+
+        return null;
+    }
+
+    private async Task<string?> SendRequestToGeminiAsync(string prompt, ResponseSchema schema)
+    {
         string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={_apiKey}";
 
         AiRequest aiRequest = new AiRequest
@@ -72,13 +83,13 @@ public class NpcService : INpcService
                 {
                    Parts = new List<Part>
                    {
-                       new Part { Text = text}
+                       new Part { Text = prompt}
                    } 
                 }
             },
             GenerationConfig = new GenerationConfig
             {
-                ResponseSchema = AiSchemaBuilder.BuildSchema()
+                ResponseSchema = schema
             }
         };
 
