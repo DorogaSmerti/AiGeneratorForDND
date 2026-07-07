@@ -23,8 +23,8 @@ public class ItemService(IItemDataStorage _storage, ILogger<ItemService> _logger
         suitableItems = suitableItems.Where(item => 
             (item["system"]?["properties"]?.AsArray()?.Any(prop =>
                 string.Equals((string?)prop, chosenPoolName, StringComparison.OrdinalIgnoreCase)
-            ) ?? false) 
-            || 
+            ) ?? false)
+            ||
             string.Equals((string?)item["type"], chosenPoolName, StringComparison.OrdinalIgnoreCase)
         ).ToList();
         
