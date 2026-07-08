@@ -37,14 +37,7 @@ public class NpcService : INpcService
 
         var schema = AiSchemaBuilder.BuildSchemaForNpc();
 
-        string? aiReply = await SendRequestToGeminiAsync(prompt, schema);
-
-        if(string.IsNullOrWhiteSpace(aiReply)) return null;
-
-        NpcStat? npcStat = JsonSerializer.Deserialize<NpcStat>(aiReply, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        });
+        var npcStat = await SendRequestToGeminiAsync<NpcStat>(prompt, schema);
 
         if(npcStat == null) return null;
 
@@ -55,7 +48,7 @@ public class NpcService : INpcService
             npcStat.ImagePath = Path.Combine(_baseAvatarUrlPath, "default_npc.png"); 
         }
 
-        await MappingInventoryAsync(npcStat);
+        await MappingInventoryForNpcAsync(npcStat);
 
         await _npcExportService.ExportToFvttJsonAsync(npcStat);
 
@@ -66,12 +59,17 @@ public class NpcService : INpcService
     {
         if (merchantRequest == null) return null;
 
-        string promt = _generatePromts.GenerateMerchant(merchantRequest);
+        string prompt = _generatePromts.GenerateMerchant(merchantRequest);
+
+        ResponseSchema schema = AiSchemaBuilder.BuildSchemaForMerchant();
+
+        var aiReply = await SendRequestToGeminiAsync<MerchantShop>(prompt, schema);
 
         return null;
     }
 
-    private async Task<string?> SendRequestToGeminiAsync(string prompt, ResponseSchema schema)
+    private async Task<T?> SendRequestToGeminiAsync<T>(string prompt, ResponseSchema schema)
+    where T : class
     {
         string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={_apiKey}";
 
@@ -114,25 +112,37 @@ public class NpcService : INpcService
             return null;
         }
 
-        return aiReply;
+        T? result = JsonSerializer.Deserialize<T>(aiReply, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        });
+
+        if(result == null) 
+        {
+            _logger.LogError("Json Deserialize return null");
+            return null;
+        }
+
+        return result;
     }
 
-    private async Task MappingInventoryAsync(NpcStat npcStat)
+    private async Task MappingInventoryForNpcAsync(BaseCharacter baseCharacter)
     {
-        if(npcStat.InventoryTags == null) return;
+        if(baseCharacter.InventoryTags == null) return;
 
-        foreach(var item in npcStat.InventoryTags)
+        foreach(var item in baseCharacter.InventoryTags)
         {
             InventoryGenerationRequest generationRequest = new InventoryGenerationRequest
             {
-                ClassName = npcStat.Class,
-                Rarity = item.Rarity
+                ClassName = baseCharacter.Class,
+                Rarity = item.Rarity,
+                Type = item.Type
             };
 
             var generatedItem = await _itemService.GetItemFromLocalDump(generationRequest);
             if (generatedItem != null)
             {
-                npcStat.InventoryDto.Add(generatedItem);
+                baseCharacter.InventoryDto.Add(generatedItem);
             }
         }
     }

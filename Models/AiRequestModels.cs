@@ -13,7 +13,7 @@ public class Content
 
 public class Part
 {
-    public string Text { get; set; }
+    public string? Text { get; set; }
 }
 
 public class GenerationConfig

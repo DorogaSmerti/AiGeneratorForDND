@@ -13,7 +13,12 @@ public class ItemService(IItemDataStorage _storage, ILogger<ItemService> _logger
 
         var allowedPoolNames = _storage.GetClassProficiencies(inventoryTags.ClassName);
 
-        var chosenPoolName = allowedPoolNames[random.Next(allowedPoolNames.Length)];
+        string? chosenPoolName = null;
+        if(string.IsNullOrWhiteSpace(inventoryTags.Type))
+            chosenPoolName = allowedPoolNames[random.Next(allowedPoolNames.Length)];
+        else
+            chosenPoolName = inventoryTags.Type;
+
         var items = _storage.GetItems();
 
         _logger.LogInformation("all items count: {Count}", items.Count);
