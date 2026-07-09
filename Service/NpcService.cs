@@ -29,7 +29,7 @@ public class NpcService : INpcService
         _npcExportService = npcExportService;
     }
 
-    public async Task<NpcStat?> GenerateNpcAsync(NpcRequest npcRequest)
+    public async Task<BaseCharacter?> GenerateNpcAsync(NpcRequest npcRequest)
     {
         if (npcRequest == null) return null;
 
@@ -37,7 +37,7 @@ public class NpcService : INpcService
 
         var schema = AiSchemaBuilder.BuildSchemaForNpc();
 
-        var npcStat = await SendRequestToGeminiAsync<NpcStat>(prompt, schema);
+        var npcStat = await SendRequestToGeminiAsync<BaseCharacter>(prompt, schema);
 
         if(npcStat == null) return null;
 
@@ -48,9 +48,9 @@ public class NpcService : INpcService
             npcStat.ImagePath = Path.Combine(_baseAvatarUrlPath, "default_npc.png"); 
         }
 
-        await MappingInventoryForNpcAsync(npcStat);
+        await MappingInventoryAsync(npcStat);
 
-        await _npcExportService.ExportToFvttJsonAsync(npcStat);
+        await _npcExportService.ExportToFvttJsonAsync(npcStat, "База");
 
         return npcStat;
     }
@@ -65,7 +65,20 @@ public class NpcService : INpcService
 
         var aiReply = await SendRequestToGeminiAsync<MerchantShop>(prompt, schema);
 
-        return null;
+        if (aiReply == null) return null;
+
+        aiReply.ImagePath = GetAvatarFromDump(aiReply.Class);
+
+        if (string.IsNullOrWhiteSpace(aiReply.ImagePath))
+        {
+            aiReply.ImagePath = Path.Combine(_baseAvatarUrlPath, "default_npc.png");
+        }
+
+        await MappingInventoryAsync(aiReply);
+
+        await _npcExportService.ExportToFvttJsonAsync(aiReply, "Магазин");
+
+        return aiReply;
     }
 
     private async Task<T?> SendRequestToGeminiAsync<T>(string prompt, ResponseSchema schema)
@@ -117,7 +130,7 @@ public class NpcService : INpcService
             PropertyNameCaseInsensitive = true
         });
 
-        if(result == null) 
+        if(result == null)
         {
             _logger.LogError("Json Deserialize return null");
             return null;
@@ -126,7 +139,7 @@ public class NpcService : INpcService
         return result;
     }
 
-    private async Task MappingInventoryForNpcAsync(BaseCharacter baseCharacter)
+    private async Task MappingInventoryAsync(BaseCharacter baseCharacter)
     {
         if(baseCharacter.InventoryTags == null) return;
 
@@ -142,7 +155,7 @@ public class NpcService : INpcService
             var generatedItem = await _itemService.GetItemFromLocalDump(generationRequest);
             if (generatedItem != null)
             {
-                baseCharacter.InventoryDto.Add(generatedItem);
+                baseCharacter.InventoryDto.Add(generatedItem.DeepClone());
             }
         }
     }

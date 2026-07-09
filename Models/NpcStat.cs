@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace StoryTracker.Models;
 
-public abstract class BaseCharacter
+public class BaseCharacter
 {
     [JsonPropertyOrder(-4)]
     public string? Name { get; set; } = string.Empty;
@@ -15,14 +15,6 @@ public abstract class BaseCharacter
     public string? Description { get; set; } = string.Empty;
     [JsonPropertyOrder(0)]
     public string? ImagePath { get; set; } = string.Empty;
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public List<InventoryTags> InventoryTags { get; set; } = new();
-    [JsonPropertyName("equipment")]
-    public JsonArray InventoryDto { get; set; } = new();
-}
-
-public class NpcStat : BaseCharacter
-{
     public int ChallengeRating {get;set;}
     public string? Alignment {get;set;}
     public string? HookOrSecret {get;set;}
@@ -31,9 +23,13 @@ public class NpcStat : BaseCharacter
     public int Constitution{get;set;}
     public int Intelligence{get;set;}
     public int Wisdom{get;set;}
-    public int Charisma{get;set;}
+    public int Charisma { get; set; }
     public Biography? Biography{get;set;}
     public Journal? Journal{get;set;}
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public List<InventoryTags> InventoryTags { get; set; } = new();
+    [JsonPropertyName("equipment")]
+    public JsonArray InventoryDto { get; set; } = new();
 }
 
 public class MerchantShop : BaseCharacter
@@ -43,7 +39,6 @@ public class MerchantShop : BaseCharacter
     public string MerchantDescription { get; set; } = string.Empty;
     public double PriceModifier { get; set; } = 1.0;
 }
-
 
 public class InventoryGenerationRequest
 {

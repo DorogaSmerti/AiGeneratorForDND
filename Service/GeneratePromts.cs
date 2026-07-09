@@ -56,27 +56,27 @@ public class GeneratePromts : IGeneratePromts
         return userPrompt.ToString();
     }
 
-    public string GenerateMerchant(MerchantRequest request)
+    public string GenerateMerchant(MerchantRequest merchantRequest)
     {
         StringBuilder userPrompt = new StringBuilder();
 
         userPrompt.AppendLine("You are a helpful assistant for a game master in a tabletop roleplaying game. Your task is to generate a detailed description of a merchant and their shop based on the following attributes:");
 
-        if (!string.IsNullOrEmpty(request.MerchantName))
+        if (!string.IsNullOrEmpty(merchantRequest.MerchantName))
         {
-            userPrompt.AppendLine($"Merchant Name: {request.MerchantName}");
+            userPrompt.AppendLine($"Name: {merchantRequest.MerchantName}");
         }
-        if (!string.IsNullOrEmpty(request.ShopType))
+        if (!string.IsNullOrEmpty(merchantRequest.ShopType))
         {
-            userPrompt.AppendLine($"Shop Type: {request.ShopType}");
+            userPrompt.AppendLine($"Shop Type: {merchantRequest.ShopType}");
         }
-        if (!string.IsNullOrEmpty(request.Wealth))
+        if (!string.IsNullOrEmpty(merchantRequest.Wealth))
         {
-            userPrompt.AppendLine($"Wealth Level: {request.Wealth}");
+            userPrompt.AppendLine($"Wealth: {merchantRequest.Wealth}");
         }
-        if (!string.IsNullOrEmpty(request.UserWishes))
+        if (!string.IsNullOrEmpty(merchantRequest.UserWishes))
         {
-            userPrompt.AppendLine($"User Wishes: {request.UserWishes}");
+            userPrompt.AppendLine($"User Wishes: {merchantRequest.UserWishes}");
         }
 
         userPrompt.AppendLine(@"
