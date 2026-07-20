@@ -13,8 +13,15 @@ public class ItemService(IItemDataStorage _storage, ILogger<ItemService> _logger
 
         var allowedPoolNames = _storage.GetClassProficiencies(inventoryTags.ClassName);
 
-        var chosenPoolName = allowedPoolNames[random.Next(allowedPoolNames.Length)];
+        string? chosenPoolName = null;
+        if(string.IsNullOrWhiteSpace(inventoryTags.Type))
+            chosenPoolName = allowedPoolNames[random.Next(allowedPoolNames.Length)];
+        else
+            chosenPoolName = inventoryTags.Type;
+
         var items = _storage.GetItems();
+
+        _logger.LogInformation("chosen pool: {pool}", chosenPoolName);
 
         var suitableItems = items.Where(item =>
             string.Equals((string?)item["system"]?["rarity"], inventoryTags.Rarity, StringComparison.OrdinalIgnoreCase)
@@ -27,7 +34,9 @@ public class ItemService(IItemDataStorage _storage, ILogger<ItemService> _logger
             ||
             string.Equals((string?)item["type"], chosenPoolName, StringComparison.OrdinalIgnoreCase)
         ).ToList();
-        
+
+        _logger.LogInformation("suitable items count: {Count}", suitableItems.Count);
+
         if(suitableItems.Count == 0) return Task.FromResult<JsonNode?>(null); 
 
         return Task.FromResult(suitableItems[random.Next(suitableItems.Count)]);

@@ -50,10 +50,13 @@ public class ItemDataStorage : IItemDataStorage
         { "Cleric", ["consumable", "mgc", "equipment"] },
         { "Bard", ["mgc", "fin", "consumable"] },
         { "Druid", ["consumable", "consumable", "mgc"] },
-        { "Ranger", ["fin", "weapon", "equipment"] }
+        { "Ranger", ["fin", "weapon", "equipment"] },
+
+        { "Alchemist", ["consumable"] },
+        { "Blacksmith", ["weapon", "equipment"] },
+        { "Merchant_Magic", ["mgc", "consumable"] },
+        { "Merchant_General", ["loot", "equipment"] }
     };
-
-
 
     public string[] GetClassProficiencies(string npcClass)
         => _classLootPools.GetValueOrDefault(npcClass, ["gear"]);

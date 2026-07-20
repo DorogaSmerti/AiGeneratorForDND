@@ -29,9 +29,9 @@ public class NpcService : INpcService
         _npcExportService = npcExportService;
     }
 
-    public async Task<NpcStat?> GenerateNpcAsync(NpcRequest npc)
+    public async Task<BaseCharacter?> GenerateNpcAsync(NpcRequest npcRequest)
     {
-        if (npc == null) return null;
+        if (npcRequest == null) return null;
 
         var prompt = _generatePromts.GenerateNpc(npc);
 
@@ -39,12 +39,9 @@ public class NpcService : INpcService
 
         string? aiReply = await SendRequestToGeminiAsync(prompt, schema);
 
-        if(string.IsNullOrWhiteSpace(aiReply)) return null;
+        var schema = AiSchemaBuilder.BuildSchemaForNpc();
 
-        NpcStat? npcStat = JsonSerializer.Deserialize<NpcStat>(aiReply, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        });
+        var npcStat = await SendRequestToGeminiAsync<BaseCharacter>(prompt, schema);
 
         if(npcStat == null) return null;
 
@@ -57,7 +54,7 @@ public class NpcService : INpcService
 
         await MappingInventoryAsync(npcStat);
 
-        await _npcExportService.ExportToFvttJsonAsync(npcStat);
+        await _npcExportService.ExportToFvttJsonAsync(npcStat, "База");
 
         return npcStat;
     }
@@ -105,25 +102,37 @@ public class NpcService : INpcService
             return null;
         }
 
-        return aiReply;
+        T? result = JsonSerializer.Deserialize<T>(aiReply, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        });
+
+        if(result == null)
+        {
+            _logger.LogError("Json Deserialize return null");
+            return null;
+        }
+
+        return result;
     }
 
-    private async Task MappingInventoryAsync(NpcStat npcStat)
+    private async Task MappingInventoryAsync(BaseCharacter baseCharacter)
     {
-        if(npcStat.InventoryTags == null) return;
+        if(baseCharacter.InventoryTags == null) return;
 
-        foreach(var item in npcStat.InventoryTags)
+        foreach(var item in baseCharacter.InventoryTags)
         {
             InventoryGenerationRequest generationRequest = new InventoryGenerationRequest
             {
-                ClassName = npcStat.Class,
-                Rarity = item.Rarity
+                ClassName = baseCharacter.Class,
+                Rarity = item.Rarity,
+                Type = item.Type
             };
 
             var generatedItem = await _itemService.GetItemFromLocalDump(generationRequest);
             if (generatedItem != null)
             {
-                npcStat.InventoryDto.Add(generatedItem);
+                baseCharacter.InventoryDto.Add(generatedItem.DeepClone());
             }
         }
     }
