@@ -33,7 +33,11 @@ public class NpcService : INpcService
     {
         if (npcRequest == null) return null;
 
-        var prompt = _generatePromts.GenerateNpc(npcRequest);
+        var prompt = _generatePromts.GenerateNpc(npc);
+
+        var schema = AiSchemaBuilder.BuildSchema();
+
+        string? aiReply = await SendRequestToGeminiAsync(prompt, schema);
 
         var schema = AiSchemaBuilder.BuildSchemaForNpc();
 
@@ -55,34 +59,7 @@ public class NpcService : INpcService
         return npcStat;
     }
 
-    public async Task<MerchantShop?> GenerateMerchantAsync(MerchantRequest merchantRequest)
-    {
-        if (merchantRequest == null) return null;
-
-        string prompt = _generatePromts.GenerateMerchant(merchantRequest);
-
-        ResponseSchema schema = AiSchemaBuilder.BuildSchemaForMerchant();
-
-        var aiReply = await SendRequestToGeminiAsync<MerchantShop>(prompt, schema);
-
-        if (aiReply == null) return null;
-
-        aiReply.ImagePath = GetAvatarFromDump(aiReply.Class);
-
-        if (string.IsNullOrWhiteSpace(aiReply.ImagePath))
-        {
-            aiReply.ImagePath = Path.Combine(_baseAvatarUrlPath, "default_npc.png");
-        }
-
-        await MappingInventoryAsync(aiReply);
-
-        await _npcExportService.ExportToFvttJsonAsync(aiReply, "Магазин");
-
-        return aiReply;
-    }
-
-    private async Task<T?> SendRequestToGeminiAsync<T>(string prompt, ResponseSchema schema)
-    where T : class
+    private async Task<string?> SendRequestToGeminiAsync(string prompt, ResponseSchema schema)
     {
         string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={_apiKey}";
 
