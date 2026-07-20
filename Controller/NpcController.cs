@@ -28,17 +28,4 @@ public class NpcController : ControllerBase
 
         return Ok(result);
     }
-
-    [HttpPost("generate-merchant")]
-    public async Task<IActionResult> MerchantGenerate([FromBody]MerchantRequest npcRequest)
-    {
-        var result = await _npcService.GenerateMerchantAsync(npcRequest);
-
-        if(result == null)
-        {
-            return BadRequest();
-        }
-
-        return Ok(result);
-    }
 }

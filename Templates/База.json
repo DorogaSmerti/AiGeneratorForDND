@@ -18,20 +18,6 @@
         "bonuses": {
           "check": "",
           "save": ""
-        },
-        "check": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
-        },
-        "save": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
         }
       },
       "dex": {
@@ -41,20 +27,6 @@
         "bonuses": {
           "check": "",
           "save": ""
-        },
-        "check": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
-        },
-        "save": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
         }
       },
       "con": {
@@ -64,20 +36,6 @@
         "bonuses": {
           "check": "",
           "save": ""
-        },
-        "check": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
-        },
-        "save": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
         }
       },
       "int": {
@@ -87,20 +45,6 @@
         "bonuses": {
           "check": "",
           "save": ""
-        },
-        "check": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
-        },
-        "save": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
         }
       },
       "wis": {
@@ -110,20 +54,6 @@
         "bonuses": {
           "check": "",
           "save": ""
-        },
-        "check": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
-        },
-        "save": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
         }
       },
       "cha": {
@@ -133,20 +63,6 @@
         "bonuses": {
           "check": "",
           "save": ""
-        },
-        "check": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
-        },
-        "save": {
-          "roll": {
-            "min": null,
-            "max": null,
-            "mode": 0
-          }
         }
       }
     },
@@ -446,10 +362,6 @@
       }
     },
     "attributes": {
-      "ac": {
-        "calc": "default",
-        "flat": null
-      },
       "init": {
         "ability": "",
         "roll": {
@@ -460,20 +372,22 @@
         "bonus": ""
       },
       "movement": {
+        "burrow": null,
+        "climb": null,
+        "fly": null,
+        "swim": null,
+        "walk": null,
         "units": null,
-        "hover": false,
-        "ignoredDifficultTerrain": []
+        "hover": false
       },
       "attunement": {
         "max": 3
       },
       "senses": {
-        "ranges": {
-          "blindsight": null,
-          "darkvision": null,
-          "tremorsense": null,
-          "truesight": null
-        },
+        "darkvision": null,
+        "blindsight": null,
+        "tremorsense": null,
+        "truesight": null,
         "units": null,
         "special": ""
       },
@@ -491,35 +405,28 @@
         },
         "limit": 1
       },
-      "loyalty": {},
+      "ac": {
+        "calc": "default"
+      },
       "hd": {
         "spent": 0
       },
       "hp": {
-        "max": null,
+        "value": 10,
+        "max": 10,
         "temp": 0,
         "tempmax": 0,
-        "value": null,
         "formula": ""
       },
       "death": {
+        "ability": "",
         "roll": {
           "min": null,
           "max": null,
           "mode": 0
         },
         "success": 0,
-        "failure": 0,
-        "bonuses": {
-          "save": ""
-        }
-      },
-      "price": {
-        "value": null,
-        "denomination": "gp"
-      },
-      "spell": {
-        "level": 0
+        "failure": 0
       }
     },
     "details": {
@@ -533,28 +440,22 @@
       "flaw": "",
       "race": "{{Race}}",
       "type": {},
-      "habitat": {
-        "value": [],
-        "custom": ""
-      },
-      "cr": "{{ChallengeRating}}",
-      "treasure": {
-        "value": []
-      }
+      "environment": "",
+      "cr": 1,
+      "spellLevel": 0
     },
     "resources": {
       "legact": {
-        "max": 0,
-        "spent": 0
+        "value": 0,
+        "max": 0
       },
       "legres": {
-        "max": 0,
-        "spent": 0
+        "value": 0,
+        "max": 0
       },
       "lair": {
         "value": false,
-        "initiative": null,
-        "inside": false
+        "initiative": null
       }
     },
     "source": {
@@ -564,19 +465,19 @@
     "traits": {
       "size": "med",
       "di": {
+        "bypasses": [],
         "value": [],
-        "custom": "",
-        "bypasses": []
+        "custom": ""
       },
       "dr": {
+        "bypasses": [],
         "value": [],
-        "custom": "",
-        "bypasses": []
+        "custom": ""
       },
       "dv": {
+        "bypasses": [],
         "value": [],
-        "custom": "",
-        "bypasses": []
+        "custom": ""
       },
       "dm": {
         "amount": {},
@@ -588,26 +489,26 @@
       },
       "languages": {
         "value": [],
-        "custom": "",
-        "communication": {}
-      },
-      "important": false
+        "custom": ""
+      }
     }
   },
   "prototypeToken": {
-    "name": "Non-Player Character",
+    "name": "bv",
     "displayName": 0,
     "actorLink": false,
     "width": 1,
     "height": 1,
-    "depth": 1,
     "texture": {
-      "src": "systems/dnd5e/icons/svg/actors/npc.svg",
+      "src": "icons/svg/mystery-man.svg",
       "anchorX": 0.5,
       "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
       "fit": "contain",
       "scaleX": 1,
       "scaleY": 1,
+      "rotation": 0,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -658,7 +559,7 @@
       "saturation": 0,
       "contrast": 0
     },
-    "detectionModes": {},
+    "detectionModes": [],
     "occludable": {
       "radius": 0
     },
@@ -686,7 +587,7 @@
     "appendNumber": false,
     "prependAdjective": false
   },
-  "items": "{{Items}}",
+  "items": {{Items}},
   "effects": [],
   "folder": null,
   "flags": {
@@ -721,21 +622,21 @@
     }
   },
   "_stats": {
-    "coreVersion": "14.364",
-    "systemId": "dnd5e",
-    "systemVersion": "5.3.3",
-    "createdTime": 1784473020501,
-    "modifiedTime": 1784473020505,
-    "lastModifiedBy": "T2dq9gAjaq1MYgEj",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "",
-      "uuid": "Actor.oj2QCDeuO79SF6ib",
-      "coreVersion": "14.364",
+      "uuid": "Actor.NVRDbVUJnARFbu6L",
+      "coreVersion": "13.350",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
-    }
+      "systemVersion": "4.1.2"
+    },
+    "coreVersion": "13.350",
+    "systemId": "dnd5e",
+    "systemVersion": "4.1.2",
+    "createdTime": 1780420812376,
+    "modifiedTime": 1780421490995,
+    "lastModifiedBy": "T2dq9gAjaq1MYgEj"
   },
   "ownership": {
     "default": 0

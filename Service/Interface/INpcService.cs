@@ -4,6 +4,5 @@ namespace StoryTracker.Service.Interface;
 
 public interface INpcService
 {
-    Task<BaseCharacter> GenerateNpcAsync(NpcRequest npc);
-    Task<MerchantShop> GenerateMerchantAsync(MerchantRequest npc);
+    Task<NpcStat> GenerateNpcAsync(NpcRequest npc);
 }
