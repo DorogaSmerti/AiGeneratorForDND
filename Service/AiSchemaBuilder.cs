@@ -65,8 +65,8 @@ public static class AiSchemaBuilder
                         Required = new List<string> { "Type", "Rarity" },
                         Properties = new Dictionary<string, SchemaProperty>
                         {
-                            { "Type", new SchemaProperty { Type = "STRING", Description = "Строго одно: weapon, consumable, equipment, magic" } },
-                            { "Rarity", new SchemaProperty { Type = "STRING", Description = "Строго одно: common, uncommon, rare, very rare, legendary, artifact" } }
+                            { "Type", new SchemaProperty { Type = "STRING", Description = "Строго одно: weapon, consumable, equipment, loot, mgc" } },
+                            { "Rarity", new SchemaProperty { Type = "STRING", Description = "Строго одно: common, uncommon, rare, veryRare, legendary, artifact" } }
                         }
                     }
                 }
@@ -96,7 +96,7 @@ public static class AiSchemaBuilder
         return new ResponseSchema
         {
             Type = "OBJECT",
-            Required = new List<string> { "Name", "Race", "Class", "Description", "ShopName", "ShopDescription", "PriceModifier", "InventoryTags" },
+            Required = new List<string> { "Name", "Race", "Class", "Description", "ShopName", "ShopDescription", "MerchantDescription", "PriceModifier", "InventoryTags" },
             Properties = properties
         };
     }

@@ -42,7 +42,7 @@ public class GeneratePromts : IGeneratePromts
         userPrompt.AppendLine("2. Since this is an NPC (not a player character), DO NOT generate standard starting class equipment.");
         userPrompt.AppendLine("3. Instead, invent 3-4 thematic personal items appropriate for their profession/social status (e.g., keys, a letter, specific tools, or a unique trinket) and place them in the 'Inventory' array.");
         userPrompt.AppendLine("4. Output MUST strictly match the provided JSON schema. Do not include any markdown formatting outside the JSON.");
-        userPrompt.AppendLine("5. In the 'InventoryTags' array, generate a list of 1-3 objects. Each object MUST strictly contain two fields: 'Type' and 'Rarity'. Allowed values for 'Type' are: 'weapon', 'consumable', 'equipment', 'magic'. Allowed values for 'Rarity' are: 'common', 'uncommon', 'rare', 'very rare', 'legendary', 'artifact'. Choose these tags logically based on the NPC's class and level.");
+        userPrompt.AppendLine("5. In the 'InventoryTags' array, generate a list of 1-3 objects. Each object MUST strictly contain two fields: 'type' and 'rarity'. Allowed values for 'type' are: 'weapon', 'consumable', 'equipment', 'mgc', 'loot'. Allowed values for 'rarity' are: 'common', 'uncommon', 'rare', 'veryRare', 'legendary', 'artifact'. Choose these tags logically based on the NPC's class and level.");
         userPrompt.AppendLine($@" ### INVENTORY GENERATION RULES (Inventory Tags)
                                 You must strictly generate the 'inventoryTags' array based on the character's danger level (Challenge Rating = {npc.ChallengeRating}). 
                                 Apply STRICT limitations for the 'rarity' field depending on the current CR ({npc.ChallengeRating}):
@@ -88,12 +88,12 @@ public class GeneratePromts : IGeneratePromts
         3. **MerchantName & MerchantDescription**: If MerchantName was not provided, generate a fitting name. Provide a description of their appearance, race, behavior, and attitude towards customers.
         4. **InventoryTags**: Generate a list of item tags to populate the shop's stock.
         - The type/category of generated items must match the ShopType (e.g., Alchemist sells 'consumable'; Blacksmith sells 'weapon', 'equipment'; Magic Shop sells 'mgc', 'consumable').
-        - Use only the allowed Type values: 'weapon', 'consumable', 'equipment', 'loot'.
-        - Use only the allowed Rarity values: 'common', 'uncommon', 'rare', 'very rare', 'legendary', 'artifact'.
+        - Use only the allowed Type values: 'weapon', 'consumable', 'equipment', 'loot', 'mgc'.
+        - Use only the allowed Rarity values: 'common', 'uncommon', 'rare', 'veryRare', 'legendary', 'artifact'.
         - The rarity of items must match the Wealth Level:
             - 'Poor' (village shop): 90% common, 10% uncommon. No rare/legendary items.
             - 'Medium' (town store): 70% common, 25% uncommon, 5% rare.
-            - 'Rich' (capital city or magic academy): 40% common, 40% uncommon, 15% rare, 5% very rare/legendary.");
+            - 'Rich' (capital city or magic academy): 40% common, 40% uncommon, 15% rare, 5% veryRare/legendary.");
 
         return userPrompt.ToString();
     }

@@ -21,7 +21,7 @@ public class ItemService(IItemDataStorage _storage, ILogger<ItemService> _logger
 
         var items = _storage.GetItems();
 
-        _logger.LogInformation("all items count: {Count}", items.Count);
+        _logger.LogInformation("chosen pool: {pool}", chosenPoolName);
 
         var suitableItems = items.Where(item =>
             string.Equals((string?)item["system"]?["rarity"], inventoryTags.Rarity, StringComparison.OrdinalIgnoreCase)
