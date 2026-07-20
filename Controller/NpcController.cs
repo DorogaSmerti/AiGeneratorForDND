@@ -21,12 +21,12 @@ public class NpcController : ControllerBase
     {
         var result = await _npcService.GenerateNpcAsync(npcRequest);
 
-        if(result == null)
+        if(!result.IsSuccess)
         {
-            return BadRequest();
+            return BadRequest(result.Error);
         }
 
-        return Ok(result);
+        return Ok(result.Value);
     }
 
     [HttpPost("generate-merchant")]
@@ -34,11 +34,11 @@ public class NpcController : ControllerBase
     {
         var result = await _npcService.GenerateMerchantAsync(npcRequest);
 
-        if(result == null)
+        if(!result.IsSuccess)
         {
-            return BadRequest();
+            return BadRequest(result.Error);
         }
 
-        return Ok(result);
+        return Ok(result.Value);
     }
 }
