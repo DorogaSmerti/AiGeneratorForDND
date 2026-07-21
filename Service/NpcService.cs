@@ -29,17 +29,19 @@ public class NpcService : INpcService
         _npcExportService = npcExportService;
     }
 
-    public async Task<BaseCharacter?> GenerateNpcAsync(NpcRequest npcRequest)
+    public async Task<Result<BaseCharacter>> GenerateNpcAsync(NpcRequest npcRequest)
     {
-        if (npcRequest == null) return null;
+        if (npcRequest == null) return Result<BaseCharacter>.Failure(DomainErrors.Gpt.InvalidRequest);
 
         var prompt = _generatePromts.GenerateNpc(npcRequest);
 
         var schema = AiSchemaBuilder.BuildSchemaForNpc();
 
-        var npcStat = await SendRequestToGeminiAsync<BaseCharacter>(prompt, schema);
+        var aiResponse = await SendRequestToGeminiAsync<BaseCharacter>(prompt, schema);
 
-        if(npcStat == null) return null;
+        if(!aiResponse.IsSuccess) return Result<BaseCharacter>.Failure(aiResponse.Error!);
+        
+        var npcStat = aiResponse.Value!;
 
         npcStat.ImagePath = GetAvatarFromDump(npcStat.Class);
 
@@ -52,36 +54,38 @@ public class NpcService : INpcService
 
         await _npcExportService.ExportToFvttJsonAsync(npcStat, "База");
 
-        return npcStat;
+        return Result<BaseCharacter>.Success(npcStat);
     }
 
-    public async Task<MerchantShop?> GenerateMerchantAsync(MerchantRequest merchantRequest)
+    public async Task<Result<MerchantShop>> GenerateMerchantAsync(MerchantRequest merchantRequest)
     {
-        if (merchantRequest == null) return null;
+        if (merchantRequest == null) return Result<MerchantShop>.Failure(DomainErrors.Gpt.InvalidRequest);
 
         string prompt = _generatePromts.GenerateMerchant(merchantRequest);
 
         ResponseSchema schema = AiSchemaBuilder.BuildSchemaForMerchant();
 
-        var aiReply = await SendRequestToGeminiAsync<MerchantShop>(prompt, schema);
+        var aiResponse = await SendRequestToGeminiAsync<MerchantShop>(prompt, schema);
 
-        if (aiReply == null) return null;
+        if (!aiResponse.IsSuccess) return Result<MerchantShop>.Failure(aiResponse.Error!);
 
-        aiReply.ImagePath = GetAvatarFromDump(aiReply.Class);
+        var merchant = aiResponse.Value!;
 
-        if (string.IsNullOrWhiteSpace(aiReply.ImagePath))
+        merchant.ImagePath = GetAvatarFromDump(merchant.Class);
+
+        if (string.IsNullOrWhiteSpace(merchant.ImagePath))
         {
-            aiReply.ImagePath = Path.Combine(_baseAvatarUrlPath, "default_npc.png");
+            merchant.ImagePath = Path.Combine(_baseAvatarUrlPath, "default_npc.png");
         }
 
-        await MappingInventoryAsync(aiReply);
+        await MappingInventoryAsync(merchant);
 
-        await _npcExportService.ExportToFvttJsonAsync(aiReply, "Магазин");
+        await _npcExportService.ExportToFvttJsonAsync(merchant, "Магазин");
 
-        return aiReply;
+        return Result<MerchantShop>.Success(merchant);
     }
 
-    private async Task<T?> SendRequestToGeminiAsync<T>(string prompt, ResponseSchema schema)
+    private async Task<Result<T>> SendRequestToGeminiAsync<T>(string prompt, ResponseSchema schema)
     where T : class
     {
         string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key={_apiKey}";
@@ -112,7 +116,7 @@ public class NpcService : INpcService
             _logger.LogError("Error in GEMINI request {StatusCode}. Details: {ErrorContent}", 
                 responseMessage.StatusCode, 
                 errorContent);
-            return null;
+            return Result<T>.Failure(DomainErrors.Gpt.ApiError);
         }
 
         var jsonDocument = await responseMessage.Content.ReadFromJsonAsync<JsonNode>();
@@ -122,7 +126,7 @@ public class NpcService : INpcService
         if (string.IsNullOrWhiteSpace(aiReply))
         {
             _logger.LogError("Ai return null");
-            return null;
+            return Result<T>.Failure(DomainErrors.Gpt.GenerationFailed);
         }
 
         T? result = JsonSerializer.Deserialize<T>(aiReply, new JsonSerializerOptions
@@ -133,10 +137,10 @@ public class NpcService : INpcService
         if(result == null)
         {
             _logger.LogError("Json Deserialize return null");
-            return null;
+            return Result<T>.Failure(DomainErrors.Gpt.ParseError);
         }
 
-        return result;
+        return Result<T>.Success(result);
     }
 
     private async Task MappingInventoryAsync(BaseCharacter baseCharacter)
@@ -153,14 +157,14 @@ public class NpcService : INpcService
             };
 
             var generatedItem = await _itemService.GetItemFromLocalDump(generationRequest);
-            if (generatedItem != null)
+            if (generatedItem.IsSuccess)
             {
-                baseCharacter.InventoryDto.Add(generatedItem.DeepClone());
+                baseCharacter.InventoryDto.Add(generatedItem.Value!.DeepClone());
             }
         }
     }
 
-    private string? GetAvatarFromDump(string npcClass)
+    private string? GetAvatarFromDump(string? npcClass)
     {
         if(string.IsNullOrWhiteSpace(npcClass)) return null;
 

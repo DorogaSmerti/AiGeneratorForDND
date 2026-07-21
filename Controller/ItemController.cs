@@ -19,11 +19,11 @@ public class ItemController : ControllerBase
     public async Task<IActionResult> ParseItem([FromBody] InventoryGenerationRequest inventoryGenerationRequest)
     {
         var parsedItem = await _itemService.GetItemFromLocalDump(inventoryGenerationRequest);
-        if (parsedItem == null)
+        if (!parsedItem.IsSuccess)
         {
-            return NotFound();
+            return BadRequest(parsedItem.Error);
         }
 
-        return Ok(parsedItem);
+        return Ok(parsedItem.Value);
     }
 }
