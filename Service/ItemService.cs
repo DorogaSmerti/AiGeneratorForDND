@@ -7,7 +7,7 @@ namespace StoryTracker.Service;
 public class ItemService(IItemDataStorage _storage, ILogger<ItemService> _logger) : IItemService
 {
 
-    public Task<JsonNode?> GetItemFromLocalDump(InventoryGenerationRequest inventoryTags)
+    public async Task<Result<JsonNode?>> GetItemFromLocalDump(InventoryGenerationRequest inventoryTags)
     {
         Random random = new Random();
 
@@ -37,9 +37,11 @@ public class ItemService(IItemDataStorage _storage, ILogger<ItemService> _logger
 
         _logger.LogInformation("suitable items count: {Count}", suitableItems.Count);
 
-        if(suitableItems.Count == 0) return Task.FromResult<JsonNode?>(null); 
+        if(suitableItems.Count == 0) return Result<JsonNode?>.Failure(DomainErrors.Item.NotFound);
 
-        return Task.FromResult(suitableItems[random.Next(suitableItems.Count)]);
+        var chosenItem = suitableItems[random.Next(suitableItems.Count)];
+        chosenItem!["system"]!["quantity"] = random.Next(1,10);
 
+        return Result<JsonNode?>.Success(chosenItem);
     }
 }

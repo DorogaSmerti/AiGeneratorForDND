@@ -157,9 +157,9 @@ public class NpcService : INpcService
             };
 
             var generatedItem = await _itemService.GetItemFromLocalDump(generationRequest);
-            if (generatedItem != null)
+            if (generatedItem.IsSuccess)
             {
-                baseCharacter.InventoryDto.Add(generatedItem.DeepClone());
+                baseCharacter.InventoryDto.Add(generatedItem.Value!.DeepClone());
             }
         }
     }

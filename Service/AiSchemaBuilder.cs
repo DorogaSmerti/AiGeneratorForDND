@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using StoryTracker.Models;
 
 namespace StoryTracker.Service;

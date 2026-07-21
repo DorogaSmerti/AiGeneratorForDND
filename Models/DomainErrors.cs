@@ -9,4 +9,9 @@ public static class DomainErrors
         public static readonly Error ApiError = new("Gpt.ApiError", "Ошибка при обращении к API Gemini.");
         public static readonly Error ParseError = new("Gpt.ParseError", "Не удалось распарсить JSON ответ от нейросети.");
     }
+    
+    public static class Item
+    {
+        public static readonly Error NotFound = new("Item.NotFound", "Предмет не найден.");
+    }
 }
