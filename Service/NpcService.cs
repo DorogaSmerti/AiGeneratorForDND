@@ -53,8 +53,6 @@ public class NpcService : INpcService
 
         await MappingInventoryAsync(npcStat);
 
-        await _npcExportService.ExportToFvttJsonAsync(npcStat, "База");
-
         return Result<BaseCharacter>.Success(npcStat);
     }
 
@@ -80,8 +78,6 @@ public class NpcService : INpcService
         }
 
         await MappingInventoryAsync(merchant);
-
-        await _npcExportService.ExportToFvttJsonAsync(merchant, "Магазин");
 
         return Result<MerchantShop>.Success(merchant);
     }

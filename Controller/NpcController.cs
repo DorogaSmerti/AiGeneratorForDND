@@ -54,6 +54,17 @@ public class NpcController : ControllerBase
             return BadRequest(result.Error);
         }
 
-        return Ok(result.Value);
+        string fvvtJson = await _npcExportService.ExportToFvttJsonAsync(result.Value!, "Магазин");
+
+        if(_webHostEnvironment.IsDevelopment())
+        {
+            await _npcExportService.ExportInJsonFile(fvvtJson, result.Value!);
+            return Ok(result.Value);
+        }
+
+        byte[] fileByte = System.Text.Encoding.UTF8.GetBytes(fvvtJson);
+        string fileName = $"{result.Value.Name ?? "Npc"}.json";
+
+        return File(fileByte, "application/json", fileName);
     }
 }
