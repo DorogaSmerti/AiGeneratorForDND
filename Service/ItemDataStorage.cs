@@ -51,7 +51,7 @@ public class ItemDataStorage : IItemDataStorage
         { "Bard", ["mgc", "fin", "consumable"] },
         { "Druid", ["consumable", "consumable", "mgc"] },
         { "Ranger", ["fin", "weapon", "equipment"] },
-
+        
         { "Alchemist", ["consumable"] },
         { "Blacksmith", ["weapon", "equipment"] },
         { "Merchant_Magic", ["mgc", "consumable"] },

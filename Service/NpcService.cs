@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using StoryTracker.Models;
@@ -40,7 +41,7 @@ public class NpcService : INpcService
         var aiResponse = await SendRequestToGeminiAsync<BaseCharacter>(prompt, schema);
 
         if(!aiResponse.IsSuccess) return Result<BaseCharacter>.Failure(aiResponse.Error!);
-        
+
         var npcStat = aiResponse.Value!;
 
         npcStat.ImagePath = GetAvatarFromDump(npcStat.Class);
@@ -69,7 +70,7 @@ public class NpcService : INpcService
 
         if (!aiResponse.IsSuccess) return Result<MerchantShop>.Failure(aiResponse.Error!);
 
-        var merchant = aiResponse.Value!;
+        var merchant = aiResponse.Value;
 
         merchant.ImagePath = GetAvatarFromDump(merchant.Class);
 

@@ -5,4 +5,5 @@ namespace StoryTracker.Service.Interface;
 public interface INpcExportService
 {
     Task<string> ExportToFvttJsonAsync(BaseCharacter npcJson, string templateName);
+    Task ExportInJsonFile(string fvttJson, BaseCharacter baseCharacter);
 }
