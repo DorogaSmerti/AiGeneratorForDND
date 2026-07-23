@@ -25,11 +25,7 @@ public class NpcExportService : INpcExportService
             ReplaceMerchantPlaceholders(sb, merchantShop);
         }
 
-        string fvttJson = sb.ToString();
-
-        await ExportInJsonFile(fvttJson, npcJson);
-
-        return fvttJson;
+        return sb.ToString();
     }
 
     private static void ReplaceCommonPlaceholders(StringBuilder sb, BaseCharacter npcJson)
@@ -71,7 +67,7 @@ public class NpcExportService : INpcExportService
         sb.Replace("\"{{PriceModifier}}\"", merchantShop.PriceModifier.ToString(System.Globalization.CultureInfo.InvariantCulture));
     }
 
-    private async Task ExportInJsonFile(string fvttJson, BaseCharacter baseCharacter)
+    public async Task ExportInJsonFile(string fvttJson, BaseCharacter baseCharacter)
     {
         var exportDir = Path.Combine(Directory.GetCurrentDirectory(), "Export");
 

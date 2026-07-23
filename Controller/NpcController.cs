@@ -10,10 +10,14 @@ namespace StoryTracker.Controller;
 public class NpcController : ControllerBase
 {
     private readonly INpcService _npcService;
+    private readonly INpcExportService _npcExportService;
+    private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public NpcController(INpcService npcService)
+    public NpcController(INpcService npcService, INpcExportService npcExportService, IWebHostEnvironment webHostEnvironment)
     {
         _npcService = npcService;
+        _npcExportService = npcExportService;
+        _webHostEnvironment = webHostEnvironment;
     }
 
     [HttpPost("generate")]
@@ -26,7 +30,18 @@ public class NpcController : ControllerBase
             return BadRequest(result.Error);
         }
 
-        return Ok(result.Value);
+        string fvvtJson = await _npcExportService.ExportToFvttJsonAsync(result.Value!, "База");
+
+        if(_webHostEnvironment.IsDevelopment())
+        {
+            await _npcExportService.ExportInJsonFile(fvvtJson, result.Value!);
+            return Ok(result.Value);
+        }
+
+        byte[] fileByte = System.Text.Encoding.UTF8.GetBytes(fvvtJson);
+        string fileName = $"{result.Value.Name ?? "Npc"}.json";
+
+        return File(fileByte, "application/json", fileName);
     }
 
     [HttpPost("generate-merchant")]
@@ -39,6 +54,17 @@ public class NpcController : ControllerBase
             return BadRequest(result.Error);
         }
 
-        return Ok(result.Value);
+        string fvvtJson = await _npcExportService.ExportToFvttJsonAsync(result.Value!, "Магазин");
+
+        if(_webHostEnvironment.IsDevelopment())
+        {
+            await _npcExportService.ExportInJsonFile(fvvtJson, result.Value!);
+            return Ok(result.Value);
+        }
+
+        byte[] fileByte = System.Text.Encoding.UTF8.GetBytes(fvvtJson);
+        string fileName = $"{result.Value.Name ?? "Npc"}.json";
+
+        return File(fileByte, "application/json", fileName);
     }
 }
