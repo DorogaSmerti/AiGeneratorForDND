@@ -97,4 +97,33 @@ public class GeneratePromts : IGeneratePromts
 
         return userPrompt.ToString();
     }
+
+    public string GenerateFaction(FactionRequest factionRequest)
+    {
+        var userPrompt = new StringBuilder();
+
+        userPrompt.AppendLine("You are an expert Dungeon Master and Worldbuilder for Dungeons & Dragons 5e.");
+        userPrompt.AppendLine("Create a detailed, atmospheric, and compelling Faction/Guild for a D&D 5e campaign based on the following user parameters:");
+
+        if (!string.IsNullOrWhiteSpace(factionRequest.Name))
+            userPrompt.AppendLine($"- Specified Name: {factionRequest.Name}");
+
+        if (!string.IsNullOrWhiteSpace(factionRequest.Type))
+            userPrompt.AppendLine($"- Faction Type/Category: {factionRequest.Type}");
+
+        if (!string.IsNullOrWhiteSpace(factionRequest.Reputation))
+            userPrompt.AppendLine($"- Reputation/Standing: {factionRequest.Reputation}");
+
+        if (!string.IsNullOrWhiteSpace(factionRequest.UserWishes))
+            userPrompt.AppendLine($"- Additional User Wishes: {factionRequest.UserWishes}");
+
+        userPrompt.AppendLine("\nInstructions:");
+        userPrompt.AppendLine("1. **Faction Name & Description**: Generate a memorable, thematic name if not provided. Describe the faction's history, ideology, and influence in the region.");
+        userPrompt.AppendLine("2. **Goal & Motivation**: Define their ultimate objective and what drives them.");
+        userPrompt.AppendLine("3. **RelationshipToPlayer**: Explain how they view adventuring parties and potential allies or enemies.");
+        userPrompt.AppendLine("4. **Headquarters**: Describe their main base, guildhall, or secret hideout.");
+        userPrompt.AppendLine("5. **Leader (Full NPC)**: Generate a complete D&D 5e character for the Faction Leader, including Name, Race, Class, Stats, Alignment, Description, HookOrSecret, and Biography.");
+
+        return userPrompt.ToString();
+    }
 }

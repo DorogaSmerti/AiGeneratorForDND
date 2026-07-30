@@ -99,4 +99,35 @@ public static class AiSchemaBuilder
             Properties = properties
         };
     }
+
+    public static ResponseSchema BuildSchemaForFaction()
+    {
+        var properties = new Dictionary<string, SchemaProperty>
+        {
+            { "Name", new SchemaProperty { Type = "STRING", Description = "Название фракции" } },
+            { "Description", new SchemaProperty { Type = "STRING", Description = "Описание фракции" } },
+            { "Goal", new SchemaProperty { Type = "STRING", Description = "Цель фракции" } },
+            { "Motivation", new SchemaProperty { Type = "STRING", Description = "Мотивация фракции" } },
+            { "RelationshipToPlayer", new SchemaProperty { Type = "STRING", Description = "Отношение фракции к игроку" } },
+            { "Reputation", new SchemaProperty { Type = "INTEGER", Description = "Репутация фракции" } },
+            { "Headquarters", new SchemaProperty { Type = "STRING", Description = "Штаб-квартира фракции" } },
+            { "Leader", new SchemaProperty 
+                { 
+                    Type = "OBJECT", 
+                    Description = "Полная карточка лидера фракции",
+                    Properties = GetBaseCharacterProperties()
+                }
+            }
+        };
+
+        return new ResponseSchema
+        {
+            Type = "OBJECT",
+            Required = new List<string>
+            {
+                "Name", "Description", "Goal", "Motivation", "RelationshipToPlayer", "Reputation", "Headquarters", "Leader"
+            },
+            Properties = properties
+        };
+    }
 }

@@ -2,6 +2,8 @@ using Scalar.AspNetCore;
 using StoryTracker.Service;
 using StoryTracker.Service.Interface;
 
+DotNetEnv.Env.Load();
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();

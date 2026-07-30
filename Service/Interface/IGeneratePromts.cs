@@ -6,4 +6,5 @@ public interface IGeneratePromts
 {
     string GenerateNpc(NpcRequest npc);
     string GenerateMerchant(MerchantRequest merchantRequest);
+    string GenerateFaction(FactionRequest factionRequest);
 }
