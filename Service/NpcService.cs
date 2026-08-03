@@ -5,21 +5,16 @@ namespace StoryTracker.Service;
 
 public class NpcService : INpcService
 {
+    private readonly INpcEnrichmentService _npcEnrichmentService;
     private readonly IAiService _aiService;
     private readonly ILogger<NpcService> _logger;
     private readonly IGeneratePromts _generatePromts;
-    private readonly IItemService _itemService;
-    private readonly IConfiguration _configuration;
-    private readonly string _baseAvatarUrlPath;
-
-    public NpcService(IAiService aiService, IItemService itemService, IGeneratePromts generatePromts, IConfiguration configuration, ILogger<NpcService> logger)
+    public NpcService(INpcEnrichmentService npcEnrichmentService, IAiService aiService, IGeneratePromts generatePromts, ILogger<NpcService> logger)
     {
+        _npcEnrichmentService = npcEnrichmentService;
         _aiService = aiService;
         _logger = logger;
-        _itemService = itemService;
         _generatePromts = generatePromts;
-        _configuration = configuration;
-        _baseAvatarUrlPath = _configuration["AvatarSettings:AvatarPath"] ?? throw new ArgumentNullException("UrlPath configuration is missing.");
     }
 
     public async Task<Result<BaseCharacter>> GenerateNpcAsync(NpcRequest npcRequest)
@@ -36,14 +31,9 @@ public class NpcService : INpcService
 
         var npcStat = aiResponse.Value!;
 
-        npcStat.ImagePath = GetAvatarFromDump(npcStat.Class);
+        npcStat.ImagePath = _npcEnrichmentService.GetAvatarFromDump(npcStat.Class);
 
-        if (string.IsNullOrWhiteSpace(npcStat.ImagePath))
-        {
-            npcStat.ImagePath = Path.Combine(_baseAvatarUrlPath, "default_npc.png"); 
-        }
-
-        await MappingInventoryAsync(npcStat);
+        await _npcEnrichmentService.MappingInventoryAsync(npcStat);
 
         return Result<BaseCharacter>.Success(npcStat);
     }
@@ -62,47 +52,11 @@ public class NpcService : INpcService
 
         var merchant = aiResponse.Value;
 
-        merchant.ImagePath = GetAvatarFromDump(merchant.Class);
+        merchant.ImagePath = _npcEnrichmentService.GetAvatarFromDump(merchant.Class);
 
-        if (string.IsNullOrWhiteSpace(merchant.ImagePath))
-        {
-            merchant.ImagePath = Path.Combine(_baseAvatarUrlPath, "default_npc.png");
-        }
-
-        await MappingInventoryAsync(merchant);
+        await _npcEnrichmentService.MappingInventoryAsync(merchant);
 
         return Result<MerchantShop>.Success(merchant);
     }
 
-    private async Task MappingInventoryAsync(BaseCharacter baseCharacter)
-    {
-        if(baseCharacter.InventoryTags == null) return;
-
-        foreach(var item in baseCharacter.InventoryTags)
-        {
-            InventoryGenerationRequest generationRequest = new InventoryGenerationRequest
-            {
-                ClassName = baseCharacter.Class,
-                Rarity = item.Rarity,
-                Type = item.Type
-            };
-
-            var generatedItem = await _itemService.GetItemFromLocalDump(generationRequest);
-            if (generatedItem.IsSuccess)
-            {
-                baseCharacter.InventoryDto.Add(generatedItem.Value!.DeepClone());
-            }
-        }
-    }
-
-    private string? GetAvatarFromDump(string? npcClass)
-    {
-        if(string.IsNullOrWhiteSpace(npcClass)) return null;
-
-        string fileName = $"{npcClass.ToLower()}.png";
-
-        string fullPath = Path.Combine(_baseAvatarUrlPath, fileName);
-
-        return fullPath;
-    }
 }

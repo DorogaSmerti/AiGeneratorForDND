@@ -15,7 +15,7 @@ builder.Services.AddScoped<IGeneratePromts, GeneratePromts>();
 builder.Services.AddScoped<INpcService, NpcService>();
 builder.Services.AddScoped<INpcExportService, NpcExportService>();
 builder.Services.AddScoped<IItemService, ItemService>();
-builder.Services.AddScoped<IAiService, AiService>();
+builder.Services.AddScoped<INpcEnrichmentService, NpcEnrichmentService>();
 builder.Services.AddSingleton<IItemDataStorage, ItemDataStorage>();
 
 builder.Services.AddHttpClient<IAiService, AiService>();
