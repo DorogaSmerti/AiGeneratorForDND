@@ -4,6 +4,20 @@ namespace StoryTracker.Service;
 
 public static class AiSchemaBuilder
 {
+    private static Dictionary<string, SchemaProperty> GetBaseCharacterLeadershipProperties()
+    {
+        return new Dictionary<string, SchemaProperty>
+        {
+            { "Name", new SchemaProperty { Type = "STRING", Description = "Имя и фамилия персонажа, подходящие его расе" } },
+            { "Race", new SchemaProperty { Type = "STRING", Description = "Раса персонажа (Человек, Эльф, Дварф и т.д.)" } },
+            { "Class", new SchemaProperty { Type = "STRING", Description = "Класс/профессия персонажа из D&D (Wizard, Rogue, Alchemist, Blacksmith)" } },
+            { "Description", new SchemaProperty { Type = "STRING", Description = "Краткое описание внешности персонажа для игроков" } },
+            { "ChallengeRating", new SchemaProperty { Type = "INTEGER", Description = "Значение Challenge Rating персонажа" } },
+            { "ClassOrProfession", new SchemaProperty { Type = "STRING", Description = "Класс/профессия персонажа из D&D (Wizard, Rogue, Alchemist, Blacksmith)" } }
+            
+        };
+    }
+    
     private static Dictionary<string, SchemaProperty> GetBaseCharacterProperties()
     {
         return new Dictionary<string, SchemaProperty>
@@ -111,13 +125,7 @@ public static class AiSchemaBuilder
             { "RelationshipToPlayer", new SchemaProperty { Type = "STRING", Description = "Отношение фракции к игроку" } },
             { "Reputation", new SchemaProperty { Type = "INTEGER", Description = "Репутация фракции" } },
             { "Headquarters", new SchemaProperty { Type = "STRING", Description = "Штаб-квартира фракции" } },
-            { "Leader", new SchemaProperty 
-                { 
-                    Type = "OBJECT", 
-                    Description = "Полная карточка лидера фракции",
-                    Properties = GetBaseCharacterProperties()
-                }
-            }
+            { "Leader", new SchemaProperty {Type = "STRING", Description = "Лидер фракции"}}
         };
 
         return new ResponseSchema
