@@ -24,7 +24,7 @@ public class FactionService : IFactionService
 
         var aiResponse = await _aiService.SendRequestToGeminiAsync<FactionStat>(promt, schema);
 
-        if (!aiResponse.IsSuccess) return Result<FactionStat>.Failure(DomainErrors.Gpt.GenerationFailed);
+        if (!aiResponse.IsSuccess) return Result<FactionStat>.Failure(aiResponse.Error!);
 
         return Result<FactionStat>.Success(aiResponse.Value);
     }

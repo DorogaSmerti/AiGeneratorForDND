@@ -13,8 +13,9 @@ public static class AiSchemaBuilder
             { "Class", new SchemaProperty { Type = "STRING", Description = "Класс/профессия персонажа из D&D (Wizard, Rogue, Alchemist, Blacksmith)" } },
             { "Description", new SchemaProperty { Type = "STRING", Description = "Краткое описание внешности персонажа для игроков" } },
             { "ChallengeRating", new SchemaProperty { Type = "INTEGER", Description = "Значение Challenge Rating персонажа" } },
-            { "ClassOrProfession", new SchemaProperty { Type = "STRING", Description = "Класс/профессия персонажа из D&D (Wizard, Rogue, Alchemist, Blacksmith)" } }
-            
+            { "ClassOrProfession", new SchemaProperty { Type = "STRING", Description = "Класс/профессия персонажа из D&D (Wizard, Rogue, Alchemist, Blacksmith)" } },
+            { "Alignment", new SchemaProperty { Type = "STRING", Description = "Мировоззрение персонажа" } },
+            { "HookOrSecret", new SchemaProperty { Type = "STRING", Description = "Тайна или квестовая зацепка персонажа" } }
         };
     }
     
@@ -123,9 +124,15 @@ public static class AiSchemaBuilder
             { "Goal", new SchemaProperty { Type = "STRING", Description = "Цель фракции" } },
             { "Motivation", new SchemaProperty { Type = "STRING", Description = "Мотивация фракции" } },
             { "RelationshipToPlayer", new SchemaProperty { Type = "STRING", Description = "Отношение фракции к игроку" } },
-            { "Reputation", new SchemaProperty { Type = "INTEGER", Description = "Репутация фракции" } },
+            { "Reputation", new SchemaProperty { Type = "STRING", Description = "Репутация фракции" } },
             { "Headquarters", new SchemaProperty { Type = "STRING", Description = "Штаб-квартира фракции" } },
-            { "Leader", new SchemaProperty {Type = "STRING", Description = "Лидер фракции"}}
+            { "Leader", new SchemaProperty
+                {
+                    Type = "OBJECT",
+                    Description = "Лидер фракции",
+                    Properties = GetBaseCharacterLeadershipProperties()
+                }
+            }
         };
 
         return new ResponseSchema
