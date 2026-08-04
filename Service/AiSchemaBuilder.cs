@@ -125,7 +125,13 @@ public static class AiSchemaBuilder
             { "Motivation", new SchemaProperty { Type = "STRING", Description = "Мотивация фракции" } },
             { "RelationshipToPlayer", new SchemaProperty { Type = "STRING", Description = "Отношение фракции к игроку" } },
             { "Reputation", new SchemaProperty { Type = "STRING", Description = "Репутация фракции" } },
-            { "Headquarters", new SchemaProperty { Type = "STRING", Description = "Штаб-квартира фракции" } },
+            { "Headquarters", new SchemaProperty
+                {
+                    Type = "OBJECT",
+                    Description = "Штаб-квартира фракции",
+                    Properties = GetSchemaForHeadquarters().Properties
+                }
+            },
             { "Leader", new SchemaProperty
                 {
                     Type = "OBJECT",
@@ -141,6 +147,27 @@ public static class AiSchemaBuilder
             Required = new List<string>
             {
                 "Name", "Description", "Goal", "Motivation", "RelationshipToPlayer", "Reputation", "Headquarters", "Leader"
+            },
+            Properties = properties
+        };
+    }
+
+    public static ResponseSchema GetSchemaForHeadquarters()
+    {
+        var properties = new Dictionary<string, SchemaProperty>
+        {
+            { "Name", new SchemaProperty { Type = "STRING", Description = "Название штаб-квартиры" } },
+            { "Description", new SchemaProperty { Type = "STRING", Description = "Описание штаб-квартиры" } },
+            { "Type", new SchemaProperty { Type = "STRING", Description = "Тип локации" } },
+            { "Atmosphere", new SchemaProperty { Type = "STRING", Description = "Атмосфера локации" } }
+        };
+
+        return new ResponseSchema
+        {
+            Type = "OBJECT",
+            Required = new List<string>
+            {
+                "Name", "Description", "Type", "Atmosphere"
             },
             Properties = properties
         };
