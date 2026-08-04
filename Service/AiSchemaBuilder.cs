@@ -4,6 +4,21 @@ namespace StoryTracker.Service;
 
 public static class AiSchemaBuilder
 {
+    private static Dictionary<string, SchemaProperty> GetBaseCharacterLeadershipProperties()
+    {
+        return new Dictionary<string, SchemaProperty>
+        {
+            { "Name", new SchemaProperty { Type = "STRING", Description = "Имя и фамилия персонажа, подходящие его расе" } },
+            { "Race", new SchemaProperty { Type = "STRING", Description = "Раса персонажа (Человек, Эльф, Дварф и т.д.)" } },
+            { "Class", new SchemaProperty { Type = "STRING", Description = "Класс/профессия персонажа из D&D (Wizard, Rogue, Alchemist, Blacksmith)" } },
+            { "Description", new SchemaProperty { Type = "STRING", Description = "Краткое описание внешности персонажа для игроков" } },
+            { "ChallengeRating", new SchemaProperty { Type = "INTEGER", Description = "Значение Challenge Rating персонажа" } },
+            { "ClassOrProfession", new SchemaProperty { Type = "STRING", Description = "Класс/профессия персонажа из D&D (Wizard, Rogue, Alchemist, Blacksmith)" } },
+            { "Alignment", new SchemaProperty { Type = "STRING", Description = "Мировоззрение персонажа" } },
+            { "HookOrSecret", new SchemaProperty { Type = "STRING", Description = "Тайна или квестовая зацепка персонажа" } }
+        };
+    }
+    
     private static Dictionary<string, SchemaProperty> GetBaseCharacterProperties()
     {
         return new Dictionary<string, SchemaProperty>
@@ -96,6 +111,64 @@ public static class AiSchemaBuilder
         {
             Type = "OBJECT",
             Required = new List<string> { "Name", "Race", "Class", "Description", "ShopName", "ShopDescription", "MerchantDescription", "PriceModifier", "InventoryTags" },
+            Properties = properties
+        };
+    }
+
+    public static ResponseSchema BuildSchemaForFaction()
+    {
+        var properties = new Dictionary<string, SchemaProperty>
+        {
+            { "Name", new SchemaProperty { Type = "STRING", Description = "Название фракции" } },
+            { "Description", new SchemaProperty { Type = "STRING", Description = "Описание фракции" } },
+            { "Goal", new SchemaProperty { Type = "STRING", Description = "Цель фракции" } },
+            { "Motivation", new SchemaProperty { Type = "STRING", Description = "Мотивация фракции" } },
+            { "RelationshipToPlayer", new SchemaProperty { Type = "STRING", Description = "Отношение фракции к игроку" } },
+            { "Reputation", new SchemaProperty { Type = "STRING", Description = "Репутация фракции" } },
+            { "Headquarters", new SchemaProperty
+                {
+                    Type = "OBJECT",
+                    Description = "Штаб-квартира фракции",
+                    Properties = GetSchemaForHeadquarters().Properties
+                }
+            },
+            { "Leader", new SchemaProperty
+                {
+                    Type = "OBJECT",
+                    Description = "Лидер фракции",
+                    Properties = GetBaseCharacterLeadershipProperties()
+                }
+            }
+        };
+
+        return new ResponseSchema
+        {
+            Type = "OBJECT",
+            Required = new List<string>
+            {
+                "Name", "Description", "Goal", "Motivation", "RelationshipToPlayer", "Reputation", "Headquarters", "Leader"
+            },
+            Properties = properties
+        };
+    }
+
+    public static ResponseSchema GetSchemaForHeadquarters()
+    {
+        var properties = new Dictionary<string, SchemaProperty>
+        {
+            { "Name", new SchemaProperty { Type = "STRING", Description = "Название штаб-квартиры" } },
+            { "Description", new SchemaProperty { Type = "STRING", Description = "Описание штаб-квартиры" } },
+            { "Type", new SchemaProperty { Type = "STRING", Description = "Тип локации" } },
+            { "Atmosphere", new SchemaProperty { Type = "STRING", Description = "Атмосфера локации" } }
+        };
+
+        return new ResponseSchema
+        {
+            Type = "OBJECT",
+            Required = new List<string>
+            {
+                "Name", "Description", "Type", "Atmosphere"
+            },
             Properties = properties
         };
     }

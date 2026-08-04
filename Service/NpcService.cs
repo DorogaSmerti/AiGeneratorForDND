@@ -9,6 +9,7 @@ public class NpcService : INpcService
     private readonly IAiService _aiService;
     private readonly ILogger<NpcService> _logger;
     private readonly IGeneratePromts _generatePromts;
+
     public NpcService(INpcEnrichmentService npcEnrichmentService, IAiService aiService, IGeneratePromts generatePromts, ILogger<NpcService> logger)
     {
         _npcEnrichmentService = npcEnrichmentService;

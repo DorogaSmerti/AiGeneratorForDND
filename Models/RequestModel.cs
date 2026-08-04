@@ -17,3 +17,11 @@ public class MerchantRequest
     public string? Wealth { get; set; } = string.Empty;
     public string? UserWishes { get; set; } = string.Empty;
 }
+
+public class FactionRequest
+{
+    public string? Name { get; set; } = string.Empty;
+    public string? Type { get; set; } = string.Empty;
+    public string? Reputation { get; set; } = string.Empty;
+    public string? UserWishes { get; set; } = string.Empty;
+}
