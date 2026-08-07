@@ -22,21 +22,11 @@ public class NpcService : INpcService
     {
         if (npcRequest == null) return Result<BaseCharacter>.Failure(DomainErrors.Gpt.InvalidRequest);
 
-        var prompt = _generatePromts.GenerateNpc(npcRequest);
+        string prompt = _generatePromts.GenerateNpc(npcRequest);
 
-        var schema = AiSchemaBuilder.BuildSchemaForNpc();
+        ResponseSchema schema = AiSchemaBuilder.BuildSchemaForNpc();
 
-        var aiResponse = await _aiService.SendRequestToGeminiAsync<BaseCharacter>(prompt, schema);
-
-        if(!aiResponse.IsSuccess) return Result<BaseCharacter>.Failure(aiResponse.Error!);
-
-        var npcStat = aiResponse.Value!;
-
-        npcStat.ImagePath = _npcEnrichmentService.GetAvatarFromDump(npcStat.Class);
-
-        await _npcEnrichmentService.MappingInventoryAsync(npcStat);
-
-        return Result<BaseCharacter>.Success(npcStat);
+        return await GenerateCharacterAsync<BaseCharacter>(prompt, schema);
     }
 
     public async Task<Result<MerchantShop>> GenerateMerchantAsync(MerchantRequest merchantRequest)
@@ -47,17 +37,23 @@ public class NpcService : INpcService
 
         ResponseSchema schema = AiSchemaBuilder.BuildSchemaForMerchant();
 
-        var aiResponse = await _aiService.SendRequestToGeminiAsync<MerchantShop>(prompt, schema);
+        return await GenerateCharacterAsync<MerchantShop>(prompt, schema);
+    }
 
-        if (!aiResponse.IsSuccess) return Result<MerchantShop>.Failure(aiResponse.Error!);
+    private async Task<Result<T>> GenerateCharacterAsync<T>(string prompt, ResponseSchema schema)
+    where T : BaseCharacter
+    {
+         var aiResponse = await _aiService.SendRequestToGeminiAsync<T>(prompt, schema);
 
-        var merchant = aiResponse.Value;
+        if (!aiResponse.IsSuccess) return Result<T>.Failure(aiResponse.Error!);
 
-        merchant.ImagePath = _npcEnrichmentService.GetAvatarFromDump(merchant.Class);
+        var character = aiResponse.Value!;
 
-        await _npcEnrichmentService.MappingInventoryAsync(merchant);
+        character.ImagePath = _npcEnrichmentService.GetAvatarFromDump(character.Class);
 
-        return Result<MerchantShop>.Success(merchant);
+        await _npcEnrichmentService.MappingInventoryAsync(character);
+
+        return Result<T>.Success(character);
     }
 
 }

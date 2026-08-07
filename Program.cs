@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddLogging(options => 
+builder.Services.AddLogging(options =>
     options.AddConsole());
 
 builder.Services.AddOpenApi();
