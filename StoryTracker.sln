@@ -4,6 +4,8 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoryTracker", "StoryTracker.csproj", "{24B9EF86-869A-BA0B-4C03-CA0EF457C32E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoryTracker.Tests", "StoryTracker.Tests\StoryTracker.Tests.csproj", "{8F123456-7890-ABCD-EF12-34567890ABCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +16,10 @@ Global
 		{24B9EF86-869A-BA0B-4C03-CA0EF457C32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24B9EF86-869A-BA0B-4C03-CA0EF457C32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24B9EF86-869A-BA0B-4C03-CA0EF457C32E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F123456-7890-ABCD-EF12-34567890ABCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F123456-7890-ABCD-EF12-34567890ABCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F123456-7890-ABCD-EF12-34567890ABCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F123456-7890-ABCD-EF12-34567890ABCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

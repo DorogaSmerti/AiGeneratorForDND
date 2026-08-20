@@ -8,14 +8,14 @@ public static class AiSchemaBuilder
     {
         return new Dictionary<string, SchemaProperty>
         {
-            { "Name", new SchemaProperty { Type = "STRING", Description = "Имя и фамилия персонажа, подходящие его расе" } },
-            { "Race", new SchemaProperty { Type = "STRING", Description = "Раса персонажа (Человек, Эльф, Дварф и т.д.)" } },
-            { "Class", new SchemaProperty { Type = "STRING", Description = "Класс/профессия персонажа из D&D (Wizard, Rogue, Alchemist, Blacksmith)" } },
-            { "Description", new SchemaProperty { Type = "STRING", Description = "Краткое описание внешности персонажа для игроков" } },
-            { "ChallengeRating", new SchemaProperty { Type = "INTEGER", Description = "Значение Challenge Rating персонажа" } },
-            { "ClassOrProfession", new SchemaProperty { Type = "STRING", Description = "Класс/профессия персонажа из D&D (Wizard, Rogue, Alchemist, Blacksmith)" } },
-            { "Alignment", new SchemaProperty { Type = "STRING", Description = "Мировоззрение персонажа" } },
-            { "HookOrSecret", new SchemaProperty { Type = "STRING", Description = "Тайна или квестовая зацепка персонажа" } }
+            { "Name", new SchemaProperty { Type = "STRING", Description = "Character full name suitable for their race" } },
+            { "Race", new SchemaProperty { Type = "STRING", Description = "Character race (Human, Elf, Dwarf, etc.)" } },
+            { "Class", new SchemaProperty { Type = "STRING", Description = "D&D class or profession (Wizard, Rogue, Alchemist, Blacksmith)" } },
+            { "Description", new SchemaProperty { Type = "STRING", Description = "Brief description of character appearance for players" } },
+            { "ChallengeRating", new SchemaProperty { Type = "INTEGER", Description = "Character Challenge Rating value" } },
+            { "ClassOrProfession", new SchemaProperty { Type = "STRING", Description = "D&D class or profession (Wizard, Rogue, Alchemist, Blacksmith)" } },
+            { "Alignment", new SchemaProperty { Type = "STRING", Description = "Character alignment" } },
+            { "HookOrSecret", new SchemaProperty { Type = "STRING", Description = "Character secret or quest hook" } }
         };
     }
     
@@ -23,64 +23,64 @@ public static class AiSchemaBuilder
     {
         return new Dictionary<string, SchemaProperty>
         {
-            { "Name", new SchemaProperty { Type = "STRING", Description = "Имя и фамилия персонажа, подходящие его расе" } },
-            { "Race", new SchemaProperty { Type = "STRING", Description = "Раса персонажа (Человек, Эльф, Дварф и т.д.)" } },
-            { "Class", new SchemaProperty { Type = "STRING", Description = "Класс/профессия персонажа из D&D (Wizard, Rogue, Alchemist, Blacksmith)" } },
-            { "Description", new SchemaProperty { Type = "STRING", Description = "Краткое описание внешности персонажа для игроков" } },
-            { "ChallengeRating", new SchemaProperty { Type = "INTEGER", Description = "Значение Challenge Rating персонажа" } },
-            { "Alignment", new SchemaProperty { Type = "STRING", Description = "Мировоззрение персонажа" } },
-            { "HookOrSecret", new SchemaProperty { Type = "STRING", Description = "Тайна или квестовая зацепка персонажа" } },
-            { "Strength", new SchemaProperty { Type = "INTEGER", Description = "Сила от 8 до 15" } },
-            { "Dexterity", new SchemaProperty { Type = "INTEGER", Description = "Ловкость от 8 до 15" } },
-            { "Constitution", new SchemaProperty { Type = "INTEGER", Description = "Телосложение от 8 до 15" } },
-            { "Intelligence", new SchemaProperty { Type = "INTEGER", Description = "Интеллект от 8 до 15" } },
-            { "Wisdom", new SchemaProperty { Type = "INTEGER", Description = "Мудрость от 8 до 15" } },
-            { "Charisma", new SchemaProperty { Type = "INTEGER", Description = "Харизма от 8 до 15" } },
+            { "Name", new SchemaProperty { Type = "STRING", Description = "Character full name suitable for their race" } },
+            { "Race", new SchemaProperty { Type = "STRING", Description = "Character race (Human, Elf, Dwarf, etc.)" } },
+            { "Class", new SchemaProperty { Type = "STRING", Description = "D&D class or profession (Wizard, Rogue, Alchemist, Blacksmith)" } },
+            { "Description", new SchemaProperty { Type = "STRING", Description = "Brief description of character appearance for players" } },
+            { "ChallengeRating", new SchemaProperty { Type = "INTEGER", Description = "Character Challenge Rating value" } },
+            { "Alignment", new SchemaProperty { Type = "STRING", Description = "Character alignment" } },
+            { "HookOrSecret", new SchemaProperty { Type = "STRING", Description = "Character secret or quest hook" } },
+            { "Strength", new SchemaProperty { Type = "INTEGER", Description = "Strength attribute score from 8 to 15" } },
+            { "Dexterity", new SchemaProperty { Type = "INTEGER", Description = "Dexterity attribute score from 8 to 15" } },
+            { "Constitution", new SchemaProperty { Type = "INTEGER", Description = "Constitution attribute score from 8 to 15" } },
+            { "Intelligence", new SchemaProperty { Type = "INTEGER", Description = "Intelligence attribute score from 8 to 15" } },
+            { "Wisdom", new SchemaProperty { Type = "INTEGER", Description = "Wisdom attribute score from 8 to 15" } },
+            { "Charisma", new SchemaProperty { Type = "INTEGER", Description = "Charisma attribute score from 8 to 15" } },
             { "Biography", new SchemaProperty 
                 { 
                     Type = "OBJECT", 
-                    Description = "Биографические данные для Foundry VTT",
+                    Description = "Biographical data for Foundry VTT",
                     Properties = new Dictionary<string, SchemaProperty>
                     {
-                        { "Gender", new SchemaProperty { Type = "STRING", Description = "Пол персонажа" } },
-                        { "Age", new SchemaProperty { Type = "STRING", Description = "Возраст" } },
-                        { "Height", new SchemaProperty { Type = "STRING", Description = "Рост" } },
-                        { "Weight", new SchemaProperty { Type = "STRING", Description = "Вес" } },
-                        { "Eyes", new SchemaProperty { Type = "STRING", Description = "Цвет глаз" } },
-                        { "Skin", new SchemaProperty { Type = "STRING", Description = "Цвет кожи" } },
-                        { "Hair", new SchemaProperty { Type = "STRING", Description = "Волосы/прическа" } },
-                        { "Faith", new SchemaProperty { Type = "STRING", Description = "Вера/божество" } },
-                        { "Appearance", new SchemaProperty { Type = "STRING", Description = "Детальное описание одежды" } },
-                        { "Background", new SchemaProperty { Type = "STRING", Description = "История жизни" } }
+                        { "Gender", new SchemaProperty { Type = "STRING", Description = "Character gender" } },
+                        { "Age", new SchemaProperty { Type = "STRING", Description = "Age" } },
+                        { "Height", new SchemaProperty { Type = "STRING", Description = "Height" } },
+                        { "Weight", new SchemaProperty { Type = "STRING", Description = "Weight" } },
+                        { "Eyes", new SchemaProperty { Type = "STRING", Description = "Eye color" } },
+                        { "Skin", new SchemaProperty { Type = "STRING", Description = "Skin tone" } },
+                        { "Hair", new SchemaProperty { Type = "STRING", Description = "Hair style and color" } },
+                        { "Faith", new SchemaProperty { Type = "STRING", Description = "Deity or faith" } },
+                        { "Appearance", new SchemaProperty { Type = "STRING", Description = "Detailed description of clothing" } },
+                        { "Background", new SchemaProperty { Type = "STRING", Description = "Life background story" } }
                     }
                 } 
             },
             { "Journal", new SchemaProperty 
                 { 
                     Type = "OBJECT", 
-                    Description = "Заметки Мастера",
+                    Description = "Dungeon Master notes",
                     Properties = new Dictionary<string, SchemaProperty>
                     {
-                        { "PersonalOfInterest", new SchemaProperty { Type = "STRING", Description = "Связанные личности" } },
-                        { "LocationOfInterest", new SchemaProperty { Type = "STRING", Description = "Связанные локации" } },
-                        { "Quests", new SchemaProperty { Type = "STRING", Description = "Поручения/слухи" } },
-                        { "Miscellaneous", new SchemaProperty { Type = "STRING", Description = "Интересные факты" } },
-                        { "JournalEntries", new SchemaProperty { Type = "STRING", Description = "Записи дневника" } }
+                        { "PersonalOfInterest", new SchemaProperty { Type = "STRING", Description = "Persons of interest" } },
+                        { "LocationOfInterest", new SchemaProperty { Type = "STRING", Description = "Locations of interest" } },
+                        { "Quests", new SchemaProperty { Type = "STRING", Description = "Quests and rumors" } },
+                        { "Miscellaneous", new SchemaProperty { Type = "STRING", Description = "Miscellaneous trivia and facts" } },
+                        { "JournalEntries", new SchemaProperty { Type = "STRING", Description = "Journal entries" } }
                     }
                 } 
             },
             { "InventoryTags", new SchemaProperty 
                 { 
                     Type = "ARRAY",
-                    Description = "Список требуемых тегов для генерации предметов.",
+                    Description = "List of required inventory tags for item generation.",
                     Items = new SchemaProperty
                     {
                         Type = "OBJECT",
                         Required = new List<string> { "Type", "Rarity" },
                         Properties = new Dictionary<string, SchemaProperty>
                         {
-                            { "Type", new SchemaProperty { Type = "STRING", Description = "Строго одно: weapon, consumable, equipment, loot, mgc" } },
-                            { "Rarity", new SchemaProperty { Type = "STRING", Description = "Строго одно: common, uncommon, rare, veryRare, legendary, artifact" } }
+                            { "Type", new SchemaProperty { Type = "STRING", Description = "Strictly one of: weapon, consumable, equipment, loot, mgc" } },
+                            { "Rarity", new SchemaProperty { Type = "STRING", Description = "Strictly one of: common, uncommon, rare, veryRare, legendary, artifact" } }
                         }
                     }
                 }
@@ -102,10 +102,10 @@ public static class AiSchemaBuilder
     {
         var properties = GetBaseCharacterProperties();
 
-        properties.Add("ShopName", new SchemaProperty { Type = "STRING", Description = "Название торговой лавки" });
-        properties.Add("ShopDescription", new SchemaProperty { Type = "STRING", Description = "Описание лавки" });
-        properties.Add("MerchantDescription", new SchemaProperty { Type = "STRING", Description = "Описание внешности и характера торговца" });
-        properties.Add("PriceModifier", new SchemaProperty { Type = "NUMBER", Description = "Множитель цены в лавке (например, 1.0, 1.25, 0.85)" });
+        properties.Add("ShopName", new SchemaProperty { Type = "STRING", Description = "Merchant shop name" });
+        properties.Add("ShopDescription", new SchemaProperty { Type = "STRING", Description = "Shop description" });
+        properties.Add("MerchantDescription", new SchemaProperty { Type = "STRING", Description = "Merchant appearance and personality description" });
+        properties.Add("PriceModifier", new SchemaProperty { Type = "NUMBER", Description = "Price modifier multiplier (e.g. 1.0, 1.25, 0.85)" });
 
         return new ResponseSchema
         {
@@ -119,23 +119,23 @@ public static class AiSchemaBuilder
     {
         var properties = new Dictionary<string, SchemaProperty>
         {
-            { "Name", new SchemaProperty { Type = "STRING", Description = "Название фракции" } },
-            { "Description", new SchemaProperty { Type = "STRING", Description = "Описание фракции" } },
-            { "Goal", new SchemaProperty { Type = "STRING", Description = "Цель фракции" } },
-            { "Motivation", new SchemaProperty { Type = "STRING", Description = "Мотивация фракции" } },
-            { "RelationshipToPlayer", new SchemaProperty { Type = "STRING", Description = "Отношение фракции к игроку" } },
-            { "Reputation", new SchemaProperty { Type = "STRING", Description = "Репутация фракции" } },
+            { "Name", new SchemaProperty { Type = "STRING", Description = "Faction name" } },
+            { "Description", new SchemaProperty { Type = "STRING", Description = "Faction description" } },
+            { "Goal", new SchemaProperty { Type = "STRING", Description = "Faction primary goal" } },
+            { "Motivation", new SchemaProperty { Type = "STRING", Description = "Faction motivation" } },
+            { "RelationshipToPlayer", new SchemaProperty { Type = "STRING", Description = "Faction relationship to player party" } },
+            { "Reputation", new SchemaProperty { Type = "STRING", Description = "Faction reputation level or description" } },
             { "Headquarters", new SchemaProperty
                 {
                     Type = "OBJECT",
-                    Description = "Штаб-квартира фракции",
+                    Description = "Faction headquarters",
                     Properties = GetSchemaForHeadquarters().Properties
                 }
             },
             { "Leader", new SchemaProperty
                 {
                     Type = "OBJECT",
-                    Description = "Лидер фракции",
+                    Description = "Faction leader",
                     Properties = GetBaseCharacterLeadershipProperties()
                 }
             }
@@ -156,10 +156,10 @@ public static class AiSchemaBuilder
     {
         var properties = new Dictionary<string, SchemaProperty>
         {
-            { "Name", new SchemaProperty { Type = "STRING", Description = "Название штаб-квартиры" } },
-            { "Description", new SchemaProperty { Type = "STRING", Description = "Описание штаб-квартиры" } },
-            { "Type", new SchemaProperty { Type = "STRING", Description = "Тип локации" } },
-            { "Atmosphere", new SchemaProperty { Type = "STRING", Description = "Атмосфера локации" } }
+            { "Name", new SchemaProperty { Type = "STRING", Description = "Headquarters name" } },
+            { "Description", new SchemaProperty { Type = "STRING", Description = "Headquarters description" } },
+            { "Type", new SchemaProperty { Type = "STRING", Description = "Location type" } },
+            { "Atmosphere", new SchemaProperty { Type = "STRING", Description = "Location atmosphere and sensory details" } }
         };
 
         return new ResponseSchema

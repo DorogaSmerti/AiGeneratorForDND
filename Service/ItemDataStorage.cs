@@ -59,7 +59,7 @@ public class ItemDataStorage : IItemDataStorage
     };
 
     public string[] GetClassProficiencies(string npcClass)
-        => _classLootPools.GetValueOrDefault(npcClass, ["gear"]);
+        => _classLootPools.GetValueOrDefault(npcClass, ["loot"]);
 
     public List<JsonNode> GetItems() => _allItems;
 

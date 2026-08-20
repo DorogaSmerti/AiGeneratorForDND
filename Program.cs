@@ -35,14 +35,11 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+app.MapOpenApi();
+app.MapScalarApiReference(Options =>
 {
-    app.MapOpenApi();
-    app.MapScalarApiReference(Options =>
-    {
-        Options.WithOpenApiRoutePattern("/openapi/v1.json");
-    });
-}
+    Options.WithOpenApiRoutePattern("/openapi/v1.json");
+});
 
 app.UseCors();
 
