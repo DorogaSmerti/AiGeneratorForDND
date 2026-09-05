@@ -51,7 +51,7 @@ public class NpcService : INpcService
 
         character.ImagePath = _npcEnrichmentService.GetAvatarFromDump(character.Class);
 
-        await _npcEnrichmentService.MappingInventoryAsync(character);
+        _npcEnrichmentService.MappingInventory(character);
 
         return Result<T>.Success(character);
     }

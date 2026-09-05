@@ -7,7 +7,7 @@ namespace StoryTracker.Service;
 public class ItemService(IItemDataStorage _storage, ILogger<ItemService> _logger) : IItemService
 {
 
-    public async Task<Result<JsonNode?>> GetItemFromLocalDump(InventoryGenerationRequest inventoryTags)
+    public Result<JsonNode?> GetItemFromLocalDump(InventoryGenerationRequest inventoryTags)
     {
         Random random = new Random();
 
