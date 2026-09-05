@@ -22,9 +22,9 @@ public class VectorSearchController(IAiService aiService, IVectorService vectorS
     }
 
     [HttpGet("buildEmbedding")]
-    public async Task<IActionResult> BuildEmbedding([FromQuery] int limit)
+    public async Task<IActionResult> BuildEmbedding()
     {
-        var result = await vectorService.BuildDataBaseVectorAsync(limit);
+        var result = await vectorService.BuildDataBaseVectorAsync();
 
         if(!result.IsSuccess)
         {

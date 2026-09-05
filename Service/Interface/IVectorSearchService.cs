@@ -4,5 +4,5 @@ namespace StoryTracker.Service.Interface;
 
 public interface IVectorService
 {
-    Task<Result<int>> BuildDataBaseVectorAsync(int limit);
+    Task<Result<int>> BuildDataBaseVectorAsync();
 }

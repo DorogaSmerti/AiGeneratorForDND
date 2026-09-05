@@ -1,4 +1,3 @@
-using System.Numerics;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using StoryTracker.Models;
@@ -6,45 +5,78 @@ using StoryTracker.Service.Interface;
 
 namespace StoryTracker.Service;
 
-public class VectorService(IAiService _aiService, IItemDataStorage _itemDataStorage) : IVectorService
+public class VectorService : IVectorService
 {
-    public async Task<Result<int>> BuildDataBaseVectorAsync(int limit)
+    private readonly IAiService _aiService;
+    private readonly IItemDataStorage _itemDataStorage;
+    private const string CachePath = "LocalDump/vector_cache.json";
+
+    public VectorService(IAiService aiService, IItemDataStorage itemDataStorage)
     {
-        Dictionary<string, float[]> vectorDump = new();
+        _aiService = aiService;
+        _itemDataStorage = itemDataStorage;
+    }
+
+    public async Task<Result<int>> BuildDataBaseVectorAsync()
+    {
+        Dictionary<string, float[]> vectorDump = await LoadCacheAsync();
         List<JsonNode> localDump = _itemDataStorage.GetItems();
         int addedCount = 0;
 
-        if (limit <= 0) limit = 50;
+        // take from dump the items is valid and not exists in cache
+        var itemToProcess = localDump.Where(
+            item =>
+            !string.IsNullOrWhiteSpace((string?)item["_id"])
+            && !string.IsNullOrWhiteSpace((string?)item["name"])
+            && !vectorDump.ContainsKey((string?)item["_id"]!))
+            .ToList();
 
-        if (File.Exists("LocalDump/vector_cache.json"))
+        foreach (var item in itemToProcess)
         {
-            string existJson = await File.ReadAllTextAsync("LocalDump/vector_cache.json");
-            vectorDump = JsonSerializer.Deserialize<Dictionary<string, float[]>>(existJson) ?? new();
-        }
-
-        foreach(var item in localDump)
-        {
-
-            if (addedCount >= limit) break;
-
             string? _id = (string?)item["_id"];
             string? name = (string?)item["name"];
 
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(_id)) continue;
+            var result = await _aiService.GenerateEmbeddingAsync(name!);
 
-            if (vectorDump.ContainsKey(_id)) continue;
+            if (!result.IsSuccess)
+            {
+                if (result.Error?.Code == "429")
+                {
+                    await Task.Delay(TimeSpan.FromMinutes(1));
+                }
 
-            var result = await _aiService.GenerateEmbeddingAsync(name);
+                continue;
+            }
 
-            if (!result.IsSuccess) continue;
-
-            vectorDump[_id] = result.Value!;
+            vectorDump[_id!] = result.Value!;
             addedCount++;
+
+            if (addedCount == 100)
+            {
+                await SaveCacheAsync(vectorDump);
+                await Task.Delay(TimeSpan.FromMinutes(1));
+                addedCount = 0;
+            }
         }
 
         string json = JsonSerializer.Serialize(vectorDump);
-        await File.WriteAllTextAsync("LocalDump/vector_cache.json", json);
+        await File.WriteAllTextAsync(CachePath, json);
 
         return Result<int>.Success(vectorDump.Count);
+    }
+    private async Task<Dictionary<string, float[]>> LoadCacheAsync()
+    {
+        // Load cache from local dump file if exists
+        if (!File.Exists(CachePath)) return new();
+
+        string existJson = await File.ReadAllTextAsync(CachePath);
+        return JsonSerializer.Deserialize<Dictionary<string, float[]>>(existJson) ?? new();
+    }
+
+    private async Task SaveCacheAsync(Dictionary<string, float[]> vectorDump)
+    {
+        //Save cache to local dump file
+        string tempJson = JsonSerializer.Serialize(vectorDump);
+        await File.WriteAllTextAsync(CachePath, tempJson);
     }
 }
