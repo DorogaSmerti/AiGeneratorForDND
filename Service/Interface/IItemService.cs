@@ -5,5 +5,6 @@ namespace StoryTracker.Service.Interface;
 
 public interface IItemService
 {
-    Task<Result<JsonNode?>> GetItemFromLocalDump(InventoryGenerationRequest inventoryTags);
+    Result<JsonNode?> GetItemFromLocalDump(InventoryGenerationRequest inventoryTags);
+    Result<JsonNode> GetItemById(string id);
 }

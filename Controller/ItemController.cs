@@ -18,7 +18,7 @@ public class ItemController : ControllerBase
     [HttpPost("parse")]
     public async Task<IActionResult> ParseItem([FromBody] InventoryGenerationRequest inventoryGenerationRequest)
     {
-        var parsedItem = await _itemService.GetItemFromLocalDump(inventoryGenerationRequest);
+        var parsedItem = _itemService.GetItemFromLocalDump(inventoryGenerationRequest);
         if (!parsedItem.IsSuccess)
         {
             return BadRequest(parsedItem.Error);

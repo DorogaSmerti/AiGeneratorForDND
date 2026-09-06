@@ -34,7 +34,7 @@ public class AiService : IAiService
                    Parts = new List<Part>
                    {
                        new Part { Text = prompt}
-                   } 
+                   }
                 }
             },
             GenerationConfig = new GenerationConfig
@@ -48,15 +48,15 @@ public class AiService : IAiService
         if (!responseMessage.IsSuccessStatusCode)
         {
             var errorContent = await responseMessage.Content.ReadAsStringAsync();
-            _logger.LogError("Error in GEMINI request {StatusCode}. Details: {ErrorContent}", 
-                responseMessage.StatusCode, 
+            _logger.LogError("Error in GEMINI request {StatusCode}. Details: {ErrorContent}",
+                responseMessage.StatusCode,
                 errorContent);
             return Result<T>.Failure(DomainErrors.Gpt.ApiError);
         }
 
         var jsonDocument = await responseMessage.Content.ReadFromJsonAsync<JsonNode>();
 
-        string? aiReply = (string?)jsonDocument?["candidates"]?[0]?["content"]?["parts"]?[0]?["text"];;
+        string? aiReply = (string?)jsonDocument?["candidates"]?[0]?["content"]?["parts"]?[0]?["text"]; ;
 
         if (string.IsNullOrWhiteSpace(aiReply))
         {
@@ -69,12 +69,50 @@ public class AiService : IAiService
             PropertyNameCaseInsensitive = true
         });
 
-        if(result == null)
+        if (result == null)
         {
             _logger.LogError("Json Deserialize return null");
             return Result<T>.Failure(DomainErrors.Gpt.ParseError);
         }
 
         return Result<T>.Success(result);
+    }
+
+    public async Task<Result<float[]>> GenerateEmbeddingAsync(string text, CancellationToken cancellationToken = default)
+    {
+        string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2:embedContent?key={_apiKey}";
+
+        var aiRequest = new
+        {
+            model = "gemini-embedding-2",
+            content = new Content
+            {
+                Parts = new List<Part>
+                {
+                    new Part {Text = text}
+                }
+            }
+        };
+
+        HttpResponseMessage responseMessage = await _httpClient.PostAsJsonAsync(url, aiRequest, cancellationToken);
+
+        if (!responseMessage.IsSuccessStatusCode)
+        {
+            var errorContent = await responseMessage.Content.ReadAsStringAsync();
+            _logger.LogError("Error in GEMINI request {StatusCode}. Details: {ErrorContent}",
+                responseMessage.StatusCode,
+                errorContent);
+            return Result<float[]>.Failure(DomainErrors.Gpt.ApiError);
+        }
+
+        EmbeddingResponse result = await responseMessage.Content.ReadFromJsonAsync<EmbeddingResponse>();
+
+        if (result?.Embedding?.Values == null)
+        {
+            _logger.LogError("Failed to deserialize embedding values");
+            return Result<float[]>.Failure(DomainErrors.Gpt.ParseError);
+        }
+
+        return Result<float[]>.Success(result.Embedding.Values);
     }
 }

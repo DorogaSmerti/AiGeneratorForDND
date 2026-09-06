@@ -19,6 +19,7 @@ builder.Services.AddScoped<INpcExportService, NpcExportService>();
 builder.Services.AddScoped<IItemService, ItemService>();
 builder.Services.AddScoped<INpcEnrichmentService, NpcEnrichmentService>();
 builder.Services.AddScoped<IFactionService, FactionService>();
+builder.Services.AddScoped<IVectorService, VectorService>();
 builder.Services.AddSingleton<IItemDataStorage, ItemDataStorage>();
 
 builder.Services.AddHttpClient<IAiService, AiService>();

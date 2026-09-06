@@ -1,3 +1,4 @@
+using System.Text.Json.Nodes;
 using StoryTracker.Models;
 using StoryTracker.Service.Interface;
 
@@ -16,7 +17,7 @@ public class NpcEnrichmentService : INpcEnrichmentService
         _baseAvatarUrlPath = _configuration["AvatarSettings:AvatarPath"] ?? throw new ArgumentNullException("UrlPath configuration is missing.");
     }
 
-    public async Task MappingInventoryAsync(BaseCharacter baseCharacter)
+    public void MappingInventory(BaseCharacter baseCharacter)
     {
         if(baseCharacter.InventoryTags == null) return;
 
@@ -29,7 +30,7 @@ public class NpcEnrichmentService : INpcEnrichmentService
                 Type = item.Type
             };
 
-            var generatedItem = await _itemService.GetItemFromLocalDump(generationRequest);
+            var generatedItem = _itemService.GetItemFromLocalDump(generationRequest);
             if (generatedItem.IsSuccess)
             {
                 baseCharacter.InventoryDto.Add(generatedItem.Value!.DeepClone());
