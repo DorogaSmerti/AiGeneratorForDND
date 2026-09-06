@@ -20,4 +20,11 @@ public static class DomainErrors
         public static readonly Error NotFound = new("Faction.NotFound", "Фракция не найдена.");
         public static readonly Error InvalidRequest = new("Faction.InvalidRequest", "Входящий запрос не может быть пустым.");
     }
+
+    public static class Vector
+    {
+        public static readonly Error EmptyQuery = new("Vector.EmptyQuery", "Входящий запрос не может быть пустым.");
+        public static readonly Error VectorCacheNotFound = new("Vector.VectorCacheNotFound", "Кэш векторов не найден.");
+        public static readonly Error NoVectorFound = new("Vector.NoVectorFound", "Не найдено подходящего вектора.");
+    }
 }

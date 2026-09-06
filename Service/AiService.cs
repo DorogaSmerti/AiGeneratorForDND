@@ -78,7 +78,7 @@ public class AiService : IAiService
         return Result<T>.Success(result);
     }
 
-    public async Task<Result<float[]>> GenerateEmbeddingAsync(string text)
+    public async Task<Result<float[]>> GenerateEmbeddingAsync(string text, CancellationToken cancellationToken = default)
     {
         string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2:embedContent?key={_apiKey}";
 
@@ -94,7 +94,7 @@ public class AiService : IAiService
             }
         };
 
-        HttpResponseMessage responseMessage = await _httpClient.PostAsJsonAsync(url, aiRequest);
+        HttpResponseMessage responseMessage = await _httpClient.PostAsJsonAsync(url, aiRequest, cancellationToken);
 
         if (!responseMessage.IsSuccessStatusCode)
         {

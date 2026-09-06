@@ -44,4 +44,17 @@ public class ItemService(IItemDataStorage _storage, ILogger<ItemService> _logger
 
         return Result<JsonNode?>.Success(chosenItem);
     }
+
+    public Result<JsonNode> GetItemById(string id)
+    {
+        var items = _storage.GetItems();
+
+        var suitableItem = items.FirstOrDefault(item =>
+            (string?)item["_id"] == id
+        );
+
+        if (suitableItem == null) return Result<JsonNode>.Failure(DomainErrors.Item.NotFound);
+
+        return Result<JsonNode>.Success(suitableItem);
+    }
 }

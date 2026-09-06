@@ -6,14 +6,14 @@ namespace StoryTracker.Controller;
 [ApiController]
 [Route("api/[controller]")]
 
-public class VectorSearchController(IAiService aiService, IVectorService vectorService) : ControllerBase
+public class VectorSearchController(IVectorService vectorService) : ControllerBase
 {
-    [HttpGet("embedding")]
-    public async Task<IActionResult> GetItems([FromQuery] string query)
+    [HttpGet("getItem")]
+    public async Task<IActionResult> GetItem([FromQuery] string query, CancellationToken cancellationToken = default)
     {
-        var result = await aiService.GenerateEmbeddingAsync(query);
+        var result = await vectorService.SearchAsync(query, cancellationToken);
 
-        if (!result.IsSuccess)
+        if(!result.IsSuccess)
         {
             return BadRequest(result.Error);
         }
@@ -22,9 +22,9 @@ public class VectorSearchController(IAiService aiService, IVectorService vectorS
     }
 
     [HttpGet("buildEmbedding")]
-    public async Task<IActionResult> BuildEmbedding()
+    public async Task<IActionResult> BuildVectorDataBaseAsync(CancellationToken cancellationToken = default)
     {
-        var result = await vectorService.BuildDataBaseVectorAsync();
+        var result = await vectorService.BuildVectorDataBaseAsync(cancellationToken);
 
         if(!result.IsSuccess)
         {
