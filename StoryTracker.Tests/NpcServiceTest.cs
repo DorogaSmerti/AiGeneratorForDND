@@ -1,29 +1,33 @@
-using StoryTracker.Service.Interface;
-using NSubstitute;
-using StoryTracker.Service;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Xunit;
+using NSubstitute;
 using StoryTracker.Models;
+using StoryTracker.Service;
+using StoryTracker.Service.Interface;
+using Xunit;
 
 namespace StoryTracker.Tests;
 
 public class NpcServiceTest
 {
     protected readonly IAiService _aiService = Substitute.For<IAiService>();
-    protected readonly INpcEnrichmentService _npcEnrichmentService = Substitute.For<INpcEnrichmentService>();
+    protected readonly IItemService _itemService = Substitute.For<IItemService>();
+    protected readonly IConfiguration _configuration = Substitute.For<IConfiguration>();
     protected readonly IGeneratePromts _generatePromts = Substitute.For<IGeneratePromts>();
     protected readonly ILogger<NpcService> _logger = Substitute.For<ILogger<NpcService>>();
     protected readonly INpcService _sut;
 
     public NpcServiceTest()
     {
-        _sut = new NpcService(_npcEnrichmentService, _aiService, _generatePromts, _logger);
+        _configuration["AvatarSettings:AvatarPath"].Returns("https://raw.githubusercontent.com/DorogaSmerti/avatars_DND/main/avatars/");
+        _sut = new NpcService(_aiService, _itemService, _generatePromts, _configuration, _logger);
+
     }
 
     [Fact]
     public async Task GenerateNpcAsync_WhenRequestIsNull_ReturnsInvalidRequestFailure()
     {
-        var result = await _sut.GenerateNpcAsync(null);
+        var result = await _sut.GenerateNpcAsync(null!);
 
         Assert.False(result.IsSuccess);
         Assert.Equal(DomainErrors.Gpt.InvalidRequest, result.Error);
@@ -37,9 +41,6 @@ public class NpcServiceTest
 
         _aiService.SendRequestToGeminiAsync<BaseCharacter>(Arg.Any<string>(), Arg.Any<ResponseSchema>())
         .Returns(Result<BaseCharacter>.Success(npc));
-
-        _npcEnrichmentService.GetAvatarFromDump(npc.Class)
-        .Returns("https://raw.githubusercontent.com/DorogaSmerti/avatars_DND/main/avatars/paladin.png");
 
         var result = await _sut.GenerateNpcAsync(request);
 
