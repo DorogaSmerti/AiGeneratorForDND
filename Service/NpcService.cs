@@ -3,26 +3,21 @@ using StoryTracker.Service.Interface;
 
 namespace StoryTracker.Service;
 
-public class NpcService : INpcService
+public class NpcService(
+    IAiService aiService,
+    IItemService itemService,
+    IGeneratePromts generatePromts,
+    IConfiguration configuration,
+    ILogger<NpcService> logger
+    ) : INpcService
 {
-    private readonly INpcEnrichmentService _npcEnrichmentService;
-    private readonly IAiService _aiService;
-    private readonly ILogger<NpcService> _logger;
-    private readonly IGeneratePromts _generatePromts;
-
-    public NpcService(INpcEnrichmentService npcEnrichmentService, IAiService aiService, IGeneratePromts generatePromts, ILogger<NpcService> logger)
-    {
-        _npcEnrichmentService = npcEnrichmentService;
-        _aiService = aiService;
-        _logger = logger;
-        _generatePromts = generatePromts;
-    }
-
+    private readonly string _baseAvatarUrlPath = configuration["AvatarSettings:AvatarPath"]
+        ?? throw new ArgumentNullException("UrlPath configuration is missing.");
     public async Task<Result<BaseCharacter>> GenerateNpcAsync(NpcRequest npcRequest)
     {
         if (npcRequest == null) return Result<BaseCharacter>.Failure(DomainErrors.Gpt.InvalidRequest);
 
-        string prompt = _generatePromts.GenerateNpc(npcRequest);
+        string prompt = generatePromts.GenerateNpc(npcRequest);
 
         ResponseSchema schema = AiSchemaBuilder.BuildSchemaForNpc();
 
@@ -33,7 +28,7 @@ public class NpcService : INpcService
     {
         if (merchantRequest == null) return Result<MerchantShop>.Failure(DomainErrors.Gpt.InvalidRequest);
 
-        string prompt = _generatePromts.GenerateMerchant(merchantRequest);
+        string prompt = generatePromts.GenerateMerchant(merchantRequest);
 
         ResponseSchema schema = AiSchemaBuilder.BuildSchemaForMerchant();
 
@@ -43,17 +38,51 @@ public class NpcService : INpcService
     private async Task<Result<T>> GenerateCharacterAsync<T>(string prompt, ResponseSchema schema)
     where T : BaseCharacter
     {
-         var aiResponse = await _aiService.SendRequestToGeminiAsync<T>(prompt, schema);
+         var aiResponse = await aiService.SendRequestToGeminiAsync<T>(prompt, schema);
 
         if (!aiResponse.IsSuccess) return Result<T>.Failure(aiResponse.Error!);
 
         var character = aiResponse.Value!;
 
-        character.ImagePath = _npcEnrichmentService.GetAvatarFromDump(character.Class);
+        character.ImagePath = GetAvatarFromDump(character.Class);
 
-        _npcEnrichmentService.MappingInventory(character);
+        MappingInventory(character);
 
         return Result<T>.Success(character);
     }
 
+    private void MappingInventory(BaseCharacter baseCharacter)
+    {
+        if(baseCharacter.InventoryTags == null) return;
+
+        foreach(var item in baseCharacter.InventoryTags)
+        {
+            InventoryGenerationRequest generationRequest = new InventoryGenerationRequest
+            {
+                ClassName = baseCharacter.Class,
+                Rarity = item.Rarity,
+                Type = item.Type
+            };
+
+            var generatedItem = itemService.GetItemFromLocalDump(generationRequest);
+            if (generatedItem.IsSuccess)
+            {
+                baseCharacter.InventoryDto.Add(generatedItem.Value!.DeepClone());
+            }
+        }
+    }
+
+    private string? GetAvatarFromDump(string? npcClass)
+    {
+        if (string.IsNullOrWhiteSpace(npcClass))
+        {
+            return Path.Combine(_baseAvatarUrlPath, "default_npc.png"); 
+        };
+
+        string fileName = $"{npcClass.ToLower()}.png";
+
+        string fullPath = Path.Combine(_baseAvatarUrlPath, fileName);
+
+        return fullPath;
+    }
 }
